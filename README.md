@@ -29,7 +29,7 @@ That's it. Add a markdown file, add an entry to the manifest, and the OS picks i
 | `id`   | Unique identifier for this node. Used for routing and internal references. Keep it short, lowercase, snake_case. |
 | `title` | The display name shown in the OS UI. |
 | `path` | Relative path from the repo root to the markdown file. |
-| `type` | A category tag the frontend uses for styling/routing. Examples: `TEXT`, `SYSTEM`, `THEORY`, `PAPER`. |
+| `type` | A category tag the frontend uses for styling/routing. See the full list below. |
 
 ### A directory entry (nested folder)
 
@@ -48,6 +48,27 @@ When a folder contains subfolders, use `"type": "DIR"` with a `"children"` array
 ```
 
 The `children` array follows the same format — each child is either a file entry or another `DIR` entry. This nesting can go as deep as you need.
+
+### Available types
+
+These are the valid values for the `type` field in manifest entries:
+
+| Type | Viewer | File format | Notes |
+|------|--------|-------------|-------|
+| `TEXT` | TextWindow | `.md` | Prose essays. Routed as THEORY internally. |
+| `SYSTEM` | TextWindow | `.md` | System docs and architecture. |
+| `THEORY` | TextWindow | `.md` | Theoretical work. |
+| `PAPER` | TextWindow | `.md` | Research papers. |
+| `INFO` | TextWindow | `.md` | Reference and informational docs. |
+| `RESULT` | TextWindow | `.md` | Experiment results and findings. |
+| `ARTIFACT` | TextWindow | `.md` | Generated or derived artifacts. |
+| `GRAPH` | GraphWindow | `.svg` | SVG diagrams, rendered inline. |
+| `IMAGE` | ImageWindow | `.png`, `.jpg`, `.jpeg` | Raster images. |
+| `DIR` | — | — | Directory container (uses `children`, not `path`). |
+
+`COMPONENT` and `LEGAL` are reserved category names in the frontend but have no corresponding manifest type today. They exist for tag palette completeness.
+
+`REPO` is a special category the frontend creates automatically from the Hyphaeic GitHub organization — it does not come from the manifest.
 
 ### Rules
 

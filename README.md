@@ -2,6 +2,8 @@
 
 The static content layer for Hyphaeic OS. This repository holds the prose, the routing manifest, and nothing else — no build tools, no dependencies, no scripts. The frontend reads this repo at boot and builds its navigation from the manifest.
 
+For Hyphaeic topology integration rules, see [`DISTRIBUTION.md`](DISTRIBUTION.md).
+
 ## How It Works
 
 The system is simple:

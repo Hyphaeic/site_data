@@ -1,0 +1,23 @@
+{
+  "org": [
+    { "id": "team", "title": "TEAM", "path": "org/team.md", "type": "TEXT" },
+    { "id": "corp_cyb", "title": "CORPORATE CYBERNETICS", "path": "org/corporate_cybernetics.md", "type": "SYSTEM" }
+  ],
+  "axioms": [
+    { "id": "thesis", "title": "SUMMARY OF THESIS", "path": "axioms/summary_of_thesis.md", "type": "THEORY" },
+    { "id": "rats_gambit", "title": "THE RATS GAMBIT", "path": "axioms/the_rats_gambit.md", "type": "THEORY" },
+    { "id": "oracle_imp", "title": "THE ORACLE IMPERATIVE", "path": "axioms/the_oracle_imperative.md", "type": "THEORY" }
+  ],
+  "r_and_d": [
+    { "id": "hyphos", "title": "HYPHOS RTOS", "path": "r_and_d/hyphos.md", "type": "SYSTEM" },
+    {
+      "id": "fdrs",
+      "title": "FDRS",
+      "type": "DIR",
+      "children": [
+        { "id": "fdrs_p1", "title": "Formal Verification", "path": "r_and_d/fdrs/p1_formal_verification.md", "type": "PAPER" },
+        { "id": "fdrs_p2", "title": "Positional Algebra", "path": "r_and_d/fdrs/p2_positional_algebra.md", "type": "PAPER" }
+      ]
+    }
+  ]
+}

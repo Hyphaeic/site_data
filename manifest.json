@@ -22,7 +22,8 @@
           "title": "FDRS Exp 73 Image + Code Test",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_73_image_code_test_page", "title": "Image + Code Test", "path": "experiments/maths/fdrs-exp73-image-code-test/README.md", "type": "ARTIFACT" }
+            { "id": "exp_fdrs_73_image_code_test_page", "title": "Image + Code Test", "path": "experiments/maths/fdrs-exp73-image-code-test/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_73_interaction_order_spectrum_image", "title": "Interaction Order Spectrum", "path": "experiments/maths/fdrs-exp73-image-code-test/fdrs_exp73e_interaction_order_spectrum.png", "type": "IMAGE" }
           ]
         },
         {

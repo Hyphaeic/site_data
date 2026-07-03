@@ -27,6 +27,15 @@
           ]
         },
         {
+          "id": "exp_fdrs_38_svg_test",
+          "title": "FDRS Exp 38 SVG Test",
+          "type": "DIR",
+          "children": [
+            { "id": "exp_fdrs_38_svg_test_page", "title": "Experiment 38 SVG Test", "path": "experiments/maths/fdrs-exp38-svg-test/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_38_kernel_cylinder_radix_atlas_svg", "title": "Kernel Cylinder Radix Atlas", "path": "experiments/maths/fdrs-exp38-svg-test/fdrs_exp38_kernel_cylinder_radix_atlas_a72_B60.svg", "type": "GRAPH" }
+          ]
+        },
+        {
           "id": "exp_fdrs_adaptive_attention",
           "title": "FDRS Adaptive Attention",
           "type": "DIR",

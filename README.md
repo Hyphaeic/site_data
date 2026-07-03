@@ -61,7 +61,7 @@ These are the valid values for the `type` field in manifest entries:
 | `PAPER` | TextWindow | `.md` | Research papers. |
 | `INFO` | TextWindow | `.md` | Reference and informational docs. |
 | `RESULT` | TextWindow | `.md` | Experiment results and findings. |
-| `ARTIFACT` | TextWindow | `.md` | Generated or derived artifacts. |
+| `ARTIFACT` | TextWindow | `.md` | Experiment records, generated outputs, and derived artifacts. |
 | `GRAPH` | GraphWindow | `.svg` | SVG diagrams, rendered inline. |
 | `IMAGE` | ImageWindow | `.png`, `.jpg`, `.jpeg` | Raster images. |
 | `DIR` | — | — | Directory container (uses `children`, not `path`). |
@@ -69,6 +69,8 @@ These are the valid values for the `type` field in manifest entries:
 `COMPONENT` and `LEGAL` are reserved category names in the frontend but have no corresponding manifest type today. They exist for tag palette completeness.
 
 `REPO` is a special category the frontend creates automatically from the Hyphaeic GitHub organization — it does not come from the manifest.
+
+Use `ARTIFACT` for Markdown files that belong to an experiment process, including charters, summaries, result reports, negative controls, glossaries, instrumentation notes, predictions, and run notes.
 
 ### Rules
 

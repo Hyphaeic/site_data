@@ -16,13 +16,13 @@
       "title": "MATH EXPERIMENTS",
       "type": "DIR",
       "children": [
-        { "id": "math_experiments_index", "title": "Math Experiments", "path": "experiments/maths/README.md", "type": "TEXT" },
+        { "id": "math_experiments_index", "title": "Math Experiments", "path": "experiments/maths/README.md", "type": "ARTIFACT" },
         {
           "id": "exp_fdrs_73_image_code_test",
           "title": "FDRS Exp 73 Image + Code Test",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_73_image_code_test_page", "title": "Image + Code Test", "path": "experiments/maths/fdrs-exp73-image-code-test/README.md", "type": "PAPER" }
+            { "id": "exp_fdrs_73_image_code_test_page", "title": "Image + Code Test", "path": "experiments/maths/fdrs-exp73-image-code-test/README.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -30,10 +30,10 @@
           "title": "FDRS Adaptive Attention",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_adaptive_attention_overview", "title": "Overview", "path": "experiments/maths/fdrs-adaptive-attention/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_adaptive_attention_summary", "title": "Summary", "path": "experiments/maths/fdrs-adaptive-attention/SUMMARY.md", "type": "PAPER" },
-            { "id": "exp_fdrs_adaptive_attention_results", "title": "Results", "path": "experiments/maths/fdrs-adaptive-attention/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_adaptive_attention_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-adaptive-attention/NEGATIVE.md", "type": "PAPER" }
+            { "id": "exp_fdrs_adaptive_attention_overview", "title": "Overview", "path": "experiments/maths/fdrs-adaptive-attention/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_adaptive_attention_summary", "title": "Summary", "path": "experiments/maths/fdrs-adaptive-attention/SUMMARY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_adaptive_attention_results", "title": "Results", "path": "experiments/maths/fdrs-adaptive-attention/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_adaptive_attention_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-adaptive-attention/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -41,16 +41,16 @@
           "title": "FDRS Attention Mixed Radix",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_attention_mixed_radix_overview", "title": "Overview", "path": "experiments/maths/fdrs-attention-mixed-radix/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_attention_mixed_radix_summary", "title": "Summary", "path": "experiments/maths/fdrs-attention-mixed-radix/SUMMARY.md", "type": "PAPER" },
-            { "id": "exp_fdrs_attention_mixed_radix_results", "title": "Results", "path": "experiments/maths/fdrs-attention-mixed-radix/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_attention_mixed_radix_theory", "title": "Theory", "path": "experiments/maths/fdrs-attention-mixed-radix/THEORY.md", "type": "THEORY" },
-            { "id": "exp_fdrs_attention_mixed_radix_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-attention-mixed-radix/NEGATIVE.md", "type": "PAPER" },
-            { "id": "exp_fdrs_attention_mixed_radix_atlas", "title": "Atlas", "path": "experiments/maths/fdrs-attention-mixed-radix/ATLAS.md", "type": "PAPER" },
-            { "id": "exp_fdrs_attention_mixed_radix_glossary", "title": "Glossary", "path": "experiments/maths/fdrs-attention-mixed-radix/GLOSSARY.md", "type": "TEXT" },
-            { "id": "exp_fdrs_attention_mixed_radix_instrumentation", "title": "Instrumentation", "path": "experiments/maths/fdrs-attention-mixed-radix/INSTRUMENTATION.md", "type": "TEXT" },
-            { "id": "exp_fdrs_attention_mixed_radix_future", "title": "Future Directions", "path": "experiments/maths/fdrs-attention-mixed-radix/FUTURE-DIRECTIONS.md", "type": "TEXT" },
-            { "id": "exp_fdrs_attention_mixed_radix_source_overview", "title": "Source Overview", "path": "experiments/maths/fdrs-attention-mixed-radix/source/README.md", "type": "TEXT" }
+            { "id": "exp_fdrs_attention_mixed_radix_overview", "title": "Overview", "path": "experiments/maths/fdrs-attention-mixed-radix/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_summary", "title": "Summary", "path": "experiments/maths/fdrs-attention-mixed-radix/SUMMARY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_results", "title": "Results", "path": "experiments/maths/fdrs-attention-mixed-radix/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_theory", "title": "Theory", "path": "experiments/maths/fdrs-attention-mixed-radix/THEORY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-attention-mixed-radix/NEGATIVE.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_atlas", "title": "Atlas", "path": "experiments/maths/fdrs-attention-mixed-radix/ATLAS.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_glossary", "title": "Glossary", "path": "experiments/maths/fdrs-attention-mixed-radix/GLOSSARY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_instrumentation", "title": "Instrumentation", "path": "experiments/maths/fdrs-attention-mixed-radix/INSTRUMENTATION.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_future", "title": "Future Directions", "path": "experiments/maths/fdrs-attention-mixed-radix/FUTURE-DIRECTIONS.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_attention_mixed_radix_source_overview", "title": "Source Overview", "path": "experiments/maths/fdrs-attention-mixed-radix/source/README.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -58,11 +58,11 @@
           "title": "FDRS Chart Coupled Attention",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_chart_coupled_attention_overview", "title": "Overview", "path": "experiments/maths/fdrs-chart-coupled-attention/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_chart_coupled_attention_summary", "title": "Summary", "path": "experiments/maths/fdrs-chart-coupled-attention/SUMMARY.md", "type": "PAPER" },
-            { "id": "exp_fdrs_chart_coupled_attention_results", "title": "Results", "path": "experiments/maths/fdrs-chart-coupled-attention/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_chart_coupled_attention_theory", "title": "Theory", "path": "experiments/maths/fdrs-chart-coupled-attention/THEORY.md", "type": "THEORY" },
-            { "id": "exp_fdrs_chart_coupled_attention_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-chart-coupled-attention/NEGATIVE.md", "type": "PAPER" }
+            { "id": "exp_fdrs_chart_coupled_attention_overview", "title": "Overview", "path": "experiments/maths/fdrs-chart-coupled-attention/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_chart_coupled_attention_summary", "title": "Summary", "path": "experiments/maths/fdrs-chart-coupled-attention/SUMMARY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_chart_coupled_attention_results", "title": "Results", "path": "experiments/maths/fdrs-chart-coupled-attention/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_chart_coupled_attention_theory", "title": "Theory", "path": "experiments/maths/fdrs-chart-coupled-attention/THEORY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_chart_coupled_attention_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-chart-coupled-attention/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -70,9 +70,9 @@
           "title": "FDRS Digit Conditional Activation",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_digit_conditional_activation_overview", "title": "Overview", "path": "experiments/maths/fdrs-digit-conditional-activation/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_digit_conditional_activation_results", "title": "Results", "path": "experiments/maths/fdrs-digit-conditional-activation/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_digit_conditional_activation_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-digit-conditional-activation/NEGATIVE.md", "type": "PAPER" }
+            { "id": "exp_fdrs_digit_conditional_activation_overview", "title": "Overview", "path": "experiments/maths/fdrs-digit-conditional-activation/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_digit_conditional_activation_results", "title": "Results", "path": "experiments/maths/fdrs-digit-conditional-activation/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_digit_conditional_activation_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-digit-conditional-activation/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -80,10 +80,10 @@
           "title": "FDRS GPU Numerics",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_gpu_numerics_overview", "title": "Overview", "path": "experiments/maths/fdrs-gpu-numerics/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_gpu_numerics_summary", "title": "Summary", "path": "experiments/maths/fdrs-gpu-numerics/SUMMARY.md", "type": "PAPER" },
-            { "id": "exp_fdrs_gpu_numerics_results", "title": "Results", "path": "experiments/maths/fdrs-gpu-numerics/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_gpu_numerics_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-gpu-numerics/NEGATIVE.md", "type": "PAPER" }
+            { "id": "exp_fdrs_gpu_numerics_overview", "title": "Overview", "path": "experiments/maths/fdrs-gpu-numerics/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_gpu_numerics_summary", "title": "Summary", "path": "experiments/maths/fdrs-gpu-numerics/SUMMARY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_gpu_numerics_results", "title": "Results", "path": "experiments/maths/fdrs-gpu-numerics/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_gpu_numerics_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-gpu-numerics/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -91,11 +91,11 @@
           "title": "FDRS Sensor Fusion",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_sensor_fusion_overview", "title": "Overview", "path": "experiments/maths/fdrs-sensor-fusion/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_sensor_fusion_results", "title": "Results", "path": "experiments/maths/fdrs-sensor-fusion/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_sensor_fusion_line_b", "title": "Line B", "path": "experiments/maths/fdrs-sensor-fusion/LINE-B.md", "type": "PAPER" },
-            { "id": "exp_fdrs_sensor_fusion_novelty", "title": "Novelty", "path": "experiments/maths/fdrs-sensor-fusion/NOVELTY.md", "type": "PAPER" },
-            { "id": "exp_fdrs_sensor_fusion_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-sensor-fusion/NEGATIVE.md", "type": "PAPER" }
+            { "id": "exp_fdrs_sensor_fusion_overview", "title": "Overview", "path": "experiments/maths/fdrs-sensor-fusion/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_sensor_fusion_results", "title": "Results", "path": "experiments/maths/fdrs-sensor-fusion/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_sensor_fusion_line_b", "title": "Line B", "path": "experiments/maths/fdrs-sensor-fusion/LINE-B.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_sensor_fusion_novelty", "title": "Novelty", "path": "experiments/maths/fdrs-sensor-fusion/NOVELTY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_sensor_fusion_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-sensor-fusion/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         },
         {
@@ -103,15 +103,15 @@
           "title": "FDRS Theory Expansion",
           "type": "DIR",
           "children": [
-            { "id": "exp_fdrs_theory_expansion_overview", "title": "Overview", "path": "experiments/maths/fdrs-theory-expansion/README.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_results", "title": "Results", "path": "experiments/maths/fdrs-theory-expansion/results.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_theory", "title": "Theory", "path": "experiments/maths/fdrs-theory-expansion/THEORY.md", "type": "THEORY" },
-            { "id": "exp_fdrs_theory_expansion_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-theory-expansion/NEGATIVE.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_h1_prediction", "title": "H1 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h1_prediction.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_h3_prediction", "title": "H3 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h3_prediction.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_h6_prediction", "title": "H6 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h6_prediction.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_h1_h3_notes", "title": "H1/H3 Decisive Pair Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h1-h3-decisive-pair/notes.md", "type": "PAPER" },
-            { "id": "exp_fdrs_theory_expansion_h6_notes", "title": "H6 Character Synergy Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h6-character-synergy/notes.md", "type": "PAPER" }
+            { "id": "exp_fdrs_theory_expansion_overview", "title": "Overview", "path": "experiments/maths/fdrs-theory-expansion/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_results", "title": "Results", "path": "experiments/maths/fdrs-theory-expansion/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_theory", "title": "Theory", "path": "experiments/maths/fdrs-theory-expansion/THEORY.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_negative", "title": "Negative Controls", "path": "experiments/maths/fdrs-theory-expansion/NEGATIVE.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_h1_prediction", "title": "H1 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h1_prediction.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_h3_prediction", "title": "H3 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h3_prediction.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_h6_prediction", "title": "H6 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h6_prediction.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_h1_h3_notes", "title": "H1/H3 Decisive Pair Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h1-h3-decisive-pair/notes.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_theory_expansion_h6_notes", "title": "H6 Character Synergy Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h6-character-synergy/notes.md", "type": "ARTIFACT" }
           ]
         }
       ]

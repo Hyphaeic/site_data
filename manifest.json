@@ -137,6 +137,16 @@
           ]
         },
         {
+          "id": "exp_fdrs_star_quotients",
+          "title": "FDRS Star-Shaped Resolutions",
+          "type": "DIR",
+          "children": [
+            { "id": "exp_fdrs_star_quotients_overview", "title": "Overview", "path": "experiments/maths/fdrs-star-quotients/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_star_quotients_results", "title": "Results", "path": "experiments/maths/fdrs-star-quotients/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_star_quotients_negative", "title": "Negative Controls & Fraud Gallery", "path": "experiments/maths/fdrs-star-quotients/NEGATIVE.md", "type": "ARTIFACT" }
+          ]
+        },
+        {
           "id": "exp_fdrs_value_semigroup",
           "title": "FDRS Value Semigroup",
           "type": "DIR",

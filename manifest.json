@@ -135,6 +135,16 @@
             { "id": "exp_fdrs_hj_singularities_p4", "title": "P4 - Puiseux Amendment", "path": "experiments/maths/fdrs-hj-singularities/P4-PUISEUX.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_hj_singularities_negative", "title": "Negative Controls & Errata", "path": "experiments/maths/fdrs-hj-singularities/NEGATIVE.md", "type": "ARTIFACT" }
           ]
+        },
+        {
+          "id": "exp_fdrs_value_semigroup",
+          "title": "FDRS Value Semigroup",
+          "type": "DIR",
+          "children": [
+            { "id": "exp_fdrs_value_semigroup_overview", "title": "Overview", "path": "experiments/maths/fdrs-value-semigroup/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_value_semigroup_results", "title": "Results", "path": "experiments/maths/fdrs-value-semigroup/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_value_semigroup_negative", "title": "Negative Controls & Errata", "path": "experiments/maths/fdrs-value-semigroup/NEGATIVE.md", "type": "ARTIFACT" }
+          ]
         }
       ]
     }

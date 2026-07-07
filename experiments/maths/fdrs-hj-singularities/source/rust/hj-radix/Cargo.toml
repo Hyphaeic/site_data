@@ -1,0 +1,8 @@
+[package]
+name = "hj-radix"
+version = "0.1.0"
+edition = "2021"
+description = "P1 mirror: the Hirzebruch-Jung resolution of a cyclic quotient singularity (n,q) as an FDRS Phase-7 context-dependent radix law (Omega=ceil(n/q); Gamma(n,q)=(q,a*q-n); terminal q=0 = Base-0 Wall). Integer-only, no_std, zero deps. Fidelity rung of the exactness ladder: reproduces the Sage battery bit-for-bit (12231-pair u64 checksum pinned)."
+
+[lib]
+path = "src/lib.rs"

@@ -1,0 +1,42 @@
+run_id: 2026-07-07-p2-blowdown
+experiment: experiment-fdrs-hj-singularities
+gate: G2-execute (P2 — blow-down as carry-normalization)
+date: 2026-07-07
+result_tag: exact
+pre_registration: >
+  README.md "P2" (refined: blow-down reassigned to carry's NORMALIZATION role, not the
+  successor) + NEGATIVE.md entry 2 + F-carry — authored before this code.
+backend: SageMath 10.9 (ZZ/QQ; toric star-subdivision via Hilbert-basis rays) + Rust mirror.
+scene: >
+  Interior blow-up (a_i,a_{i+1})->(a_i+1,1,a_{i+1}+1) and Castelnuovo blow-down
+  (a,1,b)->(a-1,b-1) as carry's value-preserving NORMALIZATION role (enc∘dec / rechart
+  Def 68-69 / exact nesting Thm 97-98), NOT the successor (Tick=+1). Positive: both
+  preserve (n,q) exactly (birational invariant); reduction is confluent to the canonical
+  minimal chain. Negative (F-carry): a successor-style edit does NOT preserve (n,q).
+verdict: >
+  ALL PASS. Value preservation + confluent reduction: 3043 pairs (0<q<n<=100), 0
+  blow-up (n,q)-changes, 0 reductions off the canonical minimal chain. F-carry EXERCISED
+  (not merely asserted): 4/4 successor-style radix bumps break (n,q) — e.g. (7,3)=[3,2,2]
+  -> bump a_0 -> [4,2,2] = (10,3). Toric grounding: 2443 interior-wall blow-ups equal the
+  toric star-subdivision exactly (0 mismatches). => blow-down IS carry-as-NORMALIZATION;
+  carry-as-successor != blow-down (the narrow, correct negative). Rust mirror agrees
+  (blowdown_preserves_nq_and_is_confluent, successor_edit_breaks_nq; cargo test 5/5).
+falsifiers:
+  F-carry: EXERCISED and correct — successor edits break (n,q) (4/4); the normalization
+           implementation preserves (n,q) on 3043 pairs. The negative is narrow
+           (carry-as-successor != blow-down), not the broad "carry != blow-down".
+  F-exact: SILENT (ZZ/QQ only).
+metrics_emitted: [pairs=3043, blowup_nq_changes=0, reduction_noncanonical=0,
+                  successor_breaks=4/4, toric_walls=2443, toric_mismatch=0, rust_tests=5]
+source:
+  - source/sage/p2_blowdown.sage
+  - source/rust/hj-radix/src/lib.rs (mod p2)
+reproduce: >
+  cd source/sage && sage p2_blowdown.sage ;  cd source/rust && cargo test --offline
+scope_notes: >
+  Interior (chain-preserving) blow-ups only; boundary (-1)-curves change the framing and
+  are out of scope (asserted absent). Correctness only. No new mathematics — the minus-CF
+  reduction identity and toric blow-up are classical; the artifact is the FDRS
+  normalization-vs-successor placement, verified.
+toolchain: { sage: "10.9", cargo: "1.93.0" }
+provenance: { repo: hyphaeic, git_commit: 2f17518, git_state: "dirty (experiment family untracked)" }

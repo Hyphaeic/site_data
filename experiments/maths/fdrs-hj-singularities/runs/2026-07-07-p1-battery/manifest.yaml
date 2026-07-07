@@ -1,0 +1,54 @@
+run_id: 2026-07-07-p1-battery
+experiment: experiment-fdrs-hj-singularities
+gate: G2-execute (P1 — exact anchor)
+date: 2026-07-07
+result_tag: exact
+pre_registration: >
+  README.md "P1" + falsifiers F-exact/F-oracle + NEGATIVE.md fraud gallery,
+  authored BEFORE this code (this charter's own commit precedes any run-emitting
+  code, per ADR-007). Registry entity deferred by owner; run kept registry-ready.
+backend: >
+  SageMath 10.9 — exact ZZ/QQ throughout; O3 toric oracle via polyhedral
+  Hilbert-basis of the cyclic-quotient cone (no float in any core path).
+scene: >
+  The HJ resolution of the cyclic quotient surface singularity (n,q) encoded as an
+  FDRS Phase-7 context-dependent radix LAW (Def 89/103): context (n,q); radix
+  Ω = ceil(n/q) = a_i = -E_i.E_i; evolution Γ(n,q) = (q, a*q - n); terminal q==0 is
+  a Base-0 Wall (Phase 9). A singularity is a radix law (finite word over {2,3,...}),
+  not a point on one line (F-lawpoint honored).
+oracles:
+  - O1 round-trip (full battery): minus-CF continuant EVALUATION of the chain == n/q
+    (independent direction from extraction).
+  - O2 gauge (full battery): |det(intersection form)| == n AND |det(minor)| == q,
+    via Sage exact ZZ determinant (a different code path from the recursion). O2's
+    |det|==n IS the promoted headline: gauge = continuant = n = |cyclic group|.
+  - O3 toric (sample n<=60): resolution rays from the cone's Hilbert basis + the wall
+    relation u_{i-1}+u_{i+1}=a_i u_i (convention Cone([(1,0),(-q,n)]), calibrated on
+    (7,3)->[3,2,2]; convention (0,1),(n,-q) correctly returns the Riemenschneider dual).
+verdict: >
+  ALL PASS. O1+O2: 12231 pairs (0<q<n<=200, gcd=1), 0 failures. O3: 1101 pairs
+  (n<=60), 0 failures. Three independent algorithms agree. H1 CONFIRMED (exact digit
+  extraction + exact round-trip, integer-only). The promoted anchor CONFIRMED:
+  gauge = |det(intersection form)| = n = |cyclic group order| on the entire battery.
+  Geometric interpretation CONFIRMED by the toric resolution on the sample. Examples:
+  (5,4)->[2,2,2,2] (A4 chain), (7,3)->[3,2,2], (5,2)/(5,3)->[3,2]/[2,3] (dual pair
+  reversed), (200,199)->[2^199] (A199). Max chain length 199.
+falsifiers:
+  F-exact:  SILENT (ZZ/QQ only, no float in any core path).
+  F-oracle: SATISFIED (agreement measured against 2 algebraic + 1 geometric oracle,
+            each algorithmically independent of the digit recursion).
+  F-lawpoint: honored (singularity = radix law, not a point).
+metrics_emitted: [pairs=12231, failures_alg=0, toric_pairs=1101, toric_failures=0,
+                  max_chain_len=199, wall_time_s~11.6]
+source:
+  - source/sage/p1_verify.sage    # canonical (O1+O2 full, O3 sample)
+  - source/sage/p1_battery.sage   # dev: O1+O2 with per-example print
+  - source/sage/p1_toric_probe.sage  # dev: O3 convention calibration
+reproduce: cd source/sage && sage p1_verify.sage
+scope_notes: >
+  Correctness only, no performance claim. No new singularity mathematics — HJ<->CF<->
+  toric is classical (F-novel honored); the artifact is the exact FDRS encoding +
+  triple-oracle verification. P2 (blow-down as carry-NORMALIZATION/rechart, not
+  successor) and P3 (prefix ultrametric vs adjacency, 3 strata) not yet run.
+toolchain: { sage: "10.9" }
+provenance: { repo: hyphaeic, git_commit: 2f17518, git_state: "dirty (experiment family untracked)" }

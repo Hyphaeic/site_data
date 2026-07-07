@@ -157,15 +157,18 @@ Each phase pre-registers acceptance before its code; later phases are gated on e
   correspondence across the three strata (hit / contested / miss), not a single
   percentage. Tag: `exact` inputs, correspondence measured.
 
-### P4 — Puiseux branches as a coupled network (gated amendment, pre-registered here, its code deferred)
-Multi-branch plane curves: one FDRS timeline per Puiseux branch (characteristic
-exponents), contact orders as **cross-timeline coupling** — a **Phase-14 coupled radix
-network**, where the corpus *predicts raggedness* (coupling destroys the odometer;
-Prop 148). Pre-registered hypothesis: **total intersection multiplicity is an
-interface-balance quantity (Thm 89, `issued = consumed + pending`), not a clean-routing
-scalar.** Acceptance (qualitative): a working two-branch example (test case
-`x²y² + x⁵ + y⁵`-type) with correct total intersection multiplicity, and the raggedness
-characterized. Begun only after P1–P3 land.
+### P4 — Puiseux branches as a coupled network (Amendment 1 — full protocol in `P4-PUISEUX.md`)
+Multi-branch plane curves: one FDRS timeline per Puiseux branch = its **Enriques diagram**
+(multiplicity sequence **with proximities** — free/satellite — not the bare sequence), contact
+= shared infinitely-near **subtree** (proximity-keyed) = **cross-timeline coupling** — a
+**Phase-14 coupled radix network**, where the corpus *predicts raggedness* (Prop 148). Refined,
+pre-registered hypotheses (`P4-PUISEUX.md`): **H4a** the proximity-keyed coupled sum
+`Σ_subtree m_p(C_1)·m_p(C_2)` reproduces the intersection multiplicity exactly (Noether;
+the *positive* contrast with P3's deformation miss — prefix/contact is faithful); **H4b** the
+coupled tree is genuinely ragged (no joint odometer) yet the invariant survives; **H4c**
+*open* — whether the strict interface-balance ledger (`issued = consumed + pending`, Thm 89)
+holds or only the weaker additive conservation. Falsifiers `F-P4-*` and honest scope are in
+the amendment. Begun after P1–P3 (now landed).
 
 ## Success criteria (corrected from the RFME)
 
@@ -244,12 +247,24 @@ experiments/maths/fdrs-hj-singularities/
       (`n≤100`), reduction confluent to the canonical chain; **F-carry exercised** (4/4
       successor edits break `(n,q)`); toric star-subdivision 2443/2443; Rust mirror 5/5.
       Run `runs/2026-07-07-p2-blowdown/`. => blow-down ≡ carry-as-normalization.
-- [x] **P3 BUILT (2026-07-07) — PARTIAL (as pre-registered).** S1 A_n **hit** (59/59,
-      prefix = truncation order); S2 T-singularities **miss** (0/254 QG-adjacencies
-      prefix-related, 255/255 verified as `(1/dn²)(1,dnq−1)`); S3 corr `+0.193` + the
-      linear-vs-Catalan no-go. First-class negative NEG-1. Run
-      `runs/2026-07-07-p3-adjacency/`; Rust mirror 7/7.
-- [ ] P4 (Puiseux multi-branch, Phase-14 coupled network) — amendment, not begun
+- [x] **P3 BUILT (2026-07-07; corrected on review) — PARTIAL (as pre-registered).** S1 A_n
+      **hit** (59/59, prefix = truncation order); S2 T-singularities **miss** across **d=1..8**
+      (0/494 QG-adjacencies prefix-related, 502/502 verified as `(1/(d·n²))(1,d·n·a−1)` via the
+      Wahl forest); S3 genuine Spearman `ρ=0.026` + the linear-vs-Catalan no-go. First-class
+      negative NEG-1; three review errata fixed (NEGATIVE.md Errata). Run
+      `runs/2026-07-07-p3-adjacency/`; Rust mirror 9/9.
+- [x] **P4 amendment PRE-REGISTERED (2026-07-07)** — `P4-PUISEUX.md`: Puiseux multi-branch
+      as a Phase-14 coupled radix network; the contact/intersection hypothesis (H4a/H4b/H4c)
+      with falsifiers, before any code. **The scientific hinge:** P3 showed the prefix
+      ultrametric *misses* deformation adjacency; P4 tests that it *captures*
+      contact/intersection — same ultrametric, opposite faithfulness.
+- [x] **P4 BUILT (2026-07-07; corrected on review) — PASS (H4a/H4b), H4c open.**
+      Proximity-keyed coupling tracker == Sage-native intersection multiplicity 8/8; satellite
+      falsifier fired (`y²=x³ vs y²=x⁵`, seqlcp 4≠6); headline `(C₁·C₂)=4` — literal
+      `x²y²+x⁵+y⁵` **run over ℚ(i)** (branches not ℚ-rational); raggedness exhibited; δ label
+      oracle 10/10; **H4c open** (strict untested, weak vacuous). Runs
+      `runs/2026-07-07-p4-{calibration,headline}/`; Rust mirror 9/9; P4 errata E-4/E-5/E-6.
+      **The P3↔P4 hinge confirmed: prefix misses deformation (P3), captures contact (P4).**
 
 **THE P1–P3 ARC IS COMPLETE (2026-07-07).** The HJ resolution is an exact FDRS Phase-7
 radix law (P1, gauge = |det| = n = |group|, three oracles + bit-identical Rust mirror);

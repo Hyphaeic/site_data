@@ -32,7 +32,8 @@
           "type": "DIR",
           "children": [
             { "id": "exp_fdrs_38_svg_test_page", "title": "Experiment 38 SVG Test", "path": "experiments/maths/fdrs-exp38-svg-test/README.md", "type": "ARTIFACT" },
-            { "id": "exp_fdrs_38_kernel_cylinder_radix_atlas_svg", "title": "Kernel Cylinder Radix Atlas", "path": "experiments/maths/fdrs-exp38-svg-test/fdrs_exp38_kernel_cylinder_radix_atlas_a72_B60.svg", "type": "GRAPH" }
+            { "id": "exp_fdrs_38_kernel_cylinder_radix_atlas_svg", "title": "Kernel Cylinder Radix Atlas", "path": "experiments/maths/fdrs-exp38-svg-test/fdrs_exp38_kernel_cylinder_radix_atlas_a72_B60.svg", "type": "GRAPH" },
+            { "id": "exp_fdrs_38_kernel_cylinder_radix_atlas_a210_b462_svg", "title": "Kernel Cylinder Radix Atlas A210 B462", "path": "experiments/maths/fdrs-exp38-svg-test/fdrs_exp38_kernel_cylinder_radix_atlas_a210_B462.svg", "type": "GRAPH" }
           ]
         },
         {
@@ -122,6 +123,17 @@
             { "id": "exp_fdrs_theory_expansion_h6_prediction", "title": "H6 Prediction", "path": "experiments/maths/fdrs-theory-expansion/source/predictions/h6_prediction.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_theory_expansion_h1_h3_notes", "title": "H1/H3 Decisive Pair Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h1-h3-decisive-pair/notes.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_theory_expansion_h6_notes", "title": "H6 Character Synergy Notes", "path": "experiments/maths/fdrs-theory-expansion/runs/2026-06-30-h6-character-synergy/notes.md", "type": "ARTIFACT" }
+          ]
+        },
+        {
+          "id": "exp_fdrs_hj_singularities",
+          "title": "FDRS Hirzebruch-Jung Singularities",
+          "type": "DIR",
+          "children": [
+            { "id": "exp_fdrs_hj_singularities_overview", "title": "Overview", "path": "experiments/maths/fdrs-hj-singularities/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_hj_singularities_results", "title": "Results", "path": "experiments/maths/fdrs-hj-singularities/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_hj_singularities_p4", "title": "P4 - Puiseux Amendment", "path": "experiments/maths/fdrs-hj-singularities/P4-PUISEUX.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_hj_singularities_negative", "title": "Negative Controls & Errata", "path": "experiments/maths/fdrs-hj-singularities/NEGATIVE.md", "type": "ARTIFACT" }
           ]
         }
       ]

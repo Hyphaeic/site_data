@@ -165,6 +165,7 @@
             { "id": "exp_fdrs_mcf_threefolds_scoping", "title": "Scoping Report (M0)", "path": "experiments/maths/fdrs-mcf-threefolds/SCOPING.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_mcf_threefolds_m1_draft", "title": "M1 Protocol (Draft)", "path": "experiments/maths/fdrs-mcf-threefolds/M1-draft.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_mcf_threefolds_m1_results", "title": "M1 Results", "path": "experiments/maths/fdrs-mcf-threefolds/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_mcf_threefolds_m2", "title": "M2 - Crepant No-Go (OB-1)", "path": "experiments/maths/fdrs-mcf-threefolds/M2.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_mcf_threefolds_reading", "title": "Reading List", "path": "experiments/maths/fdrs-mcf-threefolds/READING.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_mcf_threefolds_negative", "title": "Negative Controls & Guards", "path": "experiments/maths/fdrs-mcf-threefolds/NEGATIVE.md", "type": "ARTIFACT" }
           ]

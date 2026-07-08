@@ -45,7 +45,8 @@ subcone is smooth by the Oka definition). The coupling test settles the placemen
 - **`Ω(node)` depends only on the node's own cone** (`C=(P₁+a₂P₂+a₃P₃)/r`) → no external context;
 - **the two branches resolve disjoint subcones** meeting only along the pre-existing wall
   `cone(P₁,C)`, with no shared state → branch-independent;
-- **the final fan is traversal-order-free** (unique — H-M1e) → order carries no information.
+- **the final fan is traversal-order-free** (unique — H-M1e) → order carries no **value-layer**
+  information.
 
 A single self-similar, context-local, branch-independent law with tree-shaped state **does not
 need Phase-8 routing** (which exists to choose *between* laws/timelines; here there is no
@@ -53,6 +54,16 @@ choice and no coupling). **Placement verdict: Phase-7 extended from chain-state 
 tree-state (dim 3).** The dimension is precisely the chain→tree operator (`branching = n−1`).
 This is the first genuinely new structural demand dimension 3 makes on the framework, and it
 is answered by *extension*, not by invoking a heavier corpus object.
+
+> **Precision note (value-layer vs process-layer).** Point 4 is scoped to the **value layer**:
+> the endpoint (final fan) is route-invariant, so *no choice is made at the value layer* — which
+> is what the placement turns on (Phase-8 exists to choose, and here nothing is chosen). It does
+> **not** say traversal order is informationless in general. Whether order carries *process-layer*
+> information — working set / deposit order over the resolution tree — is a separate question, and
+> precisely the one `fdrs-resolution-trajectories` **T3** is built to answer over this exact law.
+> Endpoint-invariance is the *premise* of that three-layer separation (T1/T2), not a claim against
+> it; given branch-independence, T3 is expected to find schedule-dependent working-set and
+> deposit-order statistics here even though the multiset (and thus the value layer) is degenerate.
 
 ## H-M1e — unique smooth resolution: PASS on the enumerable range (honest boundary)
 
@@ -83,6 +94,23 @@ off-anchor. The terminal corner is clean, exact, and now *executed* — the P1 o
 **not** discharge it — it is owed at **M2** (non-terminal/canonical quotients, genuine flops).
 The family cannot close until M2 sites it or records why not.
 
+## Duality observation (post-hoc, NOT a pre-registered hypothesis)
+
+The battery keeps `a ↔ a⁻¹` classes distinct deliberately, to observe the dim-3 shadow of the
+dim-2 Riemenschneider duality (which P1-O3's dual convention caught for free as reversed chains).
+It shows: for **every** dual pair `1/r(1,a,r−a)` and `1/r(1,a⁻¹,r−a⁻¹)`, the Ashikaga trees have
+**identical node-depth and leaf-depth multisets** — the same shape by level — verified 194/194 on
+`5 ≤ r < 30`. So `a ↔ a⁻¹` is a **tree-shape-preserving duality** here (the discrepancy multiset
+`{k/r}` was already `a`-independent; the new content is that the *tree structure* is dual-invariant
+too). Recorded as an observation, not a claim: depth-profile identity is verified, but whether it
+lifts to a full tree isomorphism / mirror (R₂↔R₃ relabelling) is the natural next look, not
+asserted here.
+
+*Independently reproduced 2026-07-07 (`source/sage/m1_duality.sage`): **264/264** anchors on
+`5≤r<30` have node- and leaf-depth multisets equal to their `a⁻¹` dual — the **194 non-self-dual
+anchors + 70 self-dual (`a=a⁻¹`)**, which pins the "194" as exactly the non-self-dual count.*
+
 ## Provenance
 `runs/2026-07-07-m1-battery` (H-M1a/b/c/d/f), `runs/2026-07-07-m1-uniqueness` (H-M1e). Sage
 10.9 + Rust `no_std` (cargo 1.93.0), git `2f17518` dirty. All integer/ℚ-exact; no floats.
+Duality observation: `runs/2026-07-07-m1-battery` data, post-hoc (2026-07-07).

@@ -126,6 +126,11 @@ success of the process, not a failure.
   **551/551** with Sage↔Rust parity; H-M1e unique on `r≤11`(all)+`¹⁄12(1,1,11)` (compute wall
   beyond — policy retreat, Erratum E-M1-1). **Law = Ashikaga CF = exact Phase-7 _tree-state_
   law** (H-M1f: chain→tree is the dimension; Phase-8 routing not required).
+- [x] **M2 EXECUTED — no-go HOLDS, OB-1 DISCHARGED** (2026-07-07) → `M2.md`,
+  `runs/2026-07-07-m2-crepant`. Canonical Gorenstein quotients have **`N>1` crepant resolutions**
+  (smallest `¹⁄6(1,2,3)=5`, up to `945`), flop-connected — the dim-3 phenomenon a single-valued
+  Phase-7 law provably can't hold. `F-M2-unique` did not fire; oracle validated 10/10 vs
+  literature. Phase-8-routing hinge graded (M3). Loss-of-canonicity = canonical-vs-terminal.
 
 ### M0 headline findings (rev. after review)
 - Anchor **confirmed & canonical**: terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic
@@ -150,9 +155,10 @@ success of the process, not a failure.
 - **OB-1 (the M2 no-go debt).** M0.4 relocated the designed negative off the terminal anchor
   (Wall 2 dissolved into a canonicity result; the anchor is the clean corner). The family
   **must not close** without either **siting the no-go at M2** (non-terminal / canonical
-  quotients — genuine flops / minimal-model non-uniqueness) or **recording why not**.
-  Registered explicitly so it survives a green M1. Owner: `volition-billy`. **Status: OPEN,
-  owed at M2.**
+  quotients — genuine flops / minimal-model non-uniqueness) or **recording why not**. Owner:
+  `volition-billy`. **Status: DISCHARGED (M2, 2026-07-07)** — no-go sited: canonical Gorenstein
+  cyclic quotients have `N>1` flop-connected crepant resolutions (`¹⁄6(1,2,3)=5`, up to `945`);
+  a single-valued Phase-7 law can output at most one. See `M2.md` → Results.
 
 ## References
 

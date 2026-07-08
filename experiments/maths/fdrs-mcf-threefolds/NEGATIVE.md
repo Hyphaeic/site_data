@@ -68,6 +68,11 @@ likely first-class outcome is a *designed negative* (M0.4) or an honest "scoped 
 | **F-novel** | any "new MCF / new resolution theory" claim | the honest-broker line | **honored** — every M0.2 fact is Reid/Danilov/Sato–Sato/White; contribution is the encoding. |
 | **F-3-essential-tautology** *(new, M0.3)* | "discrepancy conserved" claim reducing to "essential divisors are intrinsic" | the experiment-level (M4) conjecture | **seeded** — must be dodged before M4 runs (analog of P5 `F5-tautology`). |
 | **F-3-ST-conflation** *(new, M0.1)* | attributing a toric-resolution (T) reading to a sense-(S) arithmetic MCF (JPA/Brun/…) | the M0.1 landscape honesty | **firing-ready** — the resolution bridge is HJ/Klein/Ashikaga only; arithmetic MCFs are (S). |
+| **F-M2-unique** *(M2, seeded)* | crepant count `N=1` for all tested Gorenstein canonical quotients | the M2 no-go (dissolves like Wall 2) | seeded — the no-go is *tested*: `N=1` always ⇒ discharge OB-1 the other way. |
+| **F-M2-vacuous** *(M2, seeded)* | the canonical-non-terminal Gorenstein family is empty / junior `Δ` degenerate | the M2 object | seeded (pre-code). |
+| **F-M2-notflop** *(M2, seeded)* | a crepant resolution disconnected from `G`-Hilb in the flip graph | H-M2c flop-connectivity | seeded (pre-code). |
+| **F-M2-phase8-vibe** *(M2, seeded)* | "the flop-class needs Phase-8" asserted without a coupling/routing test | the Phase-8 hinge (must be graded, like H-M1f) | seeded — mirror of the H-M1f discipline. |
+| **"the crepant resolution" (singular) when `N>1`** | `G`-Hilb dressed as *the* unique crepant resolution | `F-3-canon` for M2 | seeded — `G`-Hilb is *a* distinguished one; the class is (conjecturally) larger. |
 
 ---
 
@@ -123,4 +128,24 @@ would NOT let stand):**
   is *Phase-7 with tree-state*, not Phase-8 — do not dress the recursion tree as multi-timeline
   routing; the branches are self-similar, context-local, and uncoupled (results.md).
 
-*(OB-1 remains OPEN: the designed no-go is still owed at M2 — M1 PASS does not discharge it.)*
+**M2 execution (2026-07-07) — the no-go HOLDS; OB-1 discharged; guards behaved:**
+- **`F-M2-unique` did NOT fire — checked, not assumed.** `N>1` (crepant non-uniqueness) is
+  real and large: smallest `¹⁄6(1,2,3)=5`, up to `945` (`¹⁄18(1,5,12)`). So the M0.4 designed
+  negative is *sited*, not dissolved — the honest opposite outcome (had `N=1` everywhere) was a
+  live possibility (F-M2-unique) and was ruled out by computation.
+- **`F-M2-vacuous` did not fire:** the Gorenstein canonical family is non-empty and its junior
+  simplices are non-degenerate (grounded: every nontrivial Gorenstein cyclic 3-fold quotient
+  qualifies).
+- **`F-3-canon` honored:** `G`-Hilb is called *a* distinguished crepant resolution, never *the*
+  one, precisely because `N>1`.
+- **`F-M2-phase8-vibe` honored:** the "flop-class ⇒ Phase-8" reading is stated as a **graded
+  conjecture** (Craw–Ishii VGIT gives the candidate routing), *not* asserted — the routing/
+  coupling test is deferred to M3, mirroring the H-M1f discipline.
+- **Enumeration wall (honest non-closure, same as H-M1e).** The fine-triangulation enumeration
+  was killed at large `r` (~`¹⁄18(1,8,9)`); `r≤17` complete, `r=18` partial, above **untested by
+  enumeration** — recorded, not trimmed. The `N>1` verdict does not depend on the tail.
+- **No `N=1` over-claim:** the exact `N=1` locus (Dais–Henk `¹⁄ᵣ(1,1,r−2)` + others) is *not*
+  characterized — only the sourced unique series is named.
+
+*(OB-1: **DISCHARGED** at M2 — see `M2.md` / README Open obligations. The family may now close
+on this obligation; the Phase-8-routing question (M3) is new, not an OB-1 remnant.)*

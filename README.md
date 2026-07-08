@@ -28,7 +28,7 @@ That's it. Add a markdown file, add an entry to the manifest, and the OS picks i
 |--------|---------|
 | `id`   | Unique identifier for this node. Used for routing and internal references. Keep it short, lowercase, snake_case. |
 | `title` | The display name shown in the OS UI. |
-| `path` | Relative path from the repo root to the markdown file. |
+| `path` | Relative path from the repo root, **or** an absolute `http(s)` URL for externally hosted assets (PDFs on a CDN). |
 | `type` | A category tag the frontend uses for styling/routing. See the full list below. |
 
 ### A directory entry (nested folder)
@@ -64,6 +64,7 @@ These are the valid values for the `type` field in manifest entries:
 | `ARTIFACT` | TextWindow | `.md` | Experiment records, generated outputs, and derived artifacts. |
 | `GRAPH` | GraphWindow | `.svg` | SVG diagrams, rendered inline. |
 | `IMAGE` | ImageWindow | `.png`, `.jpg`, `.jpeg` | Raster images. |
+| `PDF` | PdfWindow | `.pdf` or absolute URL | PDFs via EmbedPDF. `path` may be site_data-relative or an absolute `https://` URL (CDN). |
 | `DIR` | — | — | Directory container (uses `children`, not `path`). |
 
 `COMPONENT` and `LEGAL` are reserved category names in the frontend but have no corresponding manifest type today. They exist for tag palette completeness.

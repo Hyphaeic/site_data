@@ -563,6 +563,12 @@
   ],
   "philosophy": [
     {
+      "id": "hyph_founding_pb",
+      "title": "A Thesis of Play for the Soulful Machine",
+      "path": "https://src.hyphaeic.com/founding/HYPH-FOUNDING_PB.pdf",
+      "type": "PDF"
+    },
+    {
       "id": "philosophy_summary_of_thesis",
       "title": "Summary Of Thesis",
       "path": "philosophy/summary_of_thesis.md",

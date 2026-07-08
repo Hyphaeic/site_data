@@ -222,6 +222,7 @@ auto_defaults() {
     case "$ext_lower" in
         svg) printf -v AUTO_TYPE '%s' "GRAPH" ;;
         png|jpg|jpeg) printf -v AUTO_TYPE '%s' "IMAGE" ;;
+        pdf) printf -v AUTO_TYPE '%s' "PDF" ;;
         md) printf -v AUTO_TYPE '%s' "TEXT" ;;
         *) printf -v AUTO_TYPE '%s' "" ;;
     esac
@@ -411,7 +412,8 @@ for rel in "${NEW_FILES[@]}"; do
     echo "         ARTIFACT: experiment records (charters, summaries, negatives, glossaries)"
     echo "         GRAPH: SVG diagrams (auto-detected for .svg)"
     echo "         IMAGE: raster images (auto-detected for .png/.jpg/.jpeg)"
-    valid_types=(TEXT SYSTEM THEORY PAPER INFO RESULT ARTIFACT GRAPH IMAGE)
+    echo "         PDF:   PDF documents (auto-detected for .pdf; path may be absolute URL)"
+    valid_types=(TEXT SYSTEM THEORY PAPER INFO RESULT ARTIFACT GRAPH IMAGE PDF)
     prompt final_type "  type" "$AUTO_TYPE"
     final_type="${final_type^^}"
 

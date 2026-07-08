@@ -54,6 +54,14 @@ done < <(find . -type f -print0)
 # Collect all manifest paths
 mapfile -t MANIFEST_PATHS < <(jq -r '.. | objects | select(has("path")) | .path' "$MANIFEST" | sort -u)
 
+# Scan top-level directories on disk
+declare -a DISK_TOP_DIRS=()
+while IFS= read -r -d '' d; do
+    dir="${d#./}"
+    [[ -z "$dir" || "$dir" == ".git" ]] && continue
+    DISK_TOP_DIRS+=("$dir")
+done < <(find . -maxdepth 1 -mindepth 1 -type d -print0 | sort -z)
+
 # -------- compute diff sets --------
 declare -a NEW_FILES=()
 declare -a DRIFT_PATHS=()
@@ -73,12 +81,52 @@ done
 IFS=$'\n' NEW_FILES=($(printf '%s\n' "${NEW_FILES[@]:-}" | sort)); unset IFS
 IFS=$'\n' DRIFT_PATHS=($(printf '%s\n' "${DRIFT_PATHS[@]:-}" | sort)); unset IFS
 
+# Check for structural issues
+declare -a EMPTY_TOPS=()
+declare -a ORPHANED_KEYS=()
+declare -a EMPTY_DIRS=()
+
+# Check for empty top-level arrays
+mapfile -t EMPTY_TOPS < <(jq -r 'to_entries[] | select(.value == []) | .key' "$MANIFEST" 2>/dev/null || true)
+
+# Check for orphaned top-level keys (keys without corresponding directories)
+mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST" 2>/dev/null || true)
+for key in "${manifest_keys[@]}"; do
+    if [[ ! -d "$key" ]]; then
+        ORPHANED_KEYS+=("$key")
+    fi
+done
+
+# Check for empty DIR entries (DIRs with no children)
+mapfile -t EMPTY_DIRS < <(jq -r '
+    def check_empty:
+        . as $in
+        | if type == "array" then
+            .[] | check_empty
+        elif type == "object" then
+            if .type == "DIR" and (.children // [] | length == 0) then
+                .id
+            elif has("children") then
+                .children[] | check_empty
+            else empty
+            end
+        else empty
+        end;
+    .[] | check_empty
+' "$MANIFEST" 2>/dev/null || true)
+
+# Determine if we have structural issues
+HAS_STRUCTURAL_ISSUES=false
+if [[ ${#EMPTY_TOPS[@]} -gt 0 || ${#ORPHANED_KEYS[@]} -gt 0 || ${#EMPTY_DIRS[@]} -gt 0 ]]; then
+    HAS_STRUCTURAL_ISSUES=true
+fi
+
 # -------- report --------
 echo "=== manifest sync ==="
 echo "apply: $([ $APPLY -eq 1 ] && echo yes || echo no '(dry-run)')"
 echo
 
-if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 ]]; then
+if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" ]]; then
     echo "manifest and disk are in sync."
     exit 0
 fi
@@ -89,7 +137,7 @@ fi
     echo
 }
 
-if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 ]]; then
+if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" ]]; then
     echo "no changes needed."
     exit 0
 fi
@@ -239,8 +287,69 @@ if [[ $APPLY -eq 0 ]]; then
         done
     fi
 
+    # Check for orphaned top-level keys (no matching disk directory)
+    echo
+    echo "Orphaned sections (top-level keys without disk directories):"
+    echo "-------------------------------------------------------------"
+    mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST")
+    orphan_count=0
+    for key in "${manifest_keys[@]}"; do
+        if [[ ! -d "$key" ]]; then
+            echo "  $key"
+            orphan_count=$((orphan_count + 1))
+        fi
+    done
+    [[ $orphan_count -eq 0 ]] && echo "  (none)"
+    echo
+
+    # Check for empty containers
+    echo "Empty containers:"
+    echo "-----------------"
+    
+    # Empty top-level arrays
+    empty_tops=$(jq -r 'to_entries[] | select(.value == []) | .key' "$MANIFEST" 2>/dev/null || true)
+    empty_count=0
+    if [[ -n "$empty_tops" ]]; then
+        while IFS= read -r top_key; do
+            [[ -z "$top_key" ]] && continue
+            echo "  $top_key (empty array)"
+            empty_count=$((empty_count + 1))
+        done <<< "$empty_tops"
+    fi
+    
+    # Empty DIR entries
+    empty_dirs=$(jq -r '
+        def check_empty:
+            . as $in
+            | if type == "array" then
+                .[] | check_empty
+            elif type == "object" then
+                if .type == "DIR" and (.children // [] | length == 0) then
+                    .id
+                elif has("children") then
+                    .children[] | check_empty
+                else empty
+                end
+            else empty
+            end;
+        .[] | check_empty
+    ' "$MANIFEST" 2>/dev/null || true)
+    
+    if [[ -n "$empty_dirs" ]]; then
+        while IFS= read -r dir_id; do
+            [[ -z "$dir_id" ]] && continue
+            echo "  DIR: $dir_id (empty children)"
+            empty_count=$((empty_count + 1))
+        done <<< "$empty_dirs"
+    fi
+    
+    [[ $empty_count -eq 0 ]] && echo "  (none)"
+    echo
+
     echo "=== summary ==="
     echo "${#NEW_FILES[@]} file(s) to add, ${#DRIFT_PATHS[@]} file(s) to remove."
+    [[ $orphan_count -gt 0 ]] && echo "$orphan_count orphaned section(s) to remove."
+    [[ $empty_count -gt 0 ]] && echo "$empty_count empty container(s) to remove."
     exit 0
 fi
 
@@ -339,34 +448,61 @@ for rel in "${NEW_FILES[@]}"; do
     fi
 
     # Splice into manifest
+    before_count=$(jq -r --arg p "$rel" '[.. | objects | select(.path == $p)] | length' "$MANIFEST")
+    
     if [[ "$parent" == "$top" ]]; then
         jq --arg key "$top" --arg id "$final_id" --arg title "$final_title" --arg path "$rel" --arg type "$final_type" '
             .[$key] += [{id:$id, title:$title, path:$path, type:$type}]
         ' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
     else
-        jq --arg parent "$parent" --arg id "$final_id" --arg title "$final_title" --arg path "$rel" --arg type "$final_type" '
-            def splice_in:
-                . as $in
-                | if type == "object" then
-                    if .type == "DIR" then
-                        if (.children // []) | any(.path // "" | split("/")[:-1] | join("/") == $parent) then
-                            .children += [{id:$id, title:$title, path:$path, type:$type}]
-                        else
-                            .children |= map(splice_in)
-                        end
+        # For nested paths, split parent into segments and build DIR chain
+        # E.g., parent="philosophy/axioms" -> top="philosophy", rest="axioms"
+        IFS='/' read -ra parts <<< "$parent"
+        top="${parts[0]}"
+        rest=""
+        for ((i=1; i<${#parts[@]}; i++)); do
+            [[ -n "$rest" ]] && rest="$rest/"
+            rest="$rest${parts[$i]}"
+        done
+        
+        jq --arg top "$top" --arg rest "$rest" \
+           --arg id "$final_id" --arg title "$final_title" --arg path "$rel" --arg type "$final_type" '
+            # Recursive: given an array, walk $rest segments to place the entry
+            def place(segments):
+                if segments == "" then
+                    # Done — add the file entry here
+                    . + [{id:$id, title:$title, path:$path, type:$type}]
+                else
+                    (segments | split("/")[0]) as $dir |
+                    (segments | split("/")[1:] | join("/")) as $next |
+                    if any(.[]; .id == $dir and .type == "DIR") then
+                        # DIR exists, recurse into its children
+                        map(if .id == $dir and .type == "DIR"
+                           then .children |= place($next)
+                           else . end)
                     else
-                        with_entries(.value |= splice_in)
+                        # DIR does not exist, create it
+                        . + [{
+                            id: $dir,
+                            title: ($dir | gsub("_"; " ")),
+                            type: "DIR",
+                            children: ([] | place($next))
+                        }]
                     end
-                  elif type == "array" then
-                    map(splice_in)
-                  else .
-                  end;
-            splice_in
+                end;
+            # Ensure top-level key exists, then apply
+            if has($top) then . else .[$top] = [] end
+            | .[$top] |= place($rest)
         ' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
     fi
-
-    added_count=$((added_count + 1))
-    echo "  ✓ added to manifest"
+    
+    after_count=$(jq -r --arg p "$rel" '[.. | objects | select(.path == $p)] | length' "$MANIFEST")
+    if [[ "$after_count" -gt "$before_count" ]]; then
+        added_count=$((added_count + 1))
+        echo "  ✓ added to manifest"
+    else
+        echo "  ✗ FAILED to add (manifest unchanged)"
+    fi
     echo
 done
 
@@ -375,8 +511,8 @@ removed_count=0
 
 if [[ ${#DRIFT_PATHS[@]} -gt 0 ]]; then
     echo
-    echo "Removal phase: ${#DRIFT_PATHS[@]} stale entries detected"
-    echo "=============================================="
+    echo "Removal phase: ${#DRIFT_PATHS[@]} stale file entries detected"
+    echo "=============================================================="
     echo
     echo "These manifest entries reference files that no longer exist on disk."
     echo "For each entry, confirm removal to clean up the manifest."
@@ -456,6 +592,104 @@ if [[ ${#DRIFT_PATHS[@]} -gt 0 ]]; then
         echo
     done
 fi
+
+# -------- cleanup phase (always runs) --------
+echo
+echo "Cleanup phase: checking for empty containers"
+echo "============================================="
+echo
+
+# Remove DIR entries with empty children
+echo "Checking for empty DIR entries..."
+empty_dirs=$(jq -r '
+    def check_empty:
+        . as $in
+        | if type == "array" then
+            .[] | check_empty
+        elif type == "object" then
+            if .type == "DIR" and (.children // [] | length == 0) then
+                .id
+            elif has("children") then
+                .children[] | check_empty
+            else empty
+            end
+        else empty
+        end;
+    .[] | check_empty
+' "$MANIFEST" 2>/dev/null || true)
+
+if [[ -n "$empty_dirs" ]]; then
+    while IFS= read -r dir_id; do
+        [[ -z "$dir_id" ]] && continue
+        echo "  Empty DIR: $dir_id"
+        read -r -p "  remove this empty directory? [y/N] " confirm
+        if [[ "${confirm,,}" == "y" ]]; then
+            jq --arg id "$dir_id" '
+                def remove_dir:
+                    . as $in
+                    | if type == "array" then
+                        map(select(.id != $id) | remove_dir)
+                    elif type == "object" then
+                        if has("children") then
+                            .children |= map(select(.id != $id) | remove_dir)
+                        else .
+                        end
+                    else .
+                    end;
+                . | with_entries(.value |= remove_dir)
+            ' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
+            removed_count=$((removed_count + 1))
+            echo "  ✓ removed from manifest"
+        else
+            echo "  kept"
+        fi
+        echo
+    done <<< "$empty_dirs"
+else
+    echo "  No empty DIR entries found."
+fi
+
+# Remove top-level keys with empty arrays
+echo
+echo "Checking for empty top-level sections..."
+empty_tops=$(jq -r 'to_entries[] | select(.value == []) | .key' "$MANIFEST" 2>/dev/null || true)
+
+if [[ -n "$empty_tops" ]]; then
+    while IFS= read -r top_key; do
+        [[ -z "$top_key" ]] && continue
+        echo "  Empty section: $top_key"
+        read -r -p "  remove this empty section? [y/N] " confirm
+        if [[ "${confirm,,}" == "y" ]]; then
+            jq --arg key "$top_key" 'del(.[$key])' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
+            removed_count=$((removed_count + 1))
+            echo "  ✓ removed from manifest"
+        else
+            echo "  kept"
+        fi
+        echo
+    done <<< "$empty_tops"
+else
+    echo "  No empty top-level sections found."
+fi
+
+# Remove top-level keys for directories that don't exist on disk
+echo
+echo "Checking for top-level keys without disk directories..."
+mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST")
+for key in "${manifest_keys[@]}"; do
+    if [[ ! -d "$key" ]]; then
+        echo "  Orphaned section: $key (directory does not exist)"
+        read -r -p "  remove this orphaned section? [y/N] " confirm
+        if [[ "${confirm,,}" == "y" ]]; then
+            jq --arg key "$key" 'del(.[$key])' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
+            removed_count=$((removed_count + 1))
+            echo "  ✓ removed from manifest"
+        else
+            echo "  kept"
+        fi
+        echo
+    fi
+done
 
 echo "=== summary ==="
 echo "processed: $file_count files"

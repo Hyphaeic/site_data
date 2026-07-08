@@ -169,6 +169,16 @@
             { "id": "exp_fdrs_mcf_threefolds_reading", "title": "Reading List", "path": "experiments/maths/fdrs-mcf-threefolds/READING.md", "type": "ARTIFACT" },
             { "id": "exp_fdrs_mcf_threefolds_negative", "title": "Negative Controls & Guards", "path": "experiments/maths/fdrs-mcf-threefolds/NEGATIVE.md", "type": "ARTIFACT" }
           ]
+        },
+        {
+          "id": "exp_fdrs_resolution_trajectories",
+          "title": "FDRS Resolution Trajectories",
+          "type": "DIR",
+          "children": [
+            { "id": "exp_fdrs_resolution_trajectories_overview", "title": "Overview", "path": "experiments/maths/fdrs-resolution-trajectories/README.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_resolution_trajectories_results", "title": "Results (T1-T3)", "path": "experiments/maths/fdrs-resolution-trajectories/results.md", "type": "ARTIFACT" },
+            { "id": "exp_fdrs_resolution_trajectories_negative", "title": "Negative Controls & Errata", "path": "experiments/maths/fdrs-resolution-trajectories/NEGATIVE.md", "type": "ARTIFACT" }
+          ]
         }
       ]
     }

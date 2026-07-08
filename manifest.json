@@ -563,29 +563,22 @@
   ],
   "philosophy": [
     {
-      "id": "axioms",
-      "title": "axioms",
-      "type": "DIR",
-      "children": [
-        {
-          "id": "philosophy_axioms_summary_of_thesis",
-          "title": "Summary Of Thesis",
-          "path": "philosophy/axioms/summary_of_thesis.md",
-          "type": "TEXT"
-        },
-        {
-          "id": "philosophy_axioms_the_oracle_imperative",
-          "title": "The Oracle Imperative",
-          "path": "philosophy/axioms/the_oracle_imperative.md",
-          "type": "TEXT"
-        },
-        {
-          "id": "philosophy_axioms_the_rats_gambit",
-          "title": "The Rats Gambit",
-          "path": "philosophy/axioms/the_rats_gambit.md",
-          "type": "TEXT"
-        }
-      ]
+      "id": "philosophy_summary_of_thesis",
+      "title": "Summary Of Thesis",
+      "path": "philosophy/summary_of_thesis.md",
+      "type": "TEXT"
+    },
+    {
+      "id": "philosophy_the_oracle_imperative",
+      "title": "The Oracle Imperative",
+      "path": "philosophy/the_oracle_imperative.md",
+      "type": "TEXT"
+    },
+    {
+      "id": "philosophy_the_rats_gambit",
+      "title": "The Rats Gambit",
+      "path": "philosophy/the_rats_gambit.md",
+      "type": "TEXT"
     }
   ]
 }

@@ -212,13 +212,36 @@ trap 'rm -rf "$TMP"' EXIT
 file_count=0
 added_count=0
 
+echo "Interactive manifest update"
+echo "==========================="
+echo
+echo "For each new file, you'll be prompted for three fields:"
+echo
+echo "  id    — unique routing identifier (short, lowercase, snake_case)"
+echo "          becomes the path-chain key in the store (e.g., org/team)"
+echo "          must be unique across the entire manifest"
+echo
+echo "  title — display name shown in the OS UI"
+echo "          appears in the TITLE column cell (with ▸ prefix for directories)"
+echo
+echo "  type  — category tag that determines UI styling and viewer routing"
+echo "          maps to a colored badge in the CATEGORY column"
+echo "          TEXT → THEORY bucket, PAPER → research papers, ARTIFACT → experiment records"
+echo
+
 for rel in "${NEW_FILES[@]}"; do
     file_count=$((file_count + 1))
     echo "[$file_count/${#NEW_FILES[@]}] $rel"
 
     auto_defaults "$rel" "$MANIFEST"
 
+    # Compute parent and top early for explanations
+    parent="$(dirname "$rel")"
+    top="${parent%%/*}"
+
     # id
+    echo "  [id] routing identifier — must be unique, lowercase, snake_case"
+    echo "       becomes ${top}/${AUTO_ID} in the store's path-chain"
     prompt final_id "  id" "$AUTO_ID"
     if id_exists "$final_id" "$MANIFEST"; then
         final_id="$(unique_id "$final_id" "$MANIFEST")"
@@ -226,11 +249,21 @@ for rel in "${NEW_FILES[@]}"; do
     fi
 
     # title
+    echo "  [title] display name — shown in the OS file browser TITLE cell"
     prompt final_title "  title" "$AUTO_TITLE"
 
     # type
+    echo "  [type] category tag — determines viewer routing and colored badge"
+    echo "         TEXT: prose essays (renders as THEORY)"
+    echo "         SYSTEM: architecture/system docs"
+    echo "         THEORY: theoretical work"
+    echo "         PAPER: research papers"
+    echo "         INFO: reference/informational docs"
+    echo "         RESULT: experiment results"
+    echo "         ARTIFACT: experiment records (charters, summaries, negatives, glossaries)"
+    echo "         GRAPH: SVG diagrams (auto-detected for .svg)"
+    echo "         IMAGE: raster images (auto-detected for .png/.jpg/.jpeg)"
     valid_types=(TEXT SYSTEM THEORY PAPER INFO RESULT ARTIFACT GRAPH IMAGE)
-    echo "  valid types: ${valid_types[*]}"
     prompt final_type "  type" "$AUTO_TYPE"
     final_type="${final_type^^}"
 
@@ -245,10 +278,6 @@ for rel in "${NEW_FILES[@]}"; do
 
     # Build the proposed entry
     entry="$(jq -nc --arg id "$final_id" --arg title "$final_title" --arg path "$rel" --arg type "$final_type" '{id:$id, title:$title, path:$path, type:$type}')"
-
-    # Determine parent path
-    parent="$(dirname "$rel")"
-    top="${parent%%/*}"
 
     # Show proposed entry
     echo

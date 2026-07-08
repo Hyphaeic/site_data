@@ -1,8 +1,20 @@
 # Results — fdrs-value-semigroup (PV.1–PV.4)
 
+**Headline.** For a plane branch, the ring's order filtration is an **exact mixed-radix system**.
+The value semigroup Γ (the orders that functions actually achieve) is free/telescopic, so every
+`n ∈ Γ` has a *unique* representation `n = Σ cᵢ v̄ᵢ` — digits bounded by radices `nᵢ = e_{i−1}/eᵢ`
+(the gcd tower), place values the generators `v̄ᵢ`. That is the Apéry normal form the charter asked
+for, promoted to the full tower, with the Apéry set falling out as the bounded-digit tuples rather
+than needing its own hypothesis. Verified exactly (integer-only, two independent oracles) on **248
+single-pair cusps + 3 multi-exponent branches**, and the cross-family identity
+`δ(C₁∪C₂) = δ₁ + δ₂ + (C₁·C₂)` closes the three-bridge program. Everything invoked is classical
+(Zariski / Apéry / Kunz / Delgado) — encoded and exactly verified; nothing new claimed.
+
 Executed 2026-07-07 against the pre-registered charter. Exactness ladder: **SageMath** oracle
 (`LaurentSeriesRing(ℚ)` valuations + Zariski generator formula) and a **Rust `no_std`** mirror
-(independent ℤ-only reimplementation). All figures exact; no floats anywhere.
+(independent ℤ-only reimplementation). All figures exact; no floats anywhere. Battery: all
+single-pair cusps `(p,q)`, `p<q≤30`, `gcd=1` (248), plus 3 multi-exponent branches
+`(4;6,7)`, `(6;8,9)`, `(8;12,14,15)` where `g>1` (so the span-vs-monomial gap and freeness bite).
 
 ## Verdict
 
@@ -22,7 +34,7 @@ For every branch, `Γ ∩ [0, c+2m]` computed by **(a)** the ℚ-linear span of 
 y(t)^b` (row-reduced; pivots = achievable orders) and **(b)** the classical generator semigroup
 `⟨v̄₀,…,v̄_g⟩` **coincide exactly**. The span path is what makes this non-trivial for `g>1`:
 monomial *orders* alone give only `⟨v̄₀,v̄₁⟩`; the higher generators are reached only by
-cancellation combinations (e.g. `y²−x³ = 2t¹³+… ` supplies `v̄₂=13` for `(4;6,7)`), which the
+cancellation combinations (e.g. `y²−x³ = 2t¹³+…` supplies `v̄₂=13` for `(4;6,7)`), which the
 linear span captures and monomial sampling cannot. This is the completeness that certifies each
 gap (`F-V-sample`).
 
@@ -105,7 +117,7 @@ Freeness — the plane-branch property — is strictly stronger than and indepen
 (`⟨5,6,7,8⟩` witnesses the gap). No new singularity mathematics: connection, encoding, and exact
 verification.
 
-### The three-bridge closure (the sentence to promote)
+### The three-bridge closure
 The original program named three bridges: toric/HJ resolution, Puiseux coupling, and the
 order-filtration. This family is the third, and PV.4 is where all three meet in one identity:
 > **`δ(C₁∪C₂) = δ(C₁) + δ(C₂) + (C₁·C₂)`**

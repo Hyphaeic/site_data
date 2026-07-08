@@ -45,6 +45,7 @@ A Phase-7 `(state, Ω, Γ)` triple over the toric lattice `ℤ³`:
 | **H-M1c** (Ashikaga ≡ economic) | The Ashikaga-CF digit sequence reproduces *exactly* the economic ray set `{v_k}` (generator (a) ≡ generator (b)). | **F-M1-ashikaga** — any anchor where the Ashikaga digits and the economic rays diverge. |
 | **H-M1d** (ladder parity) | A `no_std` Rust mirror of the law reproduces the Sage oracle's smoothness verdict and the discrepancy vector for the whole battery, bit-for-bit. | **F-M1-parity** — any anchor where Rust and Sage disagree. |
 | **H-M1e** (canonicity) | The economic resolution is the **unique** smooth toric resolution on the essential ray set across the battery (extending the 5-anchor M0.4 finding — the anchor's target is canonical, so the algorithm-space content is *paths not destinations*). | **F-M1-canon** — any battery anchor admitting ≥2 smooth resolutions on its essential rays. |
+| **H-M1f** (law shape / placement) | The anchor law is **tree-shaped** — star subdivision spawns up to `n−1` singular children (dim 2 = chain, dim 3 = binary tree; the dimension is what turns chain into tree). Its honest corpus placement — **Phase-7 with tree-shaped state** vs **Phase-8 routed forest of Phase-7 laws** (cf. P5 'forests') — is **tested, not assumed**. | **F-M1-chain** — presenting the dim-3 law as a linear chain (glossing the branching). *Decision criterion:* is there cross-branch coupling / is Phase-8 routing *required* to express emission, or does self-similar tree-state suffice? |
 
 ### Battery
 
@@ -84,6 +85,39 @@ worked headline.
   happens to generate this resolution; the algorithm space is the point.
 
 ---
+
+## M1 registration conditions (pinned at registration, per review — not discovered mid-run)
+
+The gate cleared M1 (P1 precedent: an exactness/existence result need not be gated on a
+no-go). Three things are pinned *now* so a mid-run retreat can't read as post-hoc scope-trim:
+
+1. **The M2 no-go debt is a registered open obligation, not prose.** Wall 2 dissolved at the
+   anchor (M0.4), so the designed negative is owed *off*-anchor. The family **cannot close**
+   without either siting the no-go at M2 (non-terminal/flops) or recording why not. Registered
+   as **OB-1** in `README.md` → Open obligations, so it survives a green M1.
+
+2. **Enumeration-cost policy + battery symmetry convention (for H-M1e).**
+   - *Enumeration policy.* Smooth-resolution uniqueness (H-M1e) is checked by **exact
+     triangulation enumeration only for `r ≤ 13`** — essential-ray triangulation counts stay
+     ≲10⁶ (r=5→32, 7→256/280, 9→2768/2412, growing ~×8 per step). For **`r > 13`, H-M1e is
+     recorded "untested by enumeration for this r"** — never silently assumed. (A structural
+     forced-unimodular-triangulation proof is an M1 stretch, not a registration commitment.)
+     H-M1a/b/c/d run the full `R_max = 60` (cheap: per-fan `is_smooth` + elementary age).
+   - *Symmetry convention.* Battery = one representative per **`a ↔ r−a`** class (trivial
+     coordinate swap of the two weights; fixed-point-free for `r>2`, ≈`φ(r)/2` reps). **`a ↔
+     a⁻¹ mod r` (Riemenschneider) is kept DISTINCT** — same singularity up to generator change,
+     but the CF/law and its dual resolution differ, and that duality is a phenomenon to
+     *observe*, not quotient away. Battery size `= Σ_{r=2}^{60} #{a↔r−a classes}`, stated at
+     registration.
+
+3. **The law is tree-shaped — placement tested, not assumed (H-M1f above).** *The first
+   structurally new thing dim 3 forces on the framework.* Dim 2: each HJ step leaves one
+   residual cone → **chain** (clean Phase-7, P1). Dim 3: star subdivision spawns up to `n−1=2`
+   singular children → **binary tree** (the worked `¹⁄7(1,3,4)` is a 6-node tree; state =
+   multiset of active cones; digits per-branch). The corpus placement — **Phase-7-with-tree-
+   state vs Phase-8 routed forest** (cf. the P5 'forests' finding) — is an H-M1 item decided by
+   a coupling test, *not* an implementation detail. This is the P5-style placement question at
+   the front door.
 
 ## The phase ladder beyond M1 (sketched, not registered — sequence subject to M1's outcome)
 

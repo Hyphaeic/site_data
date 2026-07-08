@@ -165,6 +165,17 @@ drops, which is the well-founded termination measure); (3) subdivision rays lie 
 (4) termination on rational input. `Ω` satisfying (1)–(4) = a point in the admissible
 algorithm space = a **Phase-7 law family** member.
 
+**The structural novelty dim 3 forces — the law is a tree, not a chain.** In dim 2 each HJ
+step leaves exactly one residual singular cone: the law is a **chain**, cleanly Phase-7 (P1).
+In dim 3 the star subdivision at the Oka center spawns up to **`n−1=2` singular children** (one
+subcone is smooth by the Oka-center definition) — the worked `¹⁄7(1,3,4)` is a 6-node **binary
+tree** — so the state is a *multiset of active cones* and digits are emitted per-branch. **The
+dimension is exactly what turns chain into tree.** Whether this is *one Phase-7 law with
+tree-shaped state* or a *Phase-8 routed forest of Phase-7 laws* (cf. P5's 'forests') is the
+honest open placement question — arguably the first structurally new thing dimension 3 forces
+on the framework, registered as **M1 hypothesis H-M1f** (tested, not assumed), not glossed as
+an implementation detail.
+
 **Sharpened by the (S)/(T) split (M0.1):** the arithmetic MCFs (JPA/Brun/…) are sense-(S)
 dynamics; whether any satisfies (1)–(4) *as a resolution of the anchor* (sense-(T)) is the
 open, exploratory content — the space of admissible `Ω` is the space of **(T)-laws**, and

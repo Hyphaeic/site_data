@@ -119,7 +119,9 @@ success of the process, not a failure.
   · **verdict: GATE CLEARS, recommend proceed to M1** *(rev. after review: authentic Ashikaga
   `¹⁄7(1,3,4)` ladder, (S)/(T) landscape, Wall-2 dissolution)*
 - [x] `M1-draft.md` (written, **unregistered**) · `READING.md`
-- [ ] **← GATE: human review of `SCOPING.md`** → register M1, or "scoped and parked" *(yours)*
+- [x] **GATE (reviewed): M1 CLEARED** with 3 registration conditions (`M1-draft.md` → M1
+  registration conditions); designed-negative debt registered as **OB-1** below. *(P1
+  precedent: an exactness/existence result is not gated on a no-go)*
 
 ### M0 headline findings (rev. after review)
 - Anchor **confirmed & canonical**: terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic
@@ -138,6 +140,15 @@ success of the process, not a failure.
 - **Designed negative relocated:** both candidate walls fail as no-gos *at the anchor* (Wall 2
   dissolves — canonical; Wall 1 is Hermite-open). The terminal anchor is the **clean corner**;
   the negative is owed off-anchor (non-terminal/flops, M2). *M1 (like P1) need not be gated on it.*
+
+## Open obligations (registry-level — cannot be silently closed)
+
+- **OB-1 (the M2 no-go debt).** M0.4 relocated the designed negative off the terminal anchor
+  (Wall 2 dissolved into a canonicity result; the anchor is the clean corner). The family
+  **must not close** without either **siting the no-go at M2** (non-terminal / canonical
+  quotients — genuine flops / minimal-model non-uniqueness) or **recording why not**.
+  Registered explicitly so it survives a green M1. Owner: `volition-billy`. **Status: OPEN,
+  owed at M2.**
 
 ## References
 

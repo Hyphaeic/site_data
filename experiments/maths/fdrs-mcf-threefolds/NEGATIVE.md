@@ -52,7 +52,9 @@ likely first-class outcome is a *designed negative* (M0.4) or an honest "scoped 
    subdivision that *resolves a singularity*. **No arithmetic MCF has a (T)-reading** — (T)
    lives only in HJ, Klein sails, and Ashikaga. Expository "MCFs resolve singularities"
    silently swaps in HJ or Klein; attributing a (T)-reading to JPA/Brun is the folklore error.
-   This is `F-3-ST-conflation`. (Corrects an earlier draft prior that singled out JPA/Brun.)
+   This is `F-3-ST-conflation`. (Corrects a prior the **reviewer himself held** — expecting
+   genuine (T)-entries for JPA/Brun — i.e. adversarial verification catching folklore on the
+   *review* side too, not just in the draft. Worth keeping in the record.)
 
 ---
 

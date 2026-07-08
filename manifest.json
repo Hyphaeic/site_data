@@ -1,50 +1,6 @@
 {
-  "org": [
-    {
-      "id": "team",
-      "title": "TEAM",
-      "path": "org/team.md",
-      "type": "TEXT"
-    },
-    {
-      "id": "corp_cyb",
-      "title": "CORPORATE CYBERNETICS",
-      "path": "org/corporate_cybernetics.md",
-      "type": "SYSTEM"
-    },
-    {
-      "id": "hmc",
-      "title": "HYPHAIEC MARINE CORP",
-      "path": "org/hyphaeicMarineCorp.md",
-      "type": "SYSTEM"
-    },
-    {
-      "id": "spc",
-      "title": "HYPHAIEC SPC",
-      "path": "org/hyphaeicSPC.md",
-      "type": "SYSTEM"
-    }
-  ],
-  "axioms": [
-    {
-      "id": "thesis",
-      "title": "SUMMARY OF THESIS",
-      "path": "axioms/summary_of_thesis.md",
-      "type": "THEORY"
-    },
-    {
-      "id": "rats_gambit",
-      "title": "THE RATS GAMBIT",
-      "path": "axioms/the_rats_gambit.md",
-      "type": "THEORY"
-    },
-    {
-      "id": "oracle_imp",
-      "title": "THE ORACLE IMPERATIVE",
-      "path": "axioms/the_oracle_imperative.md",
-      "type": "THEORY"
-    }
-  ],
+  "org": [],
+  "axioms": [],
   "experiments": [
     {
       "id": "math_experiments",

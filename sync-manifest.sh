@@ -89,14 +89,16 @@ fi
     echo
 }
 
-if [[ ${#NEW_FILES[@]} -eq 0 ]]; then
-    echo "no new files to process."
+if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 ]]; then
+    echo "no changes needed."
     exit 0
 fi
 
-echo "new files (not in manifest):"
-printf '  + %s\n' "${NEW_FILES[@]}"
-echo
+[[ ${#NEW_FILES[@]} -gt 0 ]] && {
+    echo "new files (not in manifest):"
+    printf '  + %s\n' "${NEW_FILES[@]}"
+    echo
+}
 
 # -------- helpers --------
 derive_id() {
@@ -179,29 +181,66 @@ auto_defaults() {
 
 # -------- dry-run: just show what would happen --------
 if [[ $APPLY -eq 0 ]]; then
-    echo "dry-run: showing proposed entries (no changes will be made)"
-    echo "pass --apply to interactively add entries to manifest.json"
+    echo "dry-run: showing proposed changes (no changes will be made)"
+    echo "pass --apply to interactively update manifest.json"
     echo
 
-    for rel in "${NEW_FILES[@]}"; do
-        auto_defaults "$rel" "$MANIFEST"
-        parent="$(dirname "$rel")"
-        top="${parent%%/*}"
+    if [[ ${#NEW_FILES[@]} -gt 0 ]]; then
+        echo "Entries to add:"
+        echo "---------------"
+        for rel in "${NEW_FILES[@]}"; do
+            auto_defaults "$rel" "$MANIFEST"
+            parent="$(dirname "$rel")"
+            top="${parent%%/*}"
 
-        echo "  $rel"
-        echo "    id:    $AUTO_ID"
-        echo "    title: $AUTO_TITLE"
-        echo "    type:  $AUTO_TYPE"
-        if [[ "$parent" == "$top" ]]; then
-            echo "    target: top-level array \"$top\""
-        else
-            echo "    target: nested DIR under $parent"
-        fi
-        echo
-    done
+            echo "  $rel"
+            echo "    id:    $AUTO_ID"
+            echo "    title: $AUTO_TITLE"
+            echo "    type:  $AUTO_TYPE"
+            if [[ "$parent" == "$top" ]]; then
+                echo "    target: top-level array \"$top\""
+            else
+                echo "    target: nested DIR under $parent"
+            fi
+            echo
+        done
+    fi
+
+    if [[ ${#DRIFT_PATHS[@]} -gt 0 ]]; then
+        echo "Entries to remove (files no longer exist):"
+        echo "--------------------------------------------"
+        for path in "${DRIFT_PATHS[@]}"; do
+            # Extract entry details from manifest
+            entry_json=$(jq -c --arg p "$path" '
+                def find_entry:
+                    . as $in
+                    | if type == "array" then
+                        .[] | select(.path == $p)
+                    elif type == "object" then
+                        if .path == $p then .
+                        elif .children then .children[] | find_entry
+                        else empty
+                        end
+                    else empty
+                    end;
+                first(.[] | find_entry)
+            ' "$MANIFEST")
+
+            if [[ -n "$entry_json" ]]; then
+                id=$(echo "$entry_json" | jq -r '.id')
+                title=$(echo "$entry_json" | jq -r '.title')
+                type=$(echo "$entry_json" | jq -r '.type')
+                echo "  $path"
+                echo "    id:    $id"
+                echo "    title: $title"
+                echo "    type:  $type"
+                echo
+            fi
+        done
+    fi
 
     echo "=== summary ==="
-    echo "${#NEW_FILES[@]} new file(s) found. run with --apply to add them."
+    echo "${#NEW_FILES[@]} file(s) to add, ${#DRIFT_PATHS[@]} file(s) to remove."
     exit 0
 fi
 
@@ -331,10 +370,98 @@ for rel in "${NEW_FILES[@]}"; do
     echo
 done
 
+# -------- removal phase --------
+removed_count=0
+
+if [[ ${#DRIFT_PATHS[@]} -gt 0 ]]; then
+    echo
+    echo "Removal phase: ${#DRIFT_PATHS[@]} stale entries detected"
+    echo "=============================================="
+    echo
+    echo "These manifest entries reference files that no longer exist on disk."
+    echo "For each entry, confirm removal to clean up the manifest."
+    echo
+
+    for path in "${DRIFT_PATHS[@]}"; do
+        echo "Stale entry: $path"
+
+        # Extract entry details from manifest
+        entry_json=$(jq -c --arg p "$path" '
+            def find_entry:
+                . as $in
+                | if type == "array" then
+                    .[] | select(.path == $p)
+                elif type == "object" then
+                    if .path == $p then .
+                    elif .children then .children[] | find_entry
+                    else empty
+                    end
+                else empty
+                end;
+            first(.[] | find_entry)
+        ' "$MANIFEST")
+
+        if [[ -z "$entry_json" ]]; then
+            echo "  [warn] could not locate entry in manifest"
+            echo
+            continue
+        fi
+
+        id=$(echo "$entry_json" | jq -r '.id')
+        title=$(echo "$entry_json" | jq -r '.title')
+        type=$(echo "$entry_json" | jq -r '.type')
+
+        echo "  id:    $id"
+        echo "  title: $title"
+        echo "  type:  $type"
+        echo
+
+        read -r -p "  remove this stale entry? [y/N] " confirm
+        if [[ "${confirm,,}" != "y" ]]; then
+            echo "  kept (manifest still references missing file)"
+            echo
+            continue
+        fi
+
+        # Remove from manifest
+        # Determine if this is a top-level or nested entry
+        parent="$(dirname "$path")"
+        top="${parent%%/*}"
+
+        if [[ "$parent" == "$top" ]]; then
+            # Top-level entry: remove from top-level array
+            jq --arg key "$top" --arg p "$path" '
+                .[$key] |= map(select(.path != $p))
+            ' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
+        else
+            # Nested entry: remove from children array
+            jq --arg p "$path" '
+                def remove_entry:
+                    . as $in
+                    | if type == "object" then
+                        if .children then
+                            .children |= map(select(.path != $p) | remove_entry)
+                        else .
+                        end
+                    elif type == "array" then
+                        map(select(.path != $p) | remove_entry)
+                    else .
+                    end;
+                . | with_entries(.value |= remove_entry)
+            ' "$MANIFEST" > "$TMP/tmp.json" && mv "$TMP/tmp.json" "$MANIFEST"
+        fi
+
+        removed_count=$((removed_count + 1))
+        echo "  ✓ removed from manifest"
+        echo
+    done
+fi
+
 echo "=== summary ==="
 echo "processed: $file_count files"
 echo "added: $added_count entries"
-if [[ $added_count -gt 0 ]]; then
+echo "removed: $removed_count stale entries"
+if [[ $added_count -gt 0 || $removed_count -gt 0 ]]; then
     echo "manifest.json updated."
 else
     echo "no changes made."

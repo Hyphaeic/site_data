@@ -587,6 +587,24 @@
       "title": "HYPHAEIC",
       "path": "info/HYPHAEIC.md",
       "type": "INFO"
+    },
+    {
+      "id": "info_corporate_cybernetics",
+      "title": "Corporate Cybernetics",
+      "path": "info/corporate_cybernetics.md",
+      "type": "INFO"
+    },
+    {
+      "id": "info_hyphaeicmarinecorp",
+      "title": "Hyphaeic Marine Corp.",
+      "path": "info/hyphaeicMarineCorp.md",
+      "type": "INFO"
+    },
+    {
+      "id": "info_team",
+      "title": "Team",
+      "path": "info/team.md",
+      "type": "INFO"
     }
   ]
 }

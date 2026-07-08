@@ -72,7 +72,28 @@ battery `n ≤ N` with exact method M; transcript at P").
 
 ---
 
-## Falsifier table (P1–P4 landed 2026-07-07; statuses below reflect the corrected runs)
+## Fraud gallery — P5–P7 continuation (seeded pre-run, Amendment 2)
+
+11. **"In path coordinates, adjacency = prefix — a discovery!"** FALSE framing. The Wahl-path
+    chart was *built* so that QG-smoothing adjacency (defined in P3 as Wahl edges) is
+    parent-child. `494/494` in path coordinates is a **tautology**, the same fact as P3's
+    `0/494` in HJ coordinates. The finding is the **chart change**, never the hit rate
+    (`F5-tautology`).
+12. **"The HJ↔path map is a rechart."** FALSE. Phase-5.3 recharts preserve the value; the Wahl
+    move **changes `(n,q)`**. If no corpus home fits the value-changing law morphism, the honest
+    record is **"placement open,"** not a forced fit (`F5-transport`).
+13. **"An SB / run-length rule relating the word to the HJ digits."** Only if **exactly
+    verified on the whole forest**. A rule tuned per-stratum after looking, or stated on a
+    sample, is `F5-fitted`. No rule visible ⇒ record the negative.
+14. **"The component set fits on a (dual-augmented) single line."** FALSE by the Catalan no-go
+    (P3): a single-line prefix metric has linearly many predecessors, the components are
+    Catalan-many. Any single-line encoding of the CS component set is `F6-forest`.
+15. **"The strict Thm-89 ledger balances."** Vacuous unless the check **can fail**. `issued =
+    consumed + pending` that reduces to `ord(gh)=ord g+ord h` is the E-5 mistake again. A
+    pre-registered mis-ordered **mutant must violate** it live, or the H7 result is void
+    (`F7-vacuous`).
+
+## Falsifier table (P1–P7 landed 2026-07-07; statuses below reflect the corrected runs)
 
 | ID | Fires when | Kills | Status |
 |---|---|---|---|
@@ -87,6 +108,12 @@ battery `n ≤ N` with exact method M; transcript at P").
 | **F-P4-proximity** | keying the coupling on multiplicity-sequence lcp not the proximity tree | the P4 encoding | **DEMONSTRATED** — bare-sequence lcp mis-scores satellite contact (`y²=x³ vs y²=x⁵`: `4 ≠ 6`); the proximity-tree encoding is the one used |
 | **F-P4-ledger** | asserting strict `issued=consumed+pending` when only the weak form shown | the H4c claim | **RESPECTED** — strict form untested; the additive form is a *vacuous* valuation axiom, not asserted as evidence (E-5) |
 | **F-P4-clean** | claiming a clean single-odometer routing reproduced the tree | the raggedness narrative | **HONORED** — no clean routing claimed; raggedness exhibited (unequal shared multiplicities, P4.3) |
+| **F5-tautology** | presenting H5b (adjacency=prefix in path coords) as a discovery | the P5 framing | **HONORED** — H5b explicitly recorded as the chart; the finding is the chart change |
+| **F5-independence** | validating H5a against the path construction itself | the P5 anchor | **HONORED** — oracles are `is_t` + the P1 HJ law, both independent of the moves |
+| **F5-transport** | calling HJ↔path a Phase-5.3 rechart | the transport claim | **HONORED** — it is value-changing, not a rechart; placement recorded **open** |
+| **F5-fitted** | an H5d rule stated without exact full-forest verification | the SB claim | **HONORED** — H5d is a clean negative; the nT-SB structure is a labelled observation |
+| **F6-forest** | encoding the CS component set as a single line | H6b's object | **HONORED** — Catalan-many ⇒ single-line impossible (structural, from H6a); multi-line forced |
+| **F7-vacuous** | a ledger check that reduces to a valuation axiom | H7 | **HONORED & DEMONSTRATED** — two mutants fire (balance-break, total-break); the check is not a tautology |
 
 ---
 
@@ -184,13 +211,34 @@ recorded only as a code smoke test. **H4c true status: strict UNTESTED, weak VAC
 and open. `F-P4-ledger` respected (no corpus-thesis claim). Establishing (or refuting) the
 strict ledger, and extending to ≥4-branch networks, is the natural P4 continuation.
 
+> **SUPERSEDED by P7 (Amendment 2, `runs/2026-07-07-p7-ledger/`).** The strict ledger is now
+> **realizable, non-vacuously**: a level-sweep issue/consume/pending machine satisfies
+> `issued = consumed + pending` at every step (pending nonzero mid-sweep, total = Sage-native
+> oracle) on 3- and 4-branch germs, with two mutants that **break** the check (F7-vacuous
+> honored). NEG-2's "weak form vacuous" stands as the P4 record; the strict form is no longer
+> untested — see H7.
+
+### NEG-3 — the naive CS-component characterization is REFUTED (P6, first-class)
+
+**Pre-registered (P5-P7-CONTINUATION.md, H6b):** test whether a singularity's deformation
+components are the admissible zero-chains dominated by its HJ chain.
+
+**Result (`runs/2026-07-07-p6-cs-components/`).** REFUTED by cross-check against known counts:
+`A₁=[2]` gives 0 dominated admissible zero-chains though A₁ is a smoothable RDP (1 component);
+`A₃=[2,2,2]` gives 2 though the RDP has 1. So the raw domination count is **not** the
+deformation-component number — the correct Stevens correspondence is subtler than a dominated
+count. What survives exactly: **H6a** (admissible zero-chains = Catalan `C_{e−1}`, with the
+*corrected* characterization — bare `K=0` over-counts) and **F6-forest** (Catalan-many ⇒ no
+single-line encoding, the P3 no-go). The full component-adjacency poset is deferred. Honest
+negative, not a failure — the naive characterization was tested and does not hold.
+
 ### Deferred (bounded-completeness "not computed here")
 
-- **Full Christophersen–Stevens component-adjacency.** Only the component *count* (Catalan)
-  is cited and its prefix-inexpressibility proven by the linear-vs-Catalan no-go. Which
-  milder singularity sits on which CS component boundary — the complete deformation
-  adjacency poset — is **not** enumerated in this charter, so no direct CS-adjacency vs
-  prefix percentage is claimed. A future charter could compute it (Stevens' zero-chains /
-  Altmann's Minkowski decompositions) and is the natural continuation.
-- **P4 strict ledger + ≥4-branch networks** — see NEG-2; the strict Thm-89 balance and full
-  multi-branch networks are deferred (H4a/H4b landed; H4c weaker-only).
+- **Full Christophersen–Stevens component-adjacency.** H6a (Catalan count) is solid and the
+  single-line no-go (F6-forest) is proven; but the raw dominated-count is *not* the component
+  number (NEG-3), and the actual component-adjacency poset (Stevens' incidence / Altmann's
+  Minkowski decompositions) is **not** built here. Deferred.
+- **P5 transport placement.** The HJ↔path map is a *value-changing* law morphism (P5, H5c) —
+  **not** a Phase-5.3 rechart (F5-transport). Its corpus home is recorded **open**, not forced.
+- **P7 general networks + first-principles Thm-89.** H7 shows realizability on 3–4 branches; a
+  ≥5-branch sweep and a from-first-principles derivation of the ledger are the continuation.

@@ -13,6 +13,9 @@ encoding + verification).
 | **P2 — blow-down ≡ carry-normalization** | Castelnuovo `(a,1,b)→(a−1,b−1)` ≡ value-preserving rechart/`enc∘dec` (NOT successor); preserves `(n,q)` | **PASS (exact)** | `runs/2026-07-07-p2-blowdown/`: 3043 pairs (`n≤100`), blow-up/down preserve `(n,q)`, reduction confluent; **F-carry exercised** — 4/4 successor edits break `(n,q)`; toric star-subdivision 2443/2443; Rust mirror 5/5 |
 | **P3 — ultrametric vs adjacency** | prefix ultrametric (gauge=continuant) vs deformation adjacency, 3 strata (A_n hit · CS contested · T-sing miss) | **PARTIAL (as pre-registered)** | `runs/2026-07-07-p3-adjacency/`: S1 **hit** 59/59; S2 **miss** 0/494 across **d=1..8** (502/502 T-verified); S3 Spearman **0.026** + Catalan no-go; Rust mirror 9/9 |
 | **P4 — Puiseux multi-branch (Amendment 1)** | intersection multiplicity as the coupling ledger of a Phase-14 network (proximity-keyed) | **PASS (H4a/H4b) · H4c open** | `runs/2026-07-07-p4-{calibration,headline}/`: tracker=Sage-native oracle 8/8, satellite falsifier fired (seqlcp 4≠6), headline `(C₁·C₂)=4` (literal over ℚ(i)), raggedness exhibited, δ label oracle 10/10; H4c strict untested/weak vacuous; Rust mirror 9/9 |
+| **P5 — Wahl-path law (Amendment 2)** | HJ↔path transport; what is conserved across the Wahl move | **PASS · headline** | `runs/2026-07-07-p5-path-law/`: H5a bijection; H5b tautology (P3's `0/494` = this `494/494`, two charts); **H5c d-invariant `494/494`, (n,q) grows** ("value dies, d survives"); H5d clean negative; Rust 10/10 |
+| **P6 — CS components (Amendment 2)** | zero-chain count; component-set encoding | **H6a PASS · H6b NEGATIVE** | `runs/2026-07-07-p6-cs-components/`: H6a admissible zero-chains = Catalan (corrected from bare `K=0`); H6b naive characterization **refuted by A_n**; F6-forest structural; poset deferred |
+| **P7 — strict ledger (Amendment 2)** | H4c strict Thm-89 on ≥3-branch germs, non-vacuously | **H7 PASS** | `runs/2026-07-07-p7-ledger/`: balance every step, pending nonzero, total=oracle (11/19); **both mutants fire** (F7-vacuous); supersedes NEG-2 vacuity; Rust 13/13 |
 
 **Through-line.** The HJ resolution *is* an exact FDRS Phase-7 radix law whose gauge is the
 group order (P1); blow-down is carry's value-preserving **normalization** role, not the
@@ -21,9 +24,44 @@ order** but is a coarse, mostly-blind shadow of the **deformation order** (P3, p
 that **same contact/tree structure faithfully carries the intersection multiplicity** of
 coupled Puiseux branches, as the proximity-keyed coupling ledger of a Phase-14 network (P4).
 The sharp arc: **prefix misses deformation (P3) but captures contact (P4)** — one ultrametric,
-opposite faithfulness on two geometric questions. Everything exact and mirror-checked where it
-is exact; the geometric hypotheses are honestly bounded (H2 partial; H4c weaker-conservation
-only). No new singularity mathematics — a classical correspondence, encoded and verified.
+opposite faithfulness on two geometric questions. Amendment 2 owns the *change of law*: the
+Wahl move that P3's chart was blind to is a **value-changing law morphism** that preserves the
+stratum `d` (P5 — "value dies, d survives"); the CS component structure is Catalan-many and
+single-line-impossible, with the naive component characterization honestly refuted (P6); and
+H4c's strict interface ledger is realized non-vacuously with firing mutants (P7). Everything
+exact and mirror-checked where it is exact; the geometric hypotheses are honestly bounded (H2
+partial; H4c strict now *realizable* per P7; H6b naive characterization negative). No new
+singularity mathematics — classical correspondences (HJ, Wahl/KSB, Stevens, Noether, Thm 89),
+encoded and verified.
+
+## Corpus placement (Phase-13 gauge layer — the CF-gauge theory)
+
+The **law** (digit emission `Ω=⌈n/q⌉`, `Γ`) is deliberately Phase-7 (Def 89/103) — the singularity
+is a context-dependent radix system, not a subshift-*generated* gauge (README). But the **gauge
+machinery** the phases build by hand *is* Phase-13's continued-fraction gauge theory, which the
+first pass under-cited (the law/gauge split hid it):
+
+- **P1's gauge** (`|det| = n = continuant`) is **`Def 181 (the convergent-pair ledger)`**: the
+  `SL₂(ℤ)` state `(p_{k−1},p_k;q_{k−1},q_k)` under the convergent recurrence, whose gauge is the
+  denominator `q_k`. HJ's minus-CF continuant `pᵢ = aᵢpᵢ₋₁ − pᵢ₋₂` is the `[[a,±1],[1,0]]` step; the
+  transition `|det| = 1` is **`Thm 72 (the bracket invariant)`**. **`Def 181` is `❌ missing` in
+  Lean** — so P1/P4 are geometric witnesses for it.
+- **P4's coupling ledger** is `Def 181` in its coupled (multi-branch) form — the convergent-pair
+  ledger with an interface, tying to the Phase-14 §14.6 balance.
+- **P5's gauge growth** ("value dies, `d` survives"; `n = d·nT²` climbing along Wahl paths) is
+  **`Thm 73 (gauge growth: qₖ > 0, qₖ → ∞, even for φ)`** — the corpus's theorem that the
+  convergent denominator grows without bound (even for the all-1 golden-mean word).
+- **P3's prefix ultrametric** (`δ = gauge(lcp)⁻¹`, gauge = continuant) is **`Def 183 (the
+  gauge-induced CF distance `cfDist = 1/q_ℓ`)`**, with **`Thm 74` (cfDist is a genuine ultrametric)**
+  and **`Thm 75` (ball = cylinder)** as its formal backing — P3 used exactly `1/q_ℓ`, the
+  Phase-13 gauge, not the Phase-1 base product.
+
+So: the **law is Phase-7**, the **gauge/ultrametric/ledger/growth are Phase-13** (Def 181/183, Thm
+72/73/74/75). No new mathematics — the phases are geometric instances of, and witnesses for (Def 181
+being unformalized), the corpus's CF-gauge layer. (Ref: `docs/fdrs.md` §13.2–13.3,
+`Modes/VariableRadix/SubshiftWeight.lean`, `.../SubshiftMetric.lean`.) *Watch-point:* Phase-13's
+`Thm 71` "free `d=1`" is the subshift's single-state case — **not** the T-singularity/star stratum
+`d`; the two `d`'s are unrelated and the pun is not claimed.
 
 ## P1 — exact anchor (2026-07-07) · PASS
 
@@ -194,3 +232,73 @@ Noether/Enriques classical.
 
 **Reproduce.** `cd source/sage && sage p4_calibration.sage && sage p4_headline.sage` ·
 `cd source/rust && cargo test --offline`
+
+---
+
+# Amendment 2 (P5–P7) — the Wahl-path law, CS components, the strict ledger
+
+Charter `P5-P7-CONTINUATION.md`, pre-registered before code. P5–P7 own the *change of law*
+between the HJ chart and the Wahl-path chart, promote the P3-deferred CS components, and make
+H4c's strict ledger genuinely refutable.
+
+## P5 — the Wahl-path law and the HJ↔path transport (2026-07-07) · PASS (headline)
+
+**Setup.** Each T-singularity encoded two ways: the HJ Phase-7 law (P1) and the **Wahl-path
+law** `(root, word)` — `root ∈ {[4]} ∪ {[3,2ᵐ,3]}` (the d-stratum), `word ∈ {m1,m2}*` (constant
+radix 2). Study the pair and the map between.
+
+- **H5a (bijection): HOLDS.** `(root, word)` reconstructs the chain; the 502 forest nodes are
+  distinct paths, all verified T by the corrected `is_t`, all round-trip through the P1 HJ law —
+  the two oracles independent of the moves (`F5-independence` honored).
+- **H5b (tautology, smoke test):** every Wahl edge is a one-move path-prefix (494/494) *by
+  construction*. **P3's `0/494` (HJ chart) and this `494/494` (path chart) are the same fact in
+  two charts** — the finding is the chart change, never the hit rate (`F5-tautology` honored).
+- **H5c (the real result): CONFIRMED — "value dies, d survives."** Across all **494** Wahl
+  moves, `d(parent) = d(child)` (494/494) and `(n,q)` strictly changes (494/494). The Wahl move
+  preserves the stratum `d` while changing the value. The continuant grows as `n = d·nT²` with
+  `nT` ascending per depth (`2 / 3 / {4,5} / {5,7,8}` — mediant/Stern-Brocot-shaped), recorded
+  not forced. One law's tick (path digit emission) is the other's non-local two-ended edit.
+- **H5d (SB rule): clean negative.** The pre-registered run-length↔HJ-digit rule holds only
+  trivially (length bookkeeping) or not at all (`2/494`); the genuine SB structure sits in the
+  `nT` growth, recorded as an observation, not fitted (`F5-fitted` honored).
+- **`F5-transport`:** HJ↔path is a **value-changing** law morphism (changes `(n,q)`), so **not**
+  a Phase-5.3 rechart; its corpus placement is recorded **open**, not forced. Rust `mod p5`
+  reproduces the bijection + d-invariance sweep (10/10). `F-exact` silent.
+
+## P6 — Christophersen–Stevens components (2026-07-07) · H6a PASS, H6b NEGATIVE
+
+- **H6a (anchor): CONFIRMED, with a corrected characterization.** The Stevens zero-chains are
+  **admissible** (`kᵢ≥1`, minus-continuant `K=0`, **all proper-prefix continuants > 0**), *not*
+  bare `K=0` — which over-counts from length 5 (`21,75,266`). Admissibility restores Catalan
+  exactly (`1,2,5,14,42,132,429,1430`, e=2..9; max entry `e−1`, the triangulation bound).
+- **H6b (the bet): NEGATIVE on the naive characterization.** "Components = admissible zero-chains
+  dominated by the HJ chain" is **refuted by the A_n cross-check**: `A₁=[2]→0` though A₁ is a
+  smoothable RDP (1 component); `A₃=[2,2,2]→2` though the RDP has 1. So the dominated-count is
+  *not* the deformation-component number — the correct Stevens correspondence is subtler.
+  Building the actual component-adjacency poset is **deferred** (bounded-completeness).
+- **F6-forest CONFIRMED (structural).** Admissible zero-chains number `C_{e−1}` (super-linear)
+  while a single prefix-line has ~`e` predecessors, so no single-line (dual-augmented or not)
+  encodes the component set — the P3 Catalan no-go, now load-bearing. Rust `mod p6` mirrors the
+  Catalan count and the A_n refutation (recorded as **NEG-3**).
+
+## P7 — the strict Thm-89 interface ledger (2026-07-07) · H7 PASS
+
+H4c was untested and its weak form vacuous (E-5). P7 makes the strict `issued = consumed +
+pending` **non-vacuous**: sweep the shared resolution tree of a ≥3-branch germ **level by
+level** — ISSUE a coupled pair's `mᵢ(d)·mⱼ(d)` into `(issued, pending)`; CONSUME a pair's pending
+into `consumed` when it separates.
+
+- **H7: HOLDS.** 3-branch `{y=x², y=x²+x⁵, y²=x³}`: total `11` = Sage-native oracle, balance
+  `issued=consumed+pending` at **every** step, pending nonzero mid-sweep (max 8). 4-branch (adds
+  `x²=y³`): total `19` = oracle, balance every step (satellite contact included).
+- **`F7-vacuous`: guard fired.** Two mutants break the check — `forget_decrement` (consume
+  without decrementing pending) **breaks the balance**; `double_issue` (inflate issued) makes the
+  total `32 ≠ 19`. So the balance is a genuine machine invariant, **not** the `ord(gh)=ord g+ord
+  h` valuation axiom of E-5.
+- **Verdict.** Multi-branch intersection accounting **is realizable** as a strict Thm-89 interface
+  ledger with a real in-flight register — a constructive realizability + non-vacuous check, not a
+  new theorem (that's Noether). **Supersedes NEG-2's "weak form vacuous."** Rust `mod p7` mirrors
+  the ledger + firing mutants (13/13). `F-exact` silent.
+
+**Reproduce.** `cd source/sage && sage p5_path_law.sage && sage p6_cs_components.sage && sage p7_ledger.sage`
+· `cd source/rust && cargo test --offline`

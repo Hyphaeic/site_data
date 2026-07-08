@@ -43,7 +43,10 @@ state (n,q)  →  digit a = ⌈n/q⌉ ,  next state (q, a·q − n)      termina
 
 Each `aᵢ` is one exceptional divisor `Eᵢ` with self-intersection `Eᵢ·Eᵢ = −aᵢ`; the
 chain is linear. We encode this as a **deterministic context-dependent radix system**
-(Phase 7, Def 89 / Def 103), NOT as a Phase-13 generated gauge:
+(Phase 7, Def 89 / Def 103), NOT as a Phase-13 generated gauge — but note the **law/gauge split**:
+the *law* (digit emission) is Phase-7; the *gauge* it computes (the continuant `q_k`, its prefix
+ultrametric, its coupled ledger, its growth) **is** Phase-13's convergent-pair ledger and CF
+distance. See `results.md` "Corpus placement (Phase-13 gauge layer)":
 
 - **context** `C = {(n,q) : 0<q<n, gcd=1} ∪ {⊥}`; **initial context** `c₀ = (n,q)`;
 - **evolution** `Γ((n,q)) = (q, a·q − n)` with `a = ⌈n/q⌉` (deterministic);
@@ -265,6 +268,18 @@ experiments/maths/fdrs-hj-singularities/
       oracle 10/10; **H4c open** (strict untested, weak vacuous). Runs
       `runs/2026-07-07-p4-{calibration,headline}/`; Rust mirror 9/9; P4 errata E-4/E-5/E-6.
       **The P3↔P4 hinge confirmed: prefix misses deformation (P3), captures contact (P4).**
+- [x] **Amendment 2 (P5–P7) PRE-REGISTERED + BUILT (2026-07-07)** — `P5-P7-CONTINUATION.md`:
+  - [x] **P5 — Wahl-path law · PASS (headline).** `(root,word)` bijection; H5b tautology (P3's
+        `0/494` = path-chart `494/494`); **H5c: value `(n,q)` dies, stratum `d` survives, 494/494**
+        (`n=d·nT²`, `nT` Stern-Brocot-shaped); H5d clean negative; HJ↔path is a value-changing
+        law morphism, **not** a rechart (F5-transport, placement open). Rust `mod p5`.
+  - [x] **P6 — CS components · H6a PASS, H6b NEGATIVE.** admissible zero-chains = Catalan
+        (corrected from bare `K=0`); naive "components = dominated zero-chains" **refuted by A_n**
+        (NEG-3); F6-forest structural. Rust `mod p6`.
+  - [x] **P7 — strict Thm-89 ledger · H7 PASS.** balance `issued=consumed+pending` every step,
+        pending nonzero, total = Sage-native oracle (11/19); **both mutants fire** (F7-vacuous);
+        **supersedes NEG-2's vacuity** — the strict form is realizable. Rust `mod p7`.
+  - Rust suite 13/13; runs `runs/2026-07-07-p{5,6,7}-*/`.
 
 **THE P1–P3 ARC IS COMPLETE (2026-07-07).** The HJ resolution is an exact FDRS Phase-7
 radix law (P1, gauge = |det| = n = |group|, three oracles + bit-identical Rust mirror);

@@ -114,4 +114,11 @@ number. Two witnesses pin it where order alone is blind: the perfect-group `E₈
 triangle `det ↔ Seifert ↔ group` closes with each edge computed independently. No new mathematics;
 a classical correspondence, encoded as a Phase-14 network and verified as an isomorphism.
 
+**Corpus placement (Phase-13 + Phase-14).** Each **arm gauge** `nᵢ` is an HJ continuant — Phase-13's
+`Def 181` convergent-pair gauge `q_k` (the arm chains are minus-CFs, `Thm 72` `|det|=1`, `Thm 73`
+growth); the **network** glues them at a hub, so the star gauge is a **coupled convergent-pair
+ledger** — `Def 181` in its Phase-14 §14.6 coupled form, the same object as P4's ledger and the
+star analog of H-S3. `Def 181` is `❌ missing` in Lean; this family (with the HJ P1/P4) is a
+geometric witness for it. (Ref: `docs/fdrs.md` §13.2, §14.6.)
+
 **Reproduce.** `cd source/sage && sage ps_star_quotients.sage` · `cd source/rust && cargo test --offline`

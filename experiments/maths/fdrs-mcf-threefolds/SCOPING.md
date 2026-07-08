@@ -1,274 +1,262 @@
 # SCOPING.md — Phase M0 (report only; gates M1+)
 
 **Experiment:** `fdrs-mcf-threefolds`. **Phase:** M0 (scoping, no run-emitting code).
-**Date:** 2026-07-07. **Rules:** ADR-007 (this report answers the pre-registered M0
-questions), ADR-008 (honest-broker). Literature grounded via the deep-research harness
-(23 sources, 22/25 claims survived 3-vote adversarial verification) + an in-workspace Sage
-oracle-capability smoke test (below). Every claim is graded; every "open" is flagged.
+**Date:** 2026-07-07 (rev. after review). **Rules:** ADR-007 (answers the pre-registered M0
+questions), ADR-008 (honest-broker). Grounded via two deep-research passes (landscape +
+Ashikaga rule) with adversarial verification and explicit folklore flags, plus in-workspace
+Sage oracle/calibration probes (`m0-oracle-probe/`). Every claim graded; every "open" flagged;
+sourced-vs-inferred separated.
 
 ---
 
 ## Verdict (read first)
 
-**M0 CLEARS THE GATE. Recommendation: proceed to M1** (not "scoped and parked"). The three
-gates the charter set are met:
+**M0 CLEARS THE GATE. Recommendation: proceed to M1.** The anchor is not just real — it is
+*cleaner than the charter hoped* — and the review cycle **corrected two priors** and
+**dissolved one designed negative into a canonicity result**, all of which strengthen M1.
 
-1. **Anchor is real (M0.2).** Terminal `¹⁄ᵣ(1,a,r−a)` is classified (terminal lemma;
-   Reid YPG Thm 5.2), and its **economic (Danilov–Barlow) resolution is a fully-determined,
-   distinguished construction** with exceptional discrepancies **exactly `1/r,…,(r−1)/r`**.
-   Better than the charter hoped: there is a *named algorithm* — **Ashikaga's continued
-   fraction → the Fujiki–Oka resolution** — that generates this resolution's subdivision
-   moves as continued-fraction digits (Sato–Sato, arXiv:2108.02402). The M1 anchor law is
-   not hypothetical; it exists in the literature and awaits Phase-7 encoding.
-2. **Oracle is adequate (M0.3 / F-3-anchor).** The numerical oracle (discrepancy,
-   terminality) is *elementary* (the age formula) and owned in-house; the fan oracle is
-   **Sage toric in verify-mode**, smoke-tested here on 4 anchors (all certified smooth).
-   The division of labor is exactly the exactness-ladder shape: **the radix law generates
-   the subdivision; Sage verifies smoothness; the age formula gives discrepancies** — three
-   independent computations that already agree.
-3. **The negative is designed (M0.4).** Two theorem-shaped boundaries are stated below
-   (Hermite non-periodicity; toric-flip non-uniqueness), so a refutation lands as a
-   boundary, not a disappointment.
+1. **Anchor real and canonical (M0.2).** Terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic
+   resolution has discrepancies **exactly `1/r,…,(r−1)/r`**, no crepant divisor. Its law
+   **exists and is sourced**: Ashikaga's continued fraction (round-down + remainder maps) →
+   the Fujiki–Oka resolution, which *coincides with* the economic resolution for this family
+   (Sato–Sato, arXiv:2108.02402 §3). Worked authentically for `¹⁄7(1,3,4)` below.
+2. **Anchor is a *canonical* corner (new, from the review).** The economic resolution is the
+   **unique** smooth toric resolution on the essential ray set — verified `1`-of-`{32…2768}`
+   across 5 anchors (`wall2_multi.sage`). So a single deterministic law captures it with **no
+   choice** — the P1-like clean anchor.
+3. **Oracle adequate and correctly shaped (Part C / F-3-anchor).** Discrepancy/terminality =
+   *elementary* age formula (owned); smoothness = Sage *verify*-mode (law generates, Sage
+   certifies). Three independent computations agree.
 
-**The single most important honest caveat:** the strong claim that "every 3-fold terminal
-singularity is resolved by a minimal-discrepancy weighted-blow-up ladder" was **refuted**
-in verification (0–3 against arXiv:1310.6445). Only the **cyclic-quotient** economic
-resolution is established, and *its distinguishedness/uniqueness among all toric resolutions
-of the cone was not confirmed*. So the anchor is solid **only inside `F-3-scope`** (cyclic
-quotients, terminal-first) — which is exactly where the charter drew the line.
+**Two priors corrected this cycle (the honest-broker dividend):** (a) "JPA/Brun have special
+subdivision readings" — **no**: simplex-splitting (Lagarias) is a whole-family property, and
+*toric-resolution* readings belong to none of the arithmetic MCFs; (b) "some MCFs have known
+non-periodic cubic counterexamples" — **no**: Hermite is open both ways for all classical
+MCFs, with no proven non-periodic classical cubic.
 
----
+**One designed negative relocated (M0.4):** both candidate walls fail *as no-gos at the
+anchor* — Wall 2 dissolves (canonical resolution), Wall 1 is Hermite-open (a frontier, not an
+impossibility). The terminal anchor admits **no** clean no-go; the negatives live off-anchor
+(non-terminal/canonical family — genuine flops) and are owed at M-later, not M1.
 
-## M0.1 — Landscape (grounded; the two real bridges, and the honest Hermite status)
-
-### The dim-2 template the experiment generalizes (fully proven — this is what P1–P3 verified)
-
-Every affine toric-surface singularity **is** a cyclic quotient `¹⁄d(1,k)`, and the HJ
-minus-continued-fraction `d/k=[[b₁,…,bᵣ]]` (all `bᵢ≥2`) computes **exactly** its minimal
-toric resolution; the CF ray-generators are simultaneously (a) the cone's Hilbert basis and
-(b) the lattice points on the bounded edges of `Conv(σ∩(N∖0))` — the **2-D Klein sail** —
-with `Eₖ²=−bₖ` and dual graph a chain (Cox–Little–Schenck GSM 124 §10.1–10.2, Thms 10.2.3/
-10.2.5/10.2.8, credited to Klein; Popescu–Pampu arXiv:math/0506432 Prop 6.2). *This is the
-one place "continued-fraction = resolution" is a theorem; the whole experiment is the
-question of what survives the loss of its dim-2 canonicity.*
-
-### The landscape table
-
-| Algorithm | Step rule (Ω) | Convergence | Periodic on cubics? | Explicit toric-**resolution** reading? | Phase-7 encodable? |
-|---|---|---|---|---|---|
-| **HJ (dim 2)** | `(n,q)↦(⌈n/q⌉, …)` minus-CF | terminates (rational) | — (Lagrange, dim 2) | **YES, theorem** — minimal resolution (CLS §10) | yes (P1) |
-| **Klein sails** (geometric MCF) | boundary of `Conv(σ∩(N∖0))`; digit = next sail vertex/facet | geometric object, well-defined | **totally-real cubics: PROVEN** (Korkina/Lachaud, Lagrange-type); complex-conjugate: **OPEN** | **YES** — sail = Hilbert-basis structure of the cone (Karpenkov, *Geom. of Continued Fractions*; German, Moussafir) | as a set-valued law, not a simple sequential digit |
-| **Ashikaga CF → Fujiki–Oka** ★ | round-down polynomial + remainder polynomial on proper fractions | terminates (resolves a rational cone) | N/A (finite on rational data) | **YES, EXPLICIT** — generates the economic resolution of `¹⁄ᵣ(1,a,r−a)` step-by-step (Sato–Sato arXiv:2108.02402, citing Ashikaga, Kyoto J. Math. 2019) | **yes — this is the M1 anchor law** |
-| **Jacobi–Perron (JPA)** | `α↦({α₂/α₁},…,{1/α₁})`-type map (Schweiger 2000) † | weak conv. known; strong conv. not always | **OPEN / mostly negative**; Karpenkov's sin²-variant proven only for **totally-real** cubics (arXiv:2101.12707) | steps are unimodular (act on fans) but **no verified reading as a cyclic-quotient resolution** | yes (deterministic digit rule) |
-| **Brun** | subtract 2nd-largest from largest coordinate † | weak conv. a.e. | OPEN (same front) | **not established/verified this pass** | yes |
-| **Selmer** | subtract smallest from largest † | weak conv. a.e. | OPEN | **not established/verified** | yes |
-| **Mönkemeyer / fully-subtractive** | piecewise-linear subtractive maps † | partial | OPEN | **not established/verified** | yes |
-
-★ the anchor's algorithm. † **step rules for JPA/Brun/Selmer/Mönkemeyer/fully-subtractive
-are stated at textbook level (Schweiger, *Multidimensional Continued Fractions*, OUP 2000,
-flagged as the standard reference) and were NOT independently verified in this research pass
-— a coverage gap, recorded honestly. Their exact maps and convergence are an M0.1-addendum
-item if the experiment ever needs them; the anchor (M1) does not.**
-
-### The two honest headlines of the landscape
-
-- **The bridge to *resolutions* runs through only two constructions, not the whole zoo.**
-  The classical *arithmetic* MCFs (JPA, Brun, Selmer, …) are number-theoretic; **none has a
-  verified reading as a resolution procedure for cyclic quotients.** The verified bridges are
-  (i) **Klein sails** (geometric, = Hilbert-basis/convex-hull structure) and (ii) **Ashikaga
-  → Fujiki–Oka** (the anchor). *This sharpens the algorithm-space thesis: encoding an
-  arithmetic MCF as a subdivision law is itself exploratory and a likely first-class
-  negative ("MCF X does not yield a resolution"), not a given.*
-- **`F-3-canon` is confirmed well-founded, with a precise current front.** No classical MCF
-  is periodic exactly on cubics (the Hermite problem). Karpenkov's sin²-algorithm (Acta
-  Arith. 203, 2022) is the **first** Jacobi–Perron-type algorithm proven periodic on cubics
-  — **but only totally-real cubics; the complex-conjugate-root case is OPEN for all
-  MCF-type algorithms** (arXiv:2101.12707; corroborated by EPSRC EP/W006863/1, ongoing).
-  Klein sails have proven Lagrange-type periodicity for hyperbolic operators (totally-real),
-  but this is **not** Hermite's converse (German–Lakshtanov arXiv:math/0607084 corrected the
-  converse). **No periodicity claim in this experiment may exceed "totally-real cubics."**
+**Standing scope caveat:** the "general 3-fold terminal resolved by a weighted-blow-up ladder"
+claim was **refuted** in verification (0–3, arXiv:1310.6445). Only the *cyclic-quotient*
+economic resolution stands — the anchor is solid **only inside `F-3-scope`**.
 
 ---
 
-## M0.2 — The decidable anchor: terminal `¹⁄ᵣ(1,a,r−a)` (CONFIRMED, worked by hand)
+## M0.1 — Landscape: two senses of "subdivision," and the honest Hermite status
 
-**Classification (the terminal lemma).** A 3-fold cyclic quotient `X=A³/μᵣ` is **terminal**
-iff, up to permutation of coordinates and change of generator, it is of type `¹⁄ᵣ(1,a,r−a)`
-with `gcd(a,r)=1` (Reid YPG Thm 5.2, attributed to White, Morrison–Stevens, Danilov,
-Frumkin; restated as Thm 1.1 in Sato–Sato arXiv:2108.02402; geometric normal form =
-White's empty-tetrahedron theorem, arXiv:1004.3411). Decidable, enumerable, isolated — the
-dim-3 `A_n`.
+### The dim-2 template the experiment generalizes (fully proven — what P1–P3 verified)
 
-**Age criterion (Reid–Tai).** `X` of type `¹⁄ᵣ(a₁,…,aₙ)` is terminal (resp. canonical) iff
-for every `k=1,…,r−1` the **age** `αₖ = (1/r)·Σᵢ (k·aᵢ mod r) > 1` (resp. `≥1`); the
-**discrepancy** of the corresponding exceptional divisor is `αₖ − 1` (Reid YPG Thm 4.11).
+Every affine toric-surface singularity **is** a cyclic quotient `¹⁄d(1,k)`; the HJ minus-CF
+`d/k=[[b₁,…,bᵣ]]` (`bᵢ≥2`) computes **exactly** its minimal toric resolution, the CF
+ray-generators being both the cone's Hilbert basis and the lattice points on the 2-D Klein
+sail, with `Eₖ²=−bₖ` (Cox–Little–Schenck GSM 124 §10; Popescu–Pampu arXiv:math/0506432
+Prop 6.2). *The one place "continued-fraction = resolution" is a theorem; the experiment asks
+what survives the loss of its dim-2 canonicity.*
 
-**Economic resolution (Danilov–Barlow).** Subdivide the cone along the `r−1` lattice points
-`v_k = (1/r)(k, ak mod r, (r−a)k mod r)`; the result is smooth with **exactly `r−1`
-exceptional divisors of discrepancies precisely `1/r, 2/r, …, (r−1)/r`**, all in `(0,1)`.
-These are the **essential** divisors — they occur in *every* resolution (Bouvier–González-
-Sprinberg: essential = Hilbert-basis elements). *(Reid YPG, Danilov §4 with R. Barlow;
-Sato–Sato arXiv:2108.02402; Chen arXiv:1310.6445 gives minimal discrepancy `1/r`.)*
+### The distinction that governs the whole table (this is where the folklore lives)
 
-### Worked example by hand — `¹⁄5(1,2,3)` (`r=5, a=2, r−a=3, gcd(2,5)=1`)
+- **(S) simplex-splitting** — the step subdivides a simplex/cone as a dynamical Markov
+  partition. **Genuine geometric content** (Lagarias, *Monatsh. Math.* 115, 1993). Shared by
+  JPA, Brun, Selmer, Mönkemeyer **on the same footing** — *not* exclusive to any.
+- **(T) toric resolution of singularities** — the fan subdivision *resolves* a singularity
+  (algebraic-geometry payload). Belongs to **HJ (dim 2), Klein sails, and Ashikaga** — and to
+  **none** of the arithmetic MCFs. **Attributing a (T)-reading to JPA/Brun is a folklore
+  error** (expository "MCFs resolve singularities" silently swaps in HJ or Klein sails).
 
-Because `3 ≡ −2 (mod 5)`, for `0<k<5` we have `{2k/5}+{3k/5}={2k/5}+{−2k/5}=1`, so the age
-telescopes:
+The experiment's object is **(T)**. So the arithmetic MCFs are candidate laws whose
+(T)-status is *itself* the open question — and the likely honest outcome of encoding one is a
+**negative** ("arithmetic MCF X is sense-S dynamics, not a sense-T resolution").
+
+### The table
+
+| Algorithm | Step rule (sourced) | Subdivision reading | Periodic on cubics? | Phase-7 (T)-law? |
+|---|---|---|---|---|
+| **HJ** (dim 2) | `(n,q)↦(⌈n/q⌉,…)` | **(T)** minimal resolution — *theorem* | — (Lagrange, quadratics) | yes (P1) |
+| **Klein sails** | boundary of `Conv(σ∩(N∖0))`; digit = next sail facet | **(T)** = Hilbert-basis structure (Tsuchihashi 1983; Karpenkov) | totally-real: **proven** (Korkina/Lachaud); complex: **open**; *not* Hermite's converse (German–Lakshtanov) | set-valued, not a sequential digit |
+| **Ashikaga → Fujiki–Oka** ★ | round-down `Zᵢ` + remainder `Rᵢ` (below) | **(T) EXPLICIT** — economic resolution of `¹⁄ᵣ(1,a,r−a)` (Sato–Sato 2108.02402 §3) | N/A (finite on rational data) | **yes — the M1 anchor** |
+| **Jacobi–Perron** | `T(x)=(x₂/x₁−⌊·⌋,…,1/x₁−⌊·⌋)` | **(S)** yes (Lagarias 1993); **(T) NO** | **(a)** open both ways; periodic families (Dubois–Paysant-Le-Roux 1975, Bernstein); **no proven non-periodic cubic** | candidate only (S≠T) |
+| **Brun** | subtract 2nd-largest from largest, reorder | **(S)** yes (Lagarias; Garrity TRIP literal triangle-subdivision); **(T) NO** | **(a)** open; convergent a.e.; **no proven non-periodic cubic** | candidate only |
+| **Selmer** | subtract smallest from largest, reorder | **(S)** yes (BST/JEMS 2023 groups it *with* Brun/JPA); **(T) NO** | **(a)** open; ergodic; **no proven non-periodic cubic** | candidate only |
+| **Mönkemeyer** | 2-branch fractional map split at `x₁+xₙ=1` | **(S)** yes — canonical triangle-subdivision base map (Garrity; Panti 2008); **(T) NO** | **(a)** open | candidate only |
+| **Fully-subtractive** | subtract smallest from every other | **(S)** genuine but **dynamically degenerate** (Rauzy gasket; diverges a.e. for `d≥3`, Kraaikamp–Meester 1995); **(T) NO** | **(a)** open; distinctive proven a.e.-divergence, but **no named cubic** proven divergent | candidate only |
+
+★ the anchor. **Sourcing honesty:** step rules for the five arithmetic MCFs are verbatim from
+Labbé (arXiv:1511.08399), Berthé–Steiner–Thuswaldner (arXiv:1910.09386), Mercat
+(arXiv:2311.10046), Panti (arXiv:0705.0584) — **not** from Schweiger's OUP 2000 book directly
+(paywalled; cited via those). No "known non-periodic cubic" is claimed for any classical MCF
+(none exists in the swept literature). Confidence: step rules HIGH; (S)/(T) split HIGH;
+"(T)-absent for arithmetic MCFs" MOD–HIGH.
+
+### Two headlines
+
+- **The resolution bridge is narrow.** Sense-(T) — the experiment's actual subject — runs
+  through **HJ / Klein sails / Ashikaga only**. The arithmetic zoo is sense-(S). This is the
+  sharpened algorithm-space thesis (M0.3).
+- **`F-3-canon` is well-founded, precisely.** Hermite is open both directions for every
+  classical MCF; **no** MCF's periodicity characterizes cubics. Karpenkov's sin²-algorithm
+  (Acta Arith. 2022) reaches **totally-real cubics only, via a non-classical algorithm** —
+  the complex-conjugate case is open. Folklore ("JPA periodic ⇔ cubic", "Karpenkov solved
+  Hermite", Garrity-family "iff cubic") **flagged and forbidden**.
+
+---
+
+## M0.2 — The decidable anchor `¹⁄ᵣ(1,a,r−a)`: confirmed, with the law worked authentically
+
+**Classification / age / economic resolution:** unchanged and sourced — terminal ⟺
+`¹⁄ᵣ(1,a,r−a)`, `gcd(a,r)=1` (Reid Thm 5.2); age `αₖ=(1/r)Σ(k·aᵢ mod r)>1`; economic rays
+`vₖ=(1/r)(k, ak mod r, (r−a)k mod r)`, discrepancies `1/r,…,(r−1)/r`, no crepant (Reid,
+Danilov §4; Sato–Sato; the exact "`1/r..(r−1)/r`" sentence is *assembled* from sourced pieces,
+verified in-workspace, not a verbatim quote).
+
+### The anchor law (sourced — the M1 target is not hypothetical)
+
+Ashikaga's CF as a Phase-7 triple (from Sato–Sato 2108.02402 / crepant-paper 2004.03522,
+reproducing Ashikaga Defs 3.1/3.2; both maps self-verified against the papers'
+`¹⁄11(1,2,8)` example; full extraction in `m0-oracle-probe/ashikaga-fujiki-oka.md`):
+
+- **State** = semi-unimodular proper fraction `(1,a₂,…,aₙ)/r`.
+- **Digit `Ω` = round-down `Zᵢ`** = componentwise `⌊·/aᵢ⌋` with `⌊−r/aᵢ⌋` at slot `i` — the
+  HJ generalization (its `n=2` coefficient series *is* the HJ CF).
+- **Ray + `Γ`** = emit the Oka center `C=(P₁+Σaᵢ Pᵢ)/r`, star-subdivide at `C`; successor
+  type = remainder `Rᵢ` (components mod `aᵢ`, `(−r) mod aᵢ` at slot `i`). Branch over
+  `i∈{2,…,n}`; halt at smooth (`|det|=1`) — the Base-0 Wall.
+
+### Worked calibration point `¹⁄7(1,3,4)` — the dim-3 analog of `7/3=[3,2,2]`
+
+Running the *sourced* Ashikaga rule (execution independent; cross-validated against
+`calibration_r7.sage`, same 13 cones & discrepancies). The recursion emits `r−1=6` Oka
+centers in tree order `v₁,v₃,v₂,v₅,v₄,v₆`:
+
 ```
-age(k) = {k/5} + {2k/5} + {3k/5} = {k/5} + 1  = 1 + k/5.
-  k=1: 6/5   k=2: 7/5   k=3: 8/5   k=4: 9/5      (all > 1  ⇒ TERMINAL)
-  discrepancies:  1/5,     2/5,     3/5,     4/5   (all in (0,1) ⇒ NO crepant divisor)
+()      (1,3,4)/7 → v1=(1/7)(1,3,4)
+ ├R2→ (2)   (1,2,1)/3 → v3=(1/7)(3,2,5)
+ │     └R2→ (2,2) (1,1,1)/2 → v5=(1/7)(5,1,6)  [smooth leaf]
+ └R3→ (3)   (1,3,1)/4 → v2=(1/7)(2,6,1)
+       └R2→ (3,2) (1,2,1)/3 → v4=(1/7)(4,5,2)
+             └R2→ (3,2,2) (1,1,1)/2 → v6=(1/7)(6,4,3)  [smooth leaf]
 ```
-Economic rays `v_k=(1/5)(k, 2k mod 5, 3k mod 5)`: `v₁=(1,2,3)/5, v₂=(2,4,1)/5,
-v₃=(3,1,4)/5, v₄=(4,3,2)/5`. In the toric chart `σ=Cone((5,−2,−3),(0,1,0),(0,0,1))⊂ℤ³`
-(basis `{f=(1/5)(1,2,3), e₂, e₃}` of `N=ℤ³+(1/5)(1,2,3)ℤ`, so `e₁=5f−2e₂−3e₃`), these are
-`(1,0,0),(2,0,−1),(3,−1,−1),(4,−1,−2)`.
-
-**Oracle-verified (Sage, in-workspace):** `σ` has multiplicity `|det|=5`, is not smooth;
-subdividing along the four `v_k` yields a **smooth** fan (Sage `Fan.is_smooth()==True`),
-`2r−1=9` maximal cones, and the four exceptional discrepancies computed via the toric
-support function `φ` (with `φ=1` on the three generators) reproduce `{1/5,2/5,3/5,4/5}` —
-**agreeing with the elementary age formula**. Same result verified for `¹⁄7(1,3,4)`,
-`¹⁄11(1,3,8)`, `¹⁄13(1,5,8)`. *(Scripts: `m0-oracle-probe/oracle_probe{,2}.sage` — scoping
-reconnaissance, not a run; to be promoted to `source/` under M1's provenance.)*
+Discrepancies `age(vₖ)−1 = k/7` for `k=1..6` (ages `8/7,…,13/7`); **13 smooth maximal cones**
+(Euler: `2·6+3−2=13`). And the **ladder closes as a gauge-monotone descent** — the max
+cone-multiplicity drops `7→4→3→3→2→2→1` digit by digit to smooth (`calibration_r7.sage`).
+*This is the "radix-law reading closes" that a bare economic-resolution table would not show.*
 
 ### The two charter questions, answered
 
-- **(i) "Is the economic ladder expressible as a single radix law?"** — **YES.** Ashikaga's
-  continued fraction (round-down + remainder) generates exactly this subdivision as a digit
-  sequence (Sato–Sato). Each step is a **weighted blow-up = star subdivision along a
-  primitive ray** (Chen arXiv:1310.6445). So M1 is well-posed: encode Ashikaga-CF as a
-  Phase-7 `(state, Ω, Γ)` triple. **Caveat:** the resolution's *uniqueness/distinguishedness
-  among all toric resolutions* was not confirmed by the literature pass; it is **canonical
-  as a construction, not proven the unique minimal object** (there is no minimal object in
-  dim 3). Do not call it "the" resolution — `F-3-canon`.
-- **(ii) "Does `gauge = |det| = group` survive; is it `r` or the discrepancy vector?"** —
-  **Both, at different resolutions of granularity, exactly as the surface lesson predicted.**
-  The crude datum survives: `|det(σ)| = r = |μᵣ| = mult(X)` (P1's gauge, verified above). But
-  the **rich** dim-3 invariant is the **ordered discrepancy vector `(1/r, 2/r, …, (r−1)/r)`**
-  — the essential-divisor spectrum. The naive "gauge = `r`" is the *coarse shadow*; the
-  discrepancy vector is the object that actually indexes the resolution. **This is the
-  abelianization-style correction the charter told us to expect** (the P1 gauge was `|det|`
-  but the informative content was finer): here `r` is a scalar, the discrepancy vector is
-  the true gauge.
+- **(i) economic ladder = a single radix law?** **Yes, sourced** — Ashikaga's CF, self-verified.
+  The identification "Ashikaga ≡ economic for `¹⁄ᵣ(1,a,r−a)`" is Sato–Sato §3 (M1's H-M1c
+  hand-checks it on the battery).
+- **(ii) `gauge = |det| = group`, or the discrepancy vector?** **Both, at different
+  granularity** (the abelianization-style correction the charter predicted): coarse `|det|=r=
+  |μᵣ|` survives (P1), but the *rich* invariant is the ordered **discrepancy vector
+  `(1/r,…,(r−1)/r)`** — the essential-divisor spectrum, which *indexes* the resolution.
 
 ---
 
-## M0.3 — Algorithm space as an FDRS object (formalized; conjecture graded)
+## M0.3 — Algorithm space as an FDRS object (formalized; conjecture graded; sharpened by S/T)
 
-**Admissibility of a digit rule `Ω` (what makes a point of algorithm space a *subdivision
-law*).** Four conditions, all Phase-7-native:
+**Admissibility of a digit rule `Ω`** (Phase-7-native): (1) each step is a star subdivision
+along a **primitive** ray (transition in `GL(3,ℤ)`); (2) **gauge-monotone** — the *active
+cone's* multiplicity strictly decreases toward the smooth Wall `|det|=1` (the HJ-`n`-descent
+analog; note the *global max* may plateau — `7→4→3→3→2→2→1` — while the active cone strictly
+drops, which is the well-founded termination measure); (3) subdivision rays lie in the cone;
+(4) termination on rational input. `Ω` satisfying (1)–(4) = a point in the admissible
+algorithm space = a **Phase-7 law family** member.
 
-1. **Lattice/unimodular:** every step is a star subdivision along a **primitive** lattice
-   vector; the step's transition matrix lies in `GL(3,ℤ)` on the active chart (a genuine
-   toric morphism, not a lossy map).
-2. **Gauge-monotone (progress):** each step strictly decreases the multiplicity `|det|` of
-   the active cone toward the smooth terminal `|det|=1`. *This is the direct Phase-7 analog
-   of the HJ recursion decreasing `n`, and of the "Base-0 Wall terminal" — smoothness is the
-   Wall.*
-3. **Containment:** subdivision rays lie inside the active cone (the fan is refined, never
-   coarsened).
-4. **Termination:** on rational input (a cyclic quotient) the law halts in finitely many
-   steps at a smooth fan.
+**Sharpened by the (S)/(T) split (M0.1):** the arithmetic MCFs (JPA/Brun/…) are sense-(S)
+dynamics; whether any satisfies (1)–(4) *as a resolution of the anchor* (sense-(T)) is the
+open, exploratory content — the space of admissible `Ω` is the space of **(T)-laws**, and
+much of the classical MCF zoo may lie *outside* it. Corpus fit: admissible-`Ω` ↔ Phase-7 law
+families; transports ↔ Phase-5.3 recharts (P5's `F5-transport`: recharts change value);
+law-sequences ↔ Phase-8 multi-timeline.
 
-`Ω` satisfying (1)–(4) = a point in the **admissible algorithm space** = a **Phase-7 law
-family** member. The economic/Ashikaga law is the distinguished, verified point; JPA/Brun/…
-are candidate points whose (1)–(4) status for cyclic-quotient resolution is *unestablished*
-(see M0.1). Corpus fit: the admissible-`Ω` space ↔ **Phase-7 law families**; transports
-between laws ↔ **Phase-5.3 recharts** (recall P5's `F5-transport`: recharts *change value*);
-sequences of laws ↔ **Phase-8 multi-timeline routing**.
-
-**The experiment-level conjecture — "discrepancy data is the conserved quantity classifying
-transports between subdivision laws" (the dim-3 analog of P5's `d`).** Grade:
-**TESTABLE ONLY AFTER SHARPENING — and it carries a tautology risk that must be pre-guarded.**
-
-- *Why it is at risk of being vacuous.* The essential discrepancies `{1/r,…,(r−1)/r}` occur
-  in **every** resolution (they are intrinsic to the singularity). So "discrepancy is
-  conserved across laws that resolve the *same* singularity" is **true by definition of
-  *essential*, and says nothing about the transport** — the exact shape of P5's `F5-tautology`
-  ("a valuation axiom is not evidence"). A positive result of this naive form would be a
-  fraud, not a finding.
-- *Why P5 escaped it, and how M1 must too.* P5's `d` was non-trivially conserved because the
-  **Wahl move changed the singularity** `(n,q)↦(n',q')` while preserving `d` ("value dies,
-  `d` survives"). The honest dim-3 test therefore needs a **law-morphism that changes the
-  singularity** (a Wahl-analog acting on `(r,a)`), and asks whether some discrepancy datum
-  transports across it; **or** it must look at the **non-essential** divisors a given law
-  adds *beyond* the essential spectrum, and ask whether *their* structure is law-invariant.
-  Either is a real test; the same-singularity/essential-only version is not.
-- **New guard seeded: `F-3-essential-tautology`** (see `NEGATIVE.md`) — any "discrepancy is
-  conserved" claim that reduces to "essential divisors are intrinsic" is refuted in advance.
+**Experiment-level conjecture — "discrepancy is the conserved quantity across subdivision-law
+transports" (the P5-`d` analog).** Grade: **testable only after sharpening; carries a
+pre-guarded tautology risk.** The essential discrepancies `{1/r,…,(r−1)/r}` are *intrinsic*
+(occur in every resolution — Bouvier–González-Sprinberg), so "conserved across laws resolving
+the *same* singularity" is vacuous — P5's `F5-tautology`. The real test needs a **Wahl-analog
+move on `(r,a)`** (a law-morphism that *changes* the singularity), as P5's Wahl move changed
+`(n,q)` while preserving `d`. **Guard `F-3-essential-tautology`** (see `NEGATIVE.md`); deferred
+to M4, and forbidden in the same-singularity form.
 
 ---
 
-## M0.4 — The designed negative (two boundary theorems)
+## M0.4 — The designed negative: examined, and honestly relocated
 
-Dimension 3 will refuse something; here is *what*, stated so a refutation is a boundary
-theorem (the role the Catalan no-go played in the surface family's P3/P6).
+Per the charter, the negative must be a *statement*, not a vibe. Making both candidate walls
+precise and testing them, **neither survives as a no-go at the terminal anchor** — and that
+finding is itself the M0.4 content.
 
-**Wall 1 — Hermite non-periodicity (sourced, sharp).**
-*A finite-state Phase-7 radix law cannot realize the resolution combinatorics of a
-non-totally-real cubic cone.* For cubic irrationals with a complex-conjugate pair of roots,
-**no MCF of any known type is eventually periodic** (open since the 19th century; still open
-after Karpenkov 2022, which reaches only totally-real cubics). A Phase-7 law with finitely
-many states produces eventually-periodic digit strings on algebraic input; therefore it
-**provably cannot** capture the (non-periodic) sail/expansion of a non-totally-real cubic
-direction. *This bounds the algorithm-space thesis precisely: the encoding is faithful for
-rational cones (the anchor, always finite) and totally-real cubic directions, and provably
-fails past that line.* Falsifier-shaped: exhibiting a finite-state law periodic on a
-complex-root cubic would refute the wall (and solve a famous open problem — so the wall is
-safe, and any such claim is almost certainly a bug).
+**Wall 2 (non-uniqueness / flops) — DISSOLVES at the anchor.** Statement tested: *"a
+deterministic law picks one of many smooth resolutions."* Test (`wall2_multi.sage`): the
+economic resolution is the **unique** smooth toric resolution on the essential ray set —
+`1` of `{32, 280, 256, 2768, 2412}` triangulations across `¹⁄5(1,2,3)`, `¹⁄7(1,2,5)`,
+`¹⁄7(1,3,4)`, `¹⁄9(1,2,7)`, `¹⁄9(1,4,5)`. The terminal anchor's resolution is **canonical**;
+a single `Ω` faces no choice. Wall 2 relocates to the **non-terminal / canonical** cyclic
+quotients (which *have* crepant divisors ⇒ genuine minimal-model non-uniqueness / flops —
+**the reviewer's original "Y", correctly located one scope-level out**) and general 3-folds —
+both outside `F-3-scope`.
 
-**Wall 2 — toric-flip non-uniqueness (the flop analog, made toric-precise).**
-*A single deterministic law selects one triangulation of the resolving fan; the set of
-smooth triangulations is a flip-connected poset (bistellar flips = toric flops), which one
-value cannot hold.* Terminal `¹⁄ᵣ(1,a,r−a)` has **no crepant divisor**, so classical crepant
-flops are absent — but the cone admits **many** smooth triangulations on the same ray set,
-connected by bistellar flips (the secondary-polytope / GKZ structure). A deterministic `Ω`
-outputs exactly one; the flip-equivalence class is genuinely larger and **provably not a
-single Phase-7 value**. *This is the sharpest contrast with the surface case: in dim 2 the
-triangulation is unique (the chain), so `Ω` and the geometry coincide; in dim 3 the value is
-an irreducibly non-canonical choice — which is the whole reason the experiment exists.*
+**Wall 1 (Hermite non-periodicity) — an OPEN frontier, not a proven no-go.** A finite-state
+Phase-7 law produces eventually-periodic digits (pigeonhole on states), so it captures a
+direction iff that direction has an eventually-periodic expansion. **Rational cones (the
+anchor): always finite, always captured.** **Cubic directions: gated on Hermite** — whether a
+non-totally-real cubic admits an eventually-periodic MCF is **open both ways** (no classical
+MCF proven periodic *or* non-periodic on complex-conjugate cubics). Hence a finite-state law
+capturing such a cubic would *resolve Hermite* — so Wall 1 is **not a proven impossibility**;
+it is the frontier where the encoding's reach meets a famous open problem. Honest: a
+*principled boundary* (provably works on rational cones; extension to cubic directions
+Hermite-open), **not** a Catalan-style no-go.
 
-Either wall, hit cleanly, is a first-class negative recorded in `NEGATIVE.md` — the honest
-"what one law cannot do."
+**Conclusion + grade.** The terminal anchor is the **clean corner**: it admits **no designed
+no-go** (Wall 2 dissolves; Wall 1 is open) — which is *exactly why it is the anchor* (P1 had
+none either). The loss-of-canonicity the experiment is about lives **off** the anchor. Honest
+grade: **"designed negative relocated off-anchor — owed at the non-terminal/flops phase
+(M-later), not at the terminal anchor."** Gate implication: like P1, **M1 is an
+exactness/existence result and need not be gated on a no-go**; the designed negative is owed
+before the off-anchor phase. *(The gate is yours — if you'd rather M1 be gated on siting the
+negative first, that is a defensible call.)*
 
 ---
 
-## Part C — Oracle adequacy (F-3-anchor): assessed by direct probe, not hearsay
-
-The research pass returned **no** verified claim on software adequacy (an honest gap). Rather
-than hand-wave, the oracle was smoke-tested in-workspace (SageMath, the P1–P7 environment):
+## Part C — Oracle adequacy (F-3-anchor): by direct probe
 
 | Oracle need | Tool | Verdict | Evidence |
 |---|---|---|---|
-| discrepancy / age / terminality | **elementary** (age formula, integer arithmetic) | **owned in-house; self-verifying** | `oracle_probe.sage`: terminal + `{k/r}` reproduced for `r∈{5,7,11,13}` |
-| certify a proposed subdivision is smooth | **Sage toric** `Fan.is_smooth()` | **adequate (verify-mode)** | `oracle_probe2.sage`: 4/4 anchors certified smooth |
-| *generate* a smooth resolution of a singular simplicial cone | Sage `resolve()` | **NOT available** (no-op without supplied rays) | probe v1: `resolve(make_simplicial=True)` added 0 rays |
-| Hilbert basis / essential divisors (cross-check) | **Normaliz** | available (not exercised this pass) | Normaliz computes cone Hilbert bases (docs) |
+| discrepancy / age / terminality | **elementary** age formula | **owned; self-verifying** | `oracle_probe.sage` (r∈{5,7,11,13}), `calibration_r7.sage` |
+| certify a subdivision is smooth | **Sage** `Fan.is_smooth()` | **adequate (verify-mode)** | `oracle_probe2.sage` (4/4), `calibration_r7*.sage` |
+| *generate* a resolution of a singular simplicial cone | Sage `resolve()` | **not available** (no-op) | probe v1 (0 rays) |
+| count smooth resolutions / triangulations | Sage `PointConfiguration` | **adequate** | `wall2_multi.sage` (uniqueness across 5 anchors) |
+| Hilbert basis cross-check | **Normaliz** | available (unused) | docs |
 
-**Conclusion:** the oracle situation is *adequate and, crucially, correctly shaped* — Sage is
-a **verifier**, not a generator, which is exactly the exactness-ladder role: the radix law
-(the experiment's object of study) *generates* the subdivision; the oracle *independently
-certifies* smoothness; the discrepancy invariant is elementary and closed-form. `F-3-anchor`
-is satisfiable. (polymake/Magma were not needed and not assessed; Normaliz is the natural
-second independent check for M1.)
+**Conclusion:** adequate and *correctly shaped* — Sage is a **verifier**, not a generator,
+which offloads exactly the thin dim-3 toric machinery the RFME worried about: the **law
+generates**, Sage **certifies smoothness** (determinant checks — the robust part), the
+**discrepancy is elementary**. `F-3-anchor` clears; a battery-scale timing check is an
+M1-kickoff item. *"Scoped and parked" was a live, respectable exit — it is not the outcome
+because the hard work moved to the law and to closed-form arithmetic.*
 
 ---
 
-## Sources (verified; full list in `READING.md`)
+## Sources (verified; full list + the corrections in `READING.md`)
 
-Reid, *Young Person's Guide to Canonical Singularities*, PSPUM 46 (1987), Thms 4.11 & 5.2,
-economic resolution (Danilov §4 w/ Barlow) — *theorem labels not OCR-confirmable (image
-scans); mathematical content verified against full copies; "semicrepant" is Reid's informal
-coinage, standard term is "essential."* · Sato–Sato, arXiv:2108.02402 (Fujiki–Oka via
-Ashikaga CF; economic resolution of `¹⁄ᵣ(1,a,r−a)`). · Morrison–Stevens, Proc. AMS 90 (1984);
-White, arXiv:1004.3411 (empty-simplex normal form). · Karpenkov, *Geometry of Continued
-Fractions* (Springer, 2013) + habilitation + arXiv:math/0411031 (Klein sails; Korkina/Lachaud
-periodicity). · Karpenkov, arXiv:2101.12707 (sin²-algorithm; totally-real cubics; complex
-case open). · Lee, arXiv:1810.11676 (AJPA = enumerated families). · German–Lakshtanov,
-arXiv:math/0607084 (converse corrected). · Cox–Little–Schenck, *Toric Varieties* GSM 124 §10;
-Popescu–Pampu arXiv:math/0506432 (dim-2 template). · Chen, arXiv:1310.6445 (weighted blow-up
-= subdivision; min discrepancy `1/r`; **general "ladder for all terminals" REFUTED 0–3**). ·
-Tsuchihashi (Tohoku 35, 1983), Moussafir (FAA 34, 2000), German (Proc. Steklov 239, 2002)
-(periodic MCF ↔ cusps; sails ↔ Hilbert bases). · Schweiger, *Multidimensional Continued
-Fractions* (OUP, 2000) — step-rules reference, **not independently verified this pass**.
+**Anchor:** Reid, *YPG* PSPUM 46 (1987) Thms 4.11/5.2 + economic resolution (Danilov §4 w/
+Barlow) — *image-scan, not OCR-quotable; "semicrepant"=Reid's coinage, std "essential."* ·
+Sato–Sato arXiv:2108.02402 (*canonical* cyclic quotients; Fujiki–Oka≡economic) + arXiv:
+2004.03522 (defines the round-down map) reproducing **Ashikaga, Kyoto J. Math. 59(4) (2019)**
+Defs 3.1/3.2 (*paywalled — via Sato–Sato*) · Y. Sato, *Tokyo J. Math.* 45(1) (2022) (binary
+trees; abstract only) · Morrison–Stevens *Proc. AMS* 90 (1984); White arXiv:1004.3411 ·
+Cox–Little–Schenck GSM 124 §10; Popescu–Pampu arXiv:math/0506432 · Chen arXiv:1310.6445
+(**general ladder REFUTED 0–3**) · Tsuchihashi (*Tohoku* 35, 1983); Bouvier–González-Sprinberg.
+**MCF landscape:** Lagarias *Monatsh. Math.* 115 (1993) (simplex-splitting) · Berthé–Steiner–
+Thuswaldner arXiv:2005.13038 (JEMS 2023), arXiv:1910.09386 · Panti arXiv:0705.0584 ·
+Dasaratha–Flapan–Garrity et al. arXiv:1206.7077, arXiv:1208.4244 (TRIP) · Fougeron
+arXiv:2001.01367 · Labbé arXiv:1511.08399; Mercat arXiv:2311.10046 (step rules) · Karpenkov
+arXiv:2101.12707 (Acta Arith. 2022) + arXiv:2101.12627 (Monatsh. Math. 2024); Karpenkov–van
+Son arXiv:2410.13091 (proven-aperiodic cubic — JPA *variant*) · Murru arXiv:1305.3285;
+Řada–Starosta–Kala arXiv:2307.00898 (Hermite open) · Kraaikamp–Meester 1995 (fully-subtractive
+a.e. divergence — *result high-confidence, not verbatim*) · Dubois–Paysant-Le-Roux 1975;
+Bernstein LNM 207 (1971). Schweiger, *Multidimensional Continued Fractions*, OUP 2000 — **not
+fetched directly**.

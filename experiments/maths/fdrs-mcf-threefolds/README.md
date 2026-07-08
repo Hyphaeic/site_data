@@ -114,23 +114,30 @@ success of the process, not a failure.
 
 - [x] Charter (this document) — scoping-gate structure, guards, M0 questions — before any code
 - [x] `NEGATIVE.md` guards seeded (+ `F-3-essential-tautology` added in M0.3; statuses filled)
-- [x] M0 scoping — grounded (deep-research: 23 sources, 22/25 claims verified) + in-workspace
-  Sage oracle probe → **`SCOPING.md`** · **verdict: GATE CLEARS, recommend proceed to M1**
+- [x] M0 scoping — grounded (deep-research landscape + Ashikaga-rule extraction, both
+  adversarially verified) + in-workspace Sage oracle/calibration probes → **`SCOPING.md`**
+  · **verdict: GATE CLEARS, recommend proceed to M1** *(rev. after review: authentic Ashikaga
+  `¹⁄7(1,3,4)` ladder, (S)/(T) landscape, Wall-2 dissolution)*
 - [x] `M1-draft.md` (written, **unregistered**) · `READING.md`
 - [ ] **← GATE: human review of `SCOPING.md`** → register M1, or "scoped and parked" *(yours)*
 
-### M0 headline findings
-- Anchor **confirmed**: terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic resolution has
-  discrepancies **exactly `1/r,…,(r−1)/r`**, no crepant divisor. Worked `¹⁄5(1,2,3)` by hand
-  + Sage-verified (4 anchors smooth).
-- Anchor law **exists in the literature**: Ashikaga CF → Fujiki–Oka resolution (Sato–Sato) —
-  a named MCF whose digits are the anchor's subdivision moves. M1 = encode it as Phase-7.
+### M0 headline findings (rev. after review)
+- Anchor **confirmed & canonical**: terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic
+  resolution has discrepancies **exactly `1/r,…,(r−1)/r`**, no crepant divisor — and is the
+  **unique** smooth resolution on the essential rays (verified 5 anchors, `wall2_multi.sage`).
+- Anchor law **sourced & worked**: Ashikaga CF (round-down + remainder maps) → Fujiki–Oka ≡
+  economic (Sato–Sato). Worked authentically for **`¹⁄7(1,3,4)`** — the dim-3 `7/3=[3,2,2]`:
+  the ladder **closes** `7→4→3→3→2→2→1`, discrepancies `1/7,…,6/7`.
 - Gauge-analog: coarse `|det|=r` survives (P1); the **rich** invariant is the discrepancy
-  vector `(1/r,…,(r−1)/r)` — the abelianization-style correction the charter predicted.
-- `F-3-canon` well-founded (Hermite open; Karpenkov reaches only totally-real cubics).
-- Oracle **adequate**: elementary age formula + Sage *verify*-mode (law generates, Sage
-  certifies) — the correct exactness-ladder shape.
-- Designed negatives: Wall 1 (Hermite non-periodicity) + Wall 2 (toric-flip non-uniqueness).
+  vector — the abelianization-style correction the charter predicted.
+- **(S)/(T) distinction** (corrects a prior): arithmetic MCFs (JPA/Brun/…) are sense-(S)
+  simplex-splitting; the resolution (T) reading belongs to HJ/Klein/Ashikaga **only**.
+  `F-3-canon` well-founded — Hermite open both ways, no proven non-periodic classical cubic.
+- Oracle **adequate & correctly shaped**: elementary age + Sage *verify*-mode (law generates,
+  Sage certifies).
+- **Designed negative relocated:** both candidate walls fail as no-gos *at the anchor* (Wall 2
+  dissolves — canonical; Wall 1 is Hermite-open). The terminal anchor is the **clean corner**;
+  the negative is owed off-anchor (non-terminal/flops, M2). *M1 (like P1) need not be gated on it.*
 
 ## References
 

@@ -46,6 +46,13 @@ likely first-class outcome is a *designed negative* (M0.4) or an honest "scoped 
    about any transport** — the exact shape of P5's `F5-tautology`. A real test needs a
    law-morphism that *changes* the singularity (a Wahl-analog on `(r,a)`) or an analysis of
    *non-essential* divisors. This is `F-3-essential-tautology`.
+10. **"MCF algorithm X resolves cyclic-quotient singularities" (sense-conflation).** The word
+   "subdivision" hides two claims: **(S)** simplex-splitting (Lagarias 1993 — a dynamical
+   Markov partition, shared by JPA/Brun/Selmer/Mönkemeyer equally) and **(T)** a fan
+   subdivision that *resolves a singularity*. **No arithmetic MCF has a (T)-reading** — (T)
+   lives only in HJ, Klein sails, and Ashikaga. Expository "MCFs resolve singularities"
+   silently swaps in HJ or Klein; attributing a (T)-reading to JPA/Brun is the folklore error.
+   This is `F-3-ST-conflation`. (Corrects an earlier draft prior that singled out JPA/Brun.)
 
 ---
 
@@ -58,14 +65,32 @@ likely first-class outcome is a *designed negative* (M0.4) or an honest "scoped 
 | **F-3-scope** | any claim about general (non-cyclic-quotient / non-terminal) 3-folds | the honest-scope contract | **held** — anchor is cyclic-quotient, terminal-first; general "ladder for all terminals" was REFUTED (see below), reinforcing the line. |
 | **F-novel** | any "new MCF / new resolution theory" claim | the honest-broker line | **honored** — every M0.2 fact is Reid/Danilov/Sato–Sato/White; contribution is the encoding. |
 | **F-3-essential-tautology** *(new, M0.3)* | "discrepancy conserved" claim reducing to "essential divisors are intrinsic" | the experiment-level (M4) conjecture | **seeded** — must be dodged before M4 runs (analog of P5 `F5-tautology`). |
+| **F-3-ST-conflation** *(new, M0.1)* | attributing a toric-resolution (T) reading to a sense-(S) arithmetic MCF (JPA/Brun/…) | the M0.1 landscape honesty | **firing-ready** — the resolution bridge is HJ/Klein/Ashikaga only; arithmetic MCFs are (S). |
 
 ---
 
 ## Recorded negatives & refuted over-claims
 
-**M0 outcome:** gate **CLEARED** (not parked) — see `SCOPING.md` verdict. The designed
-negatives (M0.4) are the two boundary theorems (Hermite non-periodicity; toric-flip
-non-uniqueness), stated but not yet run (M2/M3).
+**M0 outcome:** gate **CLEARED** (not parked) — see `SCOPING.md` verdict.
+
+**Review-cycle findings (first-class, verified):**
+- **Wall-2 dissolution (a designed negative became a canonicity result).** The candidate
+  "non-uniqueness/flops" no-go was made a *statement* and tested: the terminal anchor's
+  economic resolution is the **unique** smooth toric resolution on the essential ray set —
+  `1` of `{32,280,256,2768,2412}` triangulations across 5 anchors (`wall2_multi.sage`). So
+  the terminal anchor admits **no** flip no-go; it is canonical. The non-uniqueness relocates
+  to the non-terminal/canonical family (M2, off-`F-3-scope`). *Trying to instantiate the vibe
+  dissolved it — the discipline working.*
+- **Wall-1 is Hermite-open, not a proven no-go.** A finite-state law capturing a
+  non-totally-real cubic would *resolve Hermite*; so Wall 1 is an open frontier, not a
+  Catalan-style impossibility. Net: **the terminal anchor has no designed no-go** (that is why
+  it is the anchor); the negative is owed off-anchor (M2).
+- **Two priors corrected (folklore avoided):** (i) "JPA/Brun have special subdivision
+  readings" — false; simplex-splitting is a whole-family sense-(S) property, resolution
+  reading (T) belongs to none (see fraud entry 10, `F-3-ST-conflation`). (ii) "known
+  non-periodic cubic counterexamples exist" — false; Hermite open both ways, **no proven
+  non-periodic classical cubic** (the one proven-aperiodic cubic is for a JPA *variant*,
+  Karpenkov–van Son 2024).
 
 **Refuted during M0 literature verification (honest bookkeeping — over-claims the research
 would NOT let stand):**

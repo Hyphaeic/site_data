@@ -44,6 +44,7 @@ A Phase-7 `(state, Ω, Γ)` triple over the toric lattice `ℤ³`:
 | **H-M1b** (gauge) | The coarse gauge `|det(σ)| = r = |μᵣ|` holds (P1 analog), **and** the ordered discrepancy vector of the law's exceptional rays equals `(1/r,…,(r−1)/r)` by *both* the elementary age formula and the toric support-function computation. | **F-M1-gauge** — any anchor where the two discrepancy computations disagree, or either differs from `{k/r}`. |
 | **H-M1c** (Ashikaga ≡ economic) | The Ashikaga-CF digit sequence reproduces *exactly* the economic ray set `{v_k}` (generator (a) ≡ generator (b)). | **F-M1-ashikaga** — any anchor where the Ashikaga digits and the economic rays diverge. |
 | **H-M1d** (ladder parity) | A `no_std` Rust mirror of the law reproduces the Sage oracle's smoothness verdict and the discrepancy vector for the whole battery, bit-for-bit. | **F-M1-parity** — any anchor where Rust and Sage disagree. |
+| **H-M1e** (canonicity) | The economic resolution is the **unique** smooth toric resolution on the essential ray set across the battery (extending the 5-anchor M0.4 finding — the anchor's target is canonical, so the algorithm-space content is *paths not destinations*). | **F-M1-canon** — any battery anchor admitting ≥2 smooth resolutions on its essential rays. |
 
 ### Battery
 
@@ -86,19 +87,25 @@ worked headline.
 
 ## The phase ladder beyond M1 (sketched, not registered — sequence subject to M1's outcome)
 
-- **M2 — the flip wall (Wall 2 made a theorem).** Enumerate the smooth triangulations of the
-  anchor cone on the economic ray set; show they form a bistellar-flip-connected poset a
-  single `Ω` cannot hold. First-class negative = the toric-flop boundary. Oracle: Sage/GKZ
-  secondary structure.
-- **M3 — arithmetic MCF as subdivision (the exploratory / likely-negative phase).** Take JPA
-  (or Brun) and ask whether its digit steps admit conditions (1)–(4) of M0.3 as a resolution
-  of the anchor. Expected honest outcome: **NEGATIVE** ("arithmetic MCF X does not yield a
-  toric resolution of `¹⁄ᵣ(1,a,r−a)`"), which is itself the finding — the resolution bridge
-  runs through Klein/Ashikaga, not the arithmetic zoo. Touches Wall 1 (Hermite) at the
-  cubic-direction boundary.
+- **M2 — the non-terminal extension (where Wall 2 *actually* lives).** M0.4 showed the
+  *terminal* anchor's economic resolution is canonically **unique**, so the flip/non-uniqueness
+  wall is **not** at the anchor. It lives in the **canonical (non-terminal)** cyclic quotients
+  `¹⁄ᵣ(1,a,b)` with an age exactly `1` — which *have* crepant (discrepancy-0) divisors and thus
+  genuine minimal-model non-uniqueness / **flops**. M2 sites the designed negative there:
+  exhibit a canonical quotient with ≥2 crepant resolutions, flip-connected, that a single `Ω`
+  provably cannot hold — the honest home of the reviewer's original "Y". Oracle: Sage
+  triangulation count (`wall2_multi.sage` pattern) + crepant/age check. *This is the phase the
+  designed no-go is owed to.*
+- **M3 — arithmetic MCF as subdivision (the S→T question; likely-negative).** M0.1 established
+  the arithmetic MCFs (JPA/Brun/Selmer/Mönkemeyer) are sense-**(S)** simplex-splitting
+  (Lagarias), and that **no** classical MCF has a sense-**(T)** resolution reading. M3 tests
+  directly: does JPA's (or Brun's) step satisfy M0.3 (1)–(4) as a *resolution* of the anchor?
+  Expected honest outcome **NEGATIVE** ("sense-S ≠ sense-T for arithmetic MCF X") — the finding
+  being that the resolution bridge runs through Ashikaga/Klein only, not the arithmetic zoo.
+  Touches Wall 1's Hermite frontier at cubic directions.
 - **M4 — the conserved-discrepancy transport (the P5 analog, *sharpened*).** Only after
-  `F-3-essential-tautology` is dodged: define a **Wahl-analog move on `(r,a)`** (a
-  law-morphism that *changes* the singularity), and test whether a discrepancy datum
-  transports across it (the true "value dies, invariant survives" test), **or** analyze the
-  non-essential divisors a law adds. This is the experiment-level conjecture; it is *not*
-  M1, and must not be run in the tautological same-singularity form.
+  `F-3-essential-tautology` is dodged: define a **Wahl-analog move on `(r,a)`** (a law-morphism
+  that *changes* the singularity), and test whether a discrepancy datum transports across it
+  (the true "value dies, invariant survives" test), **or** analyze the non-essential divisors a
+  law adds. The experiment-level conjecture; *not* M1, and forbidden in the tautological
+  same-singularity form.

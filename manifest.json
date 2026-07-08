@@ -516,6 +516,24 @@
       "type": "SYSTEM"
     },
     {
+      "id": "researchProspectuses",
+      "title": "Research Prospectuses",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "rp_sgrp_2p",
+          "title": "SGRP Proposal 2 Pager",
+          "path": "https://src.hyphaeic.com/symbolResearchProspectus/2Pager_Research.pdf",
+          "type": "PAPER"
+        },
+        {
+          "id": "rp_sgrp_position",
+          "title": "SGRP Position Paper",
+          "path": "https://src.hyphaeic.com/symbolResearchProspectus/positionPaper.pdf",
+          "type": "PAPER"
+        }
+      ]
+    {
       "id": "fdrs",
       "title": "FDRS",
       "type": "DIR",

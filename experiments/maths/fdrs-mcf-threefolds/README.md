@@ -122,6 +122,10 @@ success of the process, not a failure.
 - [x] **GATE (reviewed): M1 CLEARED** with 3 registration conditions (`M1-draft.md` → M1
   registration conditions); designed-negative debt registered as **OB-1** below. *(P1
   precedent: an exactness/existence result is not gated on a no-go)*
+- [x] **M1 EXECUTED — PASS** (2026-07-07) → `results.md`, `runs/2026-07-07-m1-*`. H-M1a/b/c/d/f
+  **551/551** with Sage↔Rust parity; H-M1e unique on `r≤11`(all)+`¹⁄12(1,1,11)` (compute wall
+  beyond — policy retreat, Erratum E-M1-1). **Law = Ashikaga CF = exact Phase-7 _tree-state_
+  law** (H-M1f: chain→tree is the dimension; Phase-8 routing not required).
 
 ### M0 headline findings (rev. after review)
 - Anchor **confirmed & canonical**: terminal ⟺ `¹⁄ᵣ(1,a,r−a)` (Reid Thm 5.2); economic

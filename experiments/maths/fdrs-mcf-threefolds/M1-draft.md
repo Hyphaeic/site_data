@@ -1,9 +1,8 @@
 # M1-draft.md — protocol for the first runnable phase
 
-**STATUS: WRITTEN, NOT REGISTERED.** This is a pre-registration draft. It does not become
-the registered M1 protocol until the human review of `SCOPING.md` clears the M0 gate
-(ADR-007). No code is run against it until then. If the gate says "scoped and parked,"
-this file is archived, not executed.
+**STATUS: REGISTERED 2026-07-07** (M0 gate cleared M1 with the three registration conditions
+below; ADR-007). Execution under way — see `source/` (Sage oracle + Rust mirror) and `runs/`.
+The hypotheses and falsifiers below are frozen as pre-registered; results land in `results.md`.
 
 ---
 
@@ -103,6 +102,10 @@ no-go). Three things are pinned *now* so a mid-run retreat can't read as post-ho
      recorded "untested by enumeration for this r"** — never silently assumed. (A structural
      forced-unimodular-triangulation proof is an M1 stretch, not a registration commitment.)
      H-M1a/b/c/d run the full `R_max = 60` (cheap: per-fan `is_smooth` + elementary age).
+     **Erratum E-M1-1 (execution):** the `r≤13` estimate was optimistic — the actual
+     enumeration wall is `~¹⁄12(1,5,7)` (`r=11` complete + `¹⁄12(1,1,11)`, 24 anchors, all
+     unique); `¹⁄12(1,5,7)` and all `r=13` were killed even standalone → untested by
+     enumeration, exactly the pre-committed retreat. See `results.md` / `runs/…-m1-uniqueness`.
    - *Symmetry convention.* Battery = one representative per **`a ↔ r−a`** class (trivial
      coordinate swap of the two weights; fixed-point-free for `r>2`, ≈`φ(r)/2` reps). **`a ↔
      a⁻¹ mod r` (Riemenschneider) is kept DISTINCT** — same singularity up to generator change,

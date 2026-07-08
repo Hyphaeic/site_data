@@ -107,5 +107,20 @@ would NOT let stand):**
 - **"AJPA solved cubic periodicity generally."** REFUTED (1–2): it is enumerated families
   only (Lee arXiv:1810.11676). Reinforces `F-3-canon`.
 
-*(No experiment-run negatives yet — M0 is report-only. Any "scoped and parked" or M1/M2/M3
-negative will be recorded here with its errata.)*
+**M1 execution (2026-07-07) — PASS, with one honest non-closure and one erratum:**
+- **No falsifier fired.** `F-M1-smooth`, `-gauge`, `-ashikaga`, `-parity`, `-canon` (enumerated
+  range), `-chain` all clear across 551 anchors, Sage↔Rust parity. The Ashikaga law = the
+  economic resolution, exactly.
+- **H-M1e is strongly-supported, NOT exhaustively verified — stated plainly.** Unique smooth
+  resolution confirmed for 24 anchors (`r≤11` all `a` + `¹⁄12(1,1,11)`); the enumeration hit a
+  genuine compute wall at `¹⁄12(1,5,7)` (killed even standalone) and for all `r=13`. Those are
+  **untested by enumeration**, recorded per registration condition #2 (not silently trimmed).
+  Claiming H-M1e "proven for all `r`" would be the fraud; it is not claimed.
+- **Erratum E-M1-1.** The registration's `r≤13` enumeration-feasibility estimate ("counts
+  ≲10⁶") was **optimistic**; the actual wall is `~¹⁄12(1,5,7)` (`r=11` complete). Recorded, not
+  hidden.
+- **H-M1f is an extension, not a new object (guard against over-claim).** The tree-shaped law
+  is *Phase-7 with tree-state*, not Phase-8 — do not dress the recursion tree as multi-timeline
+  routing; the branches are self-similar, context-local, and uncoupled (results.md).
+
+*(OB-1 remains OPEN: the designed no-go is still owed at M2 — M1 PASS does not discharge it.)*

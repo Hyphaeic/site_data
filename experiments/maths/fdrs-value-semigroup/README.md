@@ -31,14 +31,16 @@ cross-check tying this family to `fdrs-hj-singularities`.
 - **Γ is the gauge image**: `Γ(C) = { ord_t h(x(t),y(t)) : h ∈ 𝒪_C } ⊆ ℕ` — the values the
   order filtration *reaches*. Gaps = unreachable values.
 - **The conductor is a DUAL Base-0 Wall** (a distinction, pre-registered, not a collapse — see
-  `F-V-wall`): the Phase-9 Base-0 Wall (Def 135–137) is **source-side** — where the *process*
+  `F-V-wall`): the Base-0 Wall (fdrs **Def 147**, Phase 9 spatial wall; the Base-Zero-Sea form is
+  **Def 152**, Phase 10) is **source-side** — where the *process*
   terminates (no representable digit). The conductor `c` is **target-side** — where
   *unreachability* terminates (past `c` the valuation is surjective onto `ℕ`). They are dual
   boundary objects; the encoding keeps them distinct.
 - **The free-semigroup standard form is mixed-radix** (the deliverable, strengthened from
   Apéry): plane-branch semigroups are **free/telescopic**, so every `n ∈ Γ` has a **unique**
   `n = Σᵢ cᵢ v̄ᵢ`, `0 ≤ cᵢ < nᵢ` (`i ≥ 1`), with **radices `nᵢ = e_{i−1}/eᵢ`** (`eᵢ =
-  gcd(β₀,…,βᵢ)`) and **place values `v̄ᵢ`**. This is FDRS Phase-1 mixed-radix on the ring's
+  gcd(β₀,…,βᵢ)`) and **place values `v̄ᵢ`**. This is FDRS Phase-1 mixed-radix (place value `B_m`,
+  §1; representation **Proposition 1** / Def 1–2) on the ring's
   filtration — digits are semigroup coordinates, radices are the `eᵢ` ratios. The **Apéry
   form** `n = w + k·m` (`m = v̄₀`, `w ∈ Ap(Γ,m)`, `|Ap|=m`) is its single-radix-`m` shadow;
   symmetry of Γ becomes an exact involution `w ↦ (c−1+m) − w` on `Ap`.
@@ -121,7 +123,10 @@ Sage oracle + Rust mirror; per-run manifests; `results.md`; `NEGATIVE.md` (fraud
 - [x] **PV.1 / PV.2 / PV.3** — H-V1/H-V2/H-V3 all PASS (248/248 cusps + 3/3 multi-exponent, exact)
 - [x] **PV.4** (gated) — one worked pair: `(C₁·C₂)=4` = δ correction term (both oracles); semimodule symmetry deferred
 - [x] Rust `no_std` mirror — 7/7, checksum pinned; falsifiers demonstrated firing
-- See `results.md` (verdicts + three-bridge closure) and `NEGATIVE.md` (NEG-V1, falsifier table).
+- [x] **Lean rung** (`source/lean/VSemigroup.lean`) — compiles against the pre-built corpus,
+  **reusing** `Core.Primitives.placeValue` + `Core.Finite.finiteRadixEquiv` (fdrs Prop 1); 25
+  kernel `decide` facts, no `sorry`/`native_decide`/`axiom`. Corrected two charter mis-citations.
+- See `results.md` (verdicts + three-bridge closure + Lean rung) and `NEGATIVE.md` (NEG-V1, falsifier table).
 
 ### Next charter owed (not in this family)
 The **value-semimodule `Γ(C₁∪C₂) ⊆ ℕ²`** (pair of branches) and its **Delgado symmetry** — the
@@ -137,5 +142,12 @@ it. Do **not** extend PV.4 in place — open the new charter.
   numerical semigroups (Bertin–Carbonne / the standard-basis literature).
 - Sibling: `experiments/maths/fdrs-hj-singularities/` (the P4 tracker `δ = Σmᵢ(mᵢ−1)/2` reused
   for the four-way δ check).
-- FDRS corpus (read-only): Phase 1 mixed-radix (Def 1–4, place values), Phase 7 gauge, Phase 9
-  Base-0 Wall (Def 135–137, for the duality), Phase 14 coupling (for H-V4).
+- FDRS corpus (read-only), citations verified against `fdrs.md` / the Lean corpus:
+  - **Phase 1** mixed-radix — place value `B_m = ∏_{i<m} bᵢ` (§1); representation bijection
+    **Proposition 1** / **Def 1–2** (Lean: `Core.Primitives.placeValue`, `Core.Finite.finiteRadixEquiv`).
+  - **gauge** — **Def 79** (radix-induced ultrametric, Phase 6) and the abstract prefix gauge
+    **Def 192** (Lean: `Modes.SyntheticPlace.PrefixGauge`). *(Not "Phase 7" — that was a charter
+    mis-citation; Phase 7 opens with Def 87, the context-indexed mixed-radix family.)*
+  - **Base-0 Wall** — **Def 147** (spatial radix wall, Phase 9) / **Def 152** (Base-Zero-Sea wall,
+    Phase 10) (Lean: `Modes.BaseZeroSea`), for the conductor duality.
+  - **Phase 14** coupling (for H-V4).

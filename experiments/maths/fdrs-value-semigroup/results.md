@@ -130,10 +130,41 @@ a purely ring-theoretic quantity** — the filtration bridge and the Puiseux bri
 single exact equation. Combined with the four-way δ (`#gaps = c/2 = Σmᵢ(mᵢ−1)/2 = (p−1)(q−1)/2`),
 the three-bridge claim is now closed end-to-end, each leg computed by an independent oracle.
 
+## Lean formalization (exactness-ladder top rung)
+`source/lean/VSemigroup.lean` adds the Lean rung, compiled against the pre-built FDRS formal
+corpus (`branches/hir/projects/fdrs-formal`, Lean v4.27.0-rc1 + Mathlib).
+
+**Reuse, not recreation** (the corpus already had the mixed-radix machinery):
+- `Core.Primitives.RadixSeq` / `placeValue` — place value `B_m = ∏ bᵢ` (fdrs Phase 1 §1).
+- `Core.Finite.finiteRadixEquiv` — the representation bijection `R^{(k)} ≃ Fin B_{k+1}`
+  (fdrs **Proposition 1**), which the Apéry indexing inherits.
+- A corpus-wide search confirmed **numerical-semigroup / conductor / Apéry / gcd-tower are absent**
+  — that layer is new here and duplicates nothing.
+- Design honesty: the corpus place value is `∏ radices`, but a value semigroup's places are the
+  generators `v̄ᵢ ≠ ∏nⱼ`, so we reuse the radix tower + its **counting** bijection (`∏nᵢ = m =
+  placeValue`, machine-checked) and layer the value gauge `Σcᵢv̄ᵢ` on top — no fake direct
+  instantiation.
+
+**Machine-checked (25 facts, kernel `by decide` — no `sorry`, no `native_decide`, no `axiom`):**
+the Zariski generator formula, the conductor formula, `c = 2δ` via **Selmer's Apéry formula**
+(`2δ = 2·(ΣAp)/m − (m−1)`, which sidesteps a semigroup-membership sieve), freeness as
+*distinct Apéry residues mod v̄₀*, and the Apéry symmetry involution — on `(4;6,7)`, `(6;8,9)`,
+`(8;12,14,15)` and cusps `(2,3)`,`(3,4)`,`(5,7)`; plus the reuse theorem `placeValue = Apéry count`.
+
+**Honest scope:** the Lean rung machine-verifies the exact facts on the battery instances and
+wires in the reused corpus API; the *fully general* uniqueness theorem (arbitrary free towers) is
+classical (Zariski/Kunz/Selmer) and is stated but its general Lean proof is future work — it is
+**not** asserted as proven (the file contains zero `sorry`; nothing is faked). This also corrected
+two charter mis-citations against `fdrs.md` (gauge = Def 79/192 not "Phase 7"; Base-0 Wall =
+Def 147/152 not Def 135–137).
+
 ## Reproduce
 ```
 sage source/sage/pv_semigroup.sage       # PV.1-PV.3, full battery
 sage source/sage/pv_falsifiers.sage      # trap-falsifier demonstrations
 sage source/sage/pv4_pair.sage           # PV.4 one worked pair
 cd source/rust/vs-radix && cargo test --release   # 7/7 mirror
+# Lean rung (reuses the pre-built corpus; ~3s once oleans are cached):
+cd ../../../../../projects/fdrs-formal && \
+  lake env lean ../../experiments/maths/fdrs-value-semigroup/source/lean/VSemigroup.lean
 ```

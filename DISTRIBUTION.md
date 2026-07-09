@@ -31,8 +31,8 @@ project lifecycle, research validity, or ownership. It is a publishing layer.
 
 ## Intended Distribution Domains
 
-- `org/` - public organizational descriptions and corporate topology.
-- `axioms/` - mission, thesis, and theory primers.
+- `info/` - public organizational descriptions and corporate topology.
+- `philosophy/` - mission, thesis, and theory primers.
 - `r_and_d/` - selected research/project summaries and paper-style exports.
 - Future folders may represent product, branch, library, or artifact surfaces
   once a consumer exists.

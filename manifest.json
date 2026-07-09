@@ -532,26 +532,7 @@
           "path": "https://src.hyphaeic.com/symbolResearchProspectus/positionPaper.pdf",
           "type": "PAPER"
         }
-      ]
-    {
-      "id": "fdrs",
-      "title": "FDRS",
-      "type": "DIR",
-      "children": [
-        {
-          "id": "fdrs_p1",
-          "title": "Formal Verification",
-          "path": "r_and_d/fdrs/p1_formal_verification.md",
-          "type": "PAPER"
-        },
-        {
-          "id": "fdrs_p2",
-          "title": "Positional Algebra",
-          "path": "r_and_d/fdrs/p2_positional_algebra.md",
-          "type": "PAPER"
-        }
-      ]
-    }
+      }
   ],
   "info": [
     {

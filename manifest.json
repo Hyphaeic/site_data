@@ -587,18 +587,21 @@
       "id": "researchProspectuses",
       "title": "Research Prospectuses",
       "type": "DIR",
+      "modified": "2026-07-02T09:44:17+01:00",
       "children": [
         {
           "id": "rp_sgrp_2p",
           "title": "SGRP Proposal 2 Pager",
           "path": "https://src.hyphaeic.com/symbolResearchProspectus/2Pager_Research.pdf",
-          "type": "PDF"
+          "type": "PDF",
+          "modified": "2026-07-02T09:44:17+01:00"
         },
         {
           "id": "rp_sgrp_position",
           "title": "SGRP Position Paper",
           "path": "https://src.hyphaeic.com/symbolResearchProspectus/positionPaper.pdf",
-          "type": "PDF"
+          "type": "PDF",
+          "modified": "2026-07-02T09:44:17+01:00"
         }
       ]
     }
@@ -638,7 +641,8 @@
       "id": "hyph_founding_pb",
       "title": "A Thesis of Play for the Soulful Machine",
       "path": "https://src.hyphaeic.com/founding/HYPH-FOUNDING_PB.pdf",
-      "type": "PDF"
+      "type": "PDF",
+      "modified": "2026-07-02T09:44:17+01:00"
     },
     {
       "id": "philosophy_summary_of_thesis",

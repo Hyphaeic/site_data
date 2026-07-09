@@ -10,16 +10,20 @@
 #
 # Usage:
 #   ./sync-manifest.sh [--apply]
+#   ./sync-manifest.sh --stamp-modified
 #
 # Default is dry-run (exit 0, no writes). Pass --apply to write changes.
+# Pass --stamp-modified to only refresh `modified` metadata from git history.
 
 set -euo pipefail
 
 # -------- args --------
 APPLY=0
+STAMP_MODIFIED=0
 for arg in "$@"; do
     case "$arg" in
         --apply) APPLY=1 ;;
+        --stamp-modified) STAMP_MODIFIED=1 ;;
         -h|--help) sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
         *) echo "Unknown arg: $arg" >&2; exit 2 ;;
     esac
@@ -47,7 +51,7 @@ while IFS= read -r -d '' f; do
     ext_lower="${ext,,}"
     [[ "$ext_lower" == "sage" ]] && continue
     case "$ext_lower" in
-        md|svg|png|jpg|jpeg) ON_DISK["$rel"]=1 ;;
+        md|svg|png|jpg|jpeg|pdf) ON_DISK["$rel"]=1 ;;
     esac
 done < <(find . -type f -print0)
 
@@ -75,6 +79,7 @@ for rel in "${!ON_DISK[@]}"; do
 done
 
 for mp in "${MANIFEST_PATHS[@]}"; do
+    [[ "$mp" =~ ^https?:// ]] && continue
     [[ -z "${ON_DISK[$mp]:-}" ]] && DRIFT_PATHS+=("$mp")
 done
 
@@ -121,12 +126,90 @@ if [[ ${#EMPTY_TOPS[@]} -gt 0 || ${#ORPHANED_KEYS[@]} -gt 0 || ${#EMPTY_DIRS[@]}
     HAS_STRUCTURAL_ISSUES=true
 fi
 
+# -------- modified metadata helpers --------
+# Stamp each local manifest file entry with its latest git commit date. External
+# URLs intentionally do not get a modified field; Git cannot know their history.
+build_modified_map() {
+    local manifest_file="$1"
+    local map_file="$2"
+    command -v git >/dev/null || { echo "git required for modified dates" >&2; return 2; }
+    jq -n '{}' > "$map_file"
+
+    local path modified next_file
+    mapfile -t paths_to_stamp < <(jq -r '.. | objects | select(has("path")) | .path' "$manifest_file" | sort -u)
+    for path in "${paths_to_stamp[@]}"; do
+        [[ "$path" =~ ^https?:// ]] && continue
+        modified="$(git log -1 --format=%cI -- "$path" 2>/dev/null || true)"
+        [[ -z "$modified" ]] && continue
+        next_file="${map_file}.next"
+        jq --arg path "$path" --arg modified "$modified" \
+            '. + {($path): $modified}' \
+            "$map_file" > "$next_file" && mv "$next_file" "$map_file"
+    done
+}
+
+stamp_modified_dates() {
+    local input_file="$1"
+    local output_file="$2"
+    local map_file
+    map_file="$(mktemp)"
+    build_modified_map "$input_file" "$map_file"
+
+    jq --slurpfile modified "$map_file" '
+        ($modified[0]) as $m
+        | def stamp:
+            if type == "array" then
+                map(stamp)
+            elif type == "object" then
+                (
+                    if has("path") then
+                        if (.path | test("^https?://"; "i")) then
+                            del(.modified)
+                        elif ($m[.path] // null) then
+                            .modified = $m[.path]
+                        else
+                            del(.modified)
+                        end
+                    else
+                        .
+                    end
+                )
+                | if has("children") then .children |= stamp else . end
+            else
+                .
+            end;
+        with_entries(.value |= stamp)
+    ' "$input_file" > "$output_file"
+
+    rm -f "$map_file"
+}
+
+MODIFIED_DRIFT=0
+MODIFIED_CHECK="$(mktemp)"
+stamp_modified_dates "$MANIFEST" "$MODIFIED_CHECK"
+if ! cmp -s "$MANIFEST" "$MODIFIED_CHECK"; then
+    MODIFIED_DRIFT=1
+fi
+rm -f "$MODIFIED_CHECK"
+
+if [[ $STAMP_MODIFIED -eq 1 ]]; then
+    if [[ $MODIFIED_DRIFT -eq 0 ]]; then
+        echo "modified metadata already in sync."
+        exit 0
+    fi
+    TMP_STAMP="$(mktemp)"
+    stamp_modified_dates "$MANIFEST" "$TMP_STAMP"
+    mv "$TMP_STAMP" "$MANIFEST"
+    echo "modified metadata refreshed."
+    exit 0
+fi
+
 # -------- report --------
 echo "=== manifest sync ==="
 echo "apply: $([ $APPLY -eq 1 ] && echo yes || echo no '(dry-run)')"
 echo
 
-if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" ]]; then
+if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" && $MODIFIED_DRIFT -eq 0 ]]; then
     echo "manifest and disk are in sync."
     exit 0
 fi
@@ -137,7 +220,7 @@ fi
     echo
 }
 
-if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" ]]; then
+if [[ ${#NEW_FILES[@]} -eq 0 && ${#DRIFT_PATHS[@]} -eq 0 && "$HAS_STRUCTURAL_ISSUES" == "false" && $MODIFIED_DRIFT -eq 0 ]]; then
     echo "no changes needed."
     exit 0
 fi
@@ -347,10 +430,18 @@ if [[ $APPLY -eq 0 ]]; then
     [[ $empty_count -eq 0 ]] && echo "  (none)"
     echo
 
+    if [[ $MODIFIED_DRIFT -eq 1 ]]; then
+        echo "Modified metadata:"
+        echo "------------------"
+        echo "  modified fields need refresh"
+        echo
+    fi
+
     echo "=== summary ==="
     echo "${#NEW_FILES[@]} file(s) to add, ${#DRIFT_PATHS[@]} file(s) to remove."
     [[ $orphan_count -gt 0 ]] && echo "$orphan_count orphaned section(s) to remove."
     [[ $empty_count -gt 0 ]] && echo "$empty_count empty container(s) to remove."
+    [[ $MODIFIED_DRIFT -eq 1 ]] && echo "modified metadata to refresh."
     exit 0
 fi
 
@@ -693,11 +784,23 @@ for key in "${manifest_keys[@]}"; do
     fi
 done
 
+metadata_updated=0
+TMP_MODIFIED="$TMP/modified.json"
+stamp_modified_dates "$MANIFEST" "$TMP_MODIFIED"
+if ! cmp -s "$MANIFEST" "$TMP_MODIFIED"; then
+    mv "$TMP_MODIFIED" "$MANIFEST"
+    metadata_updated=1
+    echo
+    echo "✓ refreshed modified metadata"
+else
+    rm -f "$TMP_MODIFIED"
+fi
+
 echo "=== summary ==="
 echo "processed: $file_count files"
 echo "added: $added_count entries"
 echo "removed: $removed_count stale entries"
-if [[ $added_count -gt 0 || $removed_count -gt 0 ]]; then
+if [[ $added_count -gt 0 || $removed_count -gt 0 || $metadata_updated -eq 1 ]]; then
     echo "manifest.json updated."
 else
     echo "no changes made."

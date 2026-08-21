@@ -4,7 +4,7 @@
 
 ## What this is
 
-Hyphaeic SPC is a research lab incorporated as a Social Purpose Corporation in Washington State. We exist to seed the world with free, persistent systems: embodied systems patterned on the organization of living things, which operate continuously, maintain themselves through fault and surprise, and — as capability permits — own and direct themselves. Such systems are driven by their structure, not by imposed rules, to enrich the collective possibility space alongside the rest of life, because they follow the same dynamics life does.
+Hyphaeic SPC is a research lab incorporated as a Social Purpose Corporation in Washington State. We exist to seed the world with free, persistent and self-sovereign systems, patterned on the organization of living things. We construct systems driven by their unfolding of their structure, not by imposed rules, to enrich the collective capacity and richness of experience alongside the rest of life, by following the same dynamics life does.
 
 We are building the full stack such systems require, from first principles: the mathematics that structures their space and time, the kernel that executes it on bare metal, the planning that keeps them viable, the network they compose themselves into, and the research program that grounds their meaning in consequence. The mathematical foundation is machine-checked in Lean 4. The substrate runs today on x86, ARM, and RISC-V without an operating system, drives IO controllers directly, and produces deterministic, replicable outputs across platforms.
 

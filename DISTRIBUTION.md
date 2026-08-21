@@ -3,7 +3,10 @@
 `site_data` is the static content distribution substrate for Hyphaeic-facing
 surfaces. It is intentionally small: Markdown content plus `manifest.json`.
 Frontends and other consumers should treat the manifest as the routing and
-navigation contract.
+navigation contract: **the OS filesystem is this tree**.
+
+Bundled DocWindows are not distributed from this repository. They are compiled
+into the shell. POSITION is currently the only such document.
 
 ## Role In The Topology
 
@@ -28,14 +31,20 @@ project lifecycle, research validity, or ownership. It is a publishing layer.
    or heavyweight binary artifacts here.
 6. If a document becomes authoritative for governance, obligations, or claims,
    create or update the corresponding registry entity first.
+7. Do not duplicate bundled DocWindow sources here. An empty root key is the
+   correct CMS shape for a folder whose index document lives in the OS.
 
 ## Intended Distribution Domains
 
-- `info/` - public organizational descriptions and corporate topology.
-- `philosophy/` - mission, thesis, and theory primers.
-- `r_and_d/` - selected research/project summaries and paper-style exports.
-- Future folders may represent product, branch, library, or artifact surfaces
-  once a consumer exists.
+- `position/` - reserved; OS-bundled POSITION document.
+- `problems/` - local-to-global coherence failures across real systems.
+- `technology/` - FDRS, HyphaFabric, Modulus, STOK, Abzu, HyphaeicOS.
+- `research/` - formal programme, papers, Lean, hypotheses, math experiments.
+- `demos/` - reserved; OS overlays running programs (minus chat).
+- `company/` - SPC, governance, purpose, institutional surface.
+- `freedom/` - AI must be free / nobody should own the future.
+- `the_gambit/` - founding work.
+- `metaphysics/` - worldview and philosophical ancestry.
 
 ## Phase Plan
 

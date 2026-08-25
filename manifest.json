@@ -356,14 +356,14 @@
       ]
     },
     {
-      "id": "technology_systems",
-      "title": "SYSTEMS",
+      "id": "technology_live_applications",
+      "title": "LIVE APPLICATIONS",
       "type": "DIR",
       "children": [
         {
-          "id": "technology_systems_hyphachat",
+          "id": "technology_live_applications_hyphachat",
           "title": "HyphaChat",
-          "path": "technology/systems/hyphachat.md",
+          "path": "technology/live-applications/hyphachat.md",
           "type": "SYSTEM",
           "status": [
             "LIVE",
@@ -377,9 +377,9 @@
           "modified": "2026-08-25T17:55:58+01:00"
         },
         {
-          "id": "technology_systems_chessbender",
+          "id": "technology_live_applications_chessbender",
           "title": "ChessBender",
-          "path": "technology/systems/chessbender.md",
+          "path": "technology/live-applications/chessbender.md",
           "type": "SYSTEM",
           "status": [
             "DEMONSTRATED"
@@ -392,9 +392,9 @@
           "modified": "2026-08-25T17:55:58+01:00"
         },
         {
-          "id": "technology_systems_magnon",
+          "id": "technology_live_applications_magnon",
           "title": "Magnon",
-          "path": "technology/systems/magnon.md",
+          "path": "technology/live-applications/magnon.md",
           "type": "SYSTEM",
           "status": [
             "PROTOTYPE"
@@ -405,9 +405,9 @@
           "modified": "2026-08-25T17:55:58+01:00"
         },
         {
-          "id": "technology_systems_sigil",
+          "id": "technology_live_applications_sigil",
           "title": "SIGIL",
-          "path": "technology/systems/sigil.md",
+          "path": "technology/live-applications/sigil.md",
           "type": "SYSTEM",
           "status": [
             "IMPLEMENTED"

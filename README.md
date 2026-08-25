@@ -57,8 +57,8 @@ once, it probably needs splitting.
 - `problems/` — Overview, coordination, representation, control, time, planning,
   embodiment, alignment, and `applications/` for how each appears in a domain.
 - `technology/` — `overview.md`; `core/` (FDRS, HyphaFabric, Modulus, STOK-CORE,
-  Abzu, HyphaKernel, HyphOS); `hyphaeicos/` (Overview, Web, Hyphax); `systems/`
-  (HyphaChat, ChessBender, Magnon, SIGIL).
+  Abzu, HyphaKernel, HyphOS); `hyphaeicos/` (Overview, Web, Hyphax);
+  `live-applications/` (HyphaChat, ChessBender, Magnon, SIGIL).
 - `research/` — `overview.md`, `programmes.md`, `open-problems.md`,
   `results.md`, the curated maps; `maths/` is the automated experiment stream.
 - `repositories/` — the repository index (evidence / proof-by-inspection).

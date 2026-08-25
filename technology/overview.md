@@ -18,7 +18,7 @@ There are cross-connections; do not read this as a strict dependency tree.
 
 - `TECHNOLOGY/Core` — FDRS, HyphaFabric, Modulus, STOK-CORE, Abzu, HyphaKernel, HyphOS
 - `TECHNOLOGY/HyphaeicOS` — the OS-as-instance, Web peer, Hyphax peer
-- `TECHNOLOGY/Systems` — HyphaChat, ChessBender, Magnon, SIGIL
+- `TECHNOLOGY/Live Applications` — HyphaChat, ChessBender, Magnon, SIGIL
 
 Live demonstrations are properties, not folders: each entry carries its own
 `STATE` (ACTIVE · LIVE · INTERACTIVE · SOURCE · PROTOTYPE · RESEARCH).

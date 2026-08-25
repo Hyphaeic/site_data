@@ -42,7 +42,8 @@ The frozen public IA (see `README.md`) uses these roots:
 - `problems/` - local-to-global coherence failures across real systems, stated
   in ordinary language before formal terms.
 - `technology/` - FDRS, HyphaFabric, Modulus, STOK-CORE, Abzu, HyphaKernel,
-  HyphOS, HyphaeicOS (Web, Hyphax), and systems such as HyphaChat / ChessBender.
+  HyphOS, HyphaeicOS (Web, Hyphax), and live applications such as HyphaChat /
+  ChessBender.
 - `research/` - formal programme, papers, Lean, hypotheses, open problems;
   curated maps plus an automated experiment stream.
 - `repositories/` - proof-by-inspection: the repository index. Show me the code.

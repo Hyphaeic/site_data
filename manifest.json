@@ -1,33 +1,434 @@
 {
-  "position": [],
-  "problems": [],
-  "technology": [
+  "start": [
     {
-      "id": "hyphos",
-      "title": "HYPHOS RTOS",
-      "path": "technology/hyphos.md",
-      "type": "SYSTEM",
-      "modified": "2026-07-02T09:44:17+01:00"
+      "id": "start_what_is_hyphaeic",
+      "title": "What is Hyphaeic?",
+      "path": "start/what-is-hyphaeic.md",
+      "type": "TEXT",
+      "status": [
+        "POSITION"
+      ]
+    }
+  ],
+  "problems": [
+    {
+      "id": "problems_overview",
+      "title": "Overview — The Problem Beneath the Machines",
+      "path": "problems/overview.md",
+      "type": "TEXT",
+      "status": [
+        "POSITION"
+      ]
     },
     {
-      "id": "hyphaeicos",
+      "id": "problems_coordination",
+      "title": "Coordination",
+      "path": "problems/coordination.md",
+      "type": "THEORY",
+      "status": [
+        "HYPOTHESIS"
+      ]
+    },
+    {
+      "id": "problems_representation",
+      "title": "Representation",
+      "path": "problems/representation.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_control",
+      "title": "Control",
+      "path": "problems/control.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_time",
+      "title": "Time",
+      "path": "problems/time.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_planning",
+      "title": "Planning",
+      "path": "problems/planning.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_embodiment",
+      "title": "Embodiment",
+      "path": "problems/embodiment.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_alignment",
+      "title": "Alignment",
+      "path": "problems/alignment.md",
+      "type": "THEORY",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "problems_applications",
+      "title": "APPLICATIONS",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "problems_applications_robotics",
+          "title": "Robotics",
+          "path": "problems/applications/robotics.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_distributed_systems",
+          "title": "Distributed Systems",
+          "path": "problems/applications/distributed-systems.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_swarms",
+          "title": "Swarms",
+          "path": "problems/applications/swarms.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_agent_systems",
+          "title": "Agent Systems",
+          "path": "problems/applications/agent-systems.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_edge_industrial_compute",
+          "title": "Edge & Industrial Compute",
+          "path": "problems/applications/edge-industrial-compute.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_geometry_simulation",
+          "title": "Geometry & Simulation",
+          "path": "problems/applications/geometry-simulation.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        },
+        {
+          "id": "problems_applications_biological_multiscale",
+          "title": "Biological / Multiscale Systems",
+          "path": "problems/applications/biological-multiscale.md",
+          "type": "THEORY",
+          "status": [
+            "OPEN PROBLEM"
+          ]
+        }
+      ]
+    }
+  ],
+  "technology": [
+    {
+      "id": "technology_overview",
+      "title": "Overview — The Hyphaeic Stack",
+      "path": "technology/overview.md",
+      "type": "SYSTEM",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "technology_core",
+      "title": "CORE",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "technology_core_fdrs",
+          "title": "FDRS",
+          "path": "technology/core/fdrs.md",
+          "type": "SYSTEM",
+          "status": [
+            "FORMAL RESULT",
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "ACTIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_core_hyphafabric",
+          "title": "HyphaFabric",
+          "path": "technology/core/hyphafabric.md",
+          "type": "SYSTEM",
+          "status": [
+            "DEMONSTRATED",
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "ACTIVE",
+            "LIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_core_modulus",
+          "title": "Modulus",
+          "path": "technology/core/modulus.md",
+          "type": "SYSTEM",
+          "status": [
+            "IMPLEMENTED",
+            "LIVE"
+          ],
+          "state": [
+            "ACTIVE",
+            "LIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_core_stok_core",
+          "title": "STOK-CORE",
+          "path": "technology/core/stok-core.md",
+          "type": "SYSTEM",
+          "status": [
+            "HYPOTHESIS",
+            "PROTOTYPE"
+          ],
+          "state": [
+            "PROTOTYPE"
+          ]
+        },
+        {
+          "id": "technology_core_abzu",
+          "title": "Abzu",
+          "path": "technology/core/abzu.md",
+          "type": "SYSTEM",
+          "status": [
+            "HYPOTHESIS",
+            "PROTOTYPE"
+          ],
+          "state": [
+            "PROTOTYPE"
+          ]
+        },
+        {
+          "id": "technology_core_hyphakernel",
+          "title": "HyphaKernel",
+          "path": "technology/core/hyphakernel.md",
+          "type": "SYSTEM",
+          "status": [
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "ACTIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_core_hyphos",
+          "title": "HyphOS",
+          "path": "technology/core/hyphos.md",
+          "type": "SYSTEM",
+          "status": [
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "ACTIVE",
+            "SOURCE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technology_hyphaeicos",
       "title": "HYPHAEICOS",
       "type": "DIR",
       "children": [
         {
-          "id": "hyphaeicos_rhizonet",
-          "title": "RhizoNET",
-          "path": "technology/hyphaeicos/RhizoNET.md",
+          "id": "technology_hyphaeicos_overview",
+          "title": "Overview",
+          "path": "technology/hyphaeicos/overview.md",
           "type": "SYSTEM",
-          "modified": "2026-07-14T21:29:00+01:00"
+          "status": [
+            "IMPLEMENTED",
+            "LIVE"
+          ],
+          "state": [
+            "ACTIVE",
+            "LIVE"
+          ]
+        },
+        {
+          "id": "technology_hyphaeicos_web",
+          "title": "Web",
+          "path": "technology/hyphaeicos/web.md",
+          "type": "SYSTEM",
+          "status": [
+            "LIVE"
+          ],
+          "state": [
+            "LIVE",
+            "INTERACTIVE"
+          ]
+        },
+        {
+          "id": "technology_hyphaeicos_hyphax",
+          "title": "Hyphax",
+          "path": "technology/hyphaeicos/hyphax.md",
+          "type": "SYSTEM",
+          "status": [
+            "LIVE"
+          ],
+          "state": [
+            "ACTIVE",
+            "CHAT LIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_hyphaeicos_rhizonet",
+          "title": "RhizoNET",
+          "path": "technology/hyphaeicos/rhizonet.md",
+          "type": "SYSTEM",
+          "status": [
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "SOURCE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technology_systems",
+      "title": "SYSTEMS",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "technology_systems_hyphachat",
+          "title": "HyphaChat",
+          "path": "technology/systems/hyphachat.md",
+          "type": "SYSTEM",
+          "status": [
+            "LIVE",
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "ACTIVE",
+            "CHAT LIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_systems_chessbender",
+          "title": "ChessBender",
+          "path": "technology/systems/chessbender.md",
+          "type": "SYSTEM",
+          "status": [
+            "DEMONSTRATED"
+          ],
+          "state": [
+            "ACTIVE",
+            "INTERACTIVE",
+            "SOURCE"
+          ]
+        },
+        {
+          "id": "technology_systems_magnon",
+          "title": "Magnon",
+          "path": "technology/systems/magnon.md",
+          "type": "SYSTEM",
+          "status": [
+            "PROTOTYPE"
+          ],
+          "state": [
+            "PROTOTYPE"
+          ]
+        },
+        {
+          "id": "technology_systems_sigil",
+          "title": "SIGIL",
+          "path": "technology/systems/sigil.md",
+          "type": "SYSTEM",
+          "status": [
+            "IMPLEMENTED"
+          ],
+          "state": [
+            "SOURCE"
+          ]
         }
       ]
     }
   ],
   "research": [
     {
+      "id": "research_overview",
+      "title": "Research Overview",
+      "path": "research/overview.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "research_programmes",
+      "title": "Programmes",
+      "path": "research/programmes.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "research_open_problems",
+      "title": "Open Problems",
+      "path": "research/open-problems.md",
+      "type": "TEXT",
+      "status": [
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "research_results",
+      "title": "Results",
+      "path": "research/results.md",
+      "type": "RESULT",
+      "status": [
+        "FORMAL RESULT",
+        "EXPERIMENTAL RESULT"
+      ]
+    },
+    {
       "id": "math_experiments",
-      "title": "MATH EXPERIMENTS",
+      "title": "Math Experiments (Automated Stream)",
       "type": "DIR",
       "children": [
         {
@@ -622,68 +1023,218 @@
       ]
     }
   ],
-  "demos": [],
+  "repositories": [
+    {
+      "id": "repositories_index",
+      "title": "Repository Index",
+      "path": "repositories/README.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ]
+    }
+  ],
   "company": [
     {
       "id": "info_hyphaeic",
-      "title": "HYPHAEIC",
-      "path": "company/HYPHAEIC.md",
+      "title": "Hyphaeic SPC",
+      "path": "company/hyphaeic-spc.md",
       "type": "INFO",
-      "modified": "2026-07-08T12:10:39+01:00"
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "info_why_an_spc",
+      "title": "Why an SPC",
+      "path": "company/why-an-spc.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "info_social_purpose",
+      "title": "Social Purpose",
+      "path": "company/social-purpose.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "info_firm_as_system",
+      "title": "The Firm as a System",
+      "path": "company/firm-as-system.md",
+      "type": "INFO",
+      "status": [
+        "HYPOTHESIS"
+      ]
+    },
+    {
+      "id": "info_governance",
+      "title": "Governance",
+      "path": "company/governance.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "info_machine_stewardship",
+      "title": "Machine Stewardship",
+      "path": "company/machine-stewardship.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "info_social_purpose_reports",
+      "title": "Social Purpose Reports",
+      "path": "company/social-purpose-reports.md",
+      "type": "INFO",
+      "status": [
+        "POSITION",
+        "HISTORICAL"
+      ]
     },
     {
       "id": "info_corporate_cybernetics",
       "title": "Corporate Cybernetics",
       "path": "company/corporate_cybernetics.md",
       "type": "INFO",
-      "modified": "2026-07-08T12:28:35+01:00"
+      "status": [
+        "HYPOTHESIS"
+      ]
     },
     {
       "id": "info_hyphaeicmarinecorp",
       "title": "Hyphaeic Marine Corp.",
       "path": "company/hyphaeicMarineCorp.md",
       "type": "INFO",
-      "modified": "2026-07-08T12:28:35+01:00"
+      "status": [
+        "POSITION"
+      ]
     },
     {
       "id": "info_team",
       "title": "Team",
       "path": "company/team.md",
       "type": "INFO",
-      "modified": "2026-07-08T12:28:35+01:00"
+      "status": [
+        "POSITION"
+      ]
     }
   ],
-  "freedom": [],
-  "the_gambit": [
+  "foundations": [
     {
-      "id": "hyph_founding_pb",
-      "title": "A Thesis of Play for the Soulful Machine",
-      "path": "https://src.hyphaeic.com/founding/HYPH-FOUNDING_PB.pdf",
-      "type": "PDF",
-      "modified": "2026-07-02T09:44:17+01:00"
+      "id": "foundations_position",
+      "title": "Position — Control & Representation",
+      "path": "foundations/position.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION"
+      ]
     },
     {
-      "id": "philosophy_the_rats_gambit",
-      "title": "The Rats Gambit",
-      "path": "the_gambit/the_rats_gambit.md",
-      "type": "TEXT",
-      "modified": "2026-07-08T19:17:27+01:00"
+      "id": "foundations_the_gambit",
+      "title": "THE GAMBIT",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "foundations_the_gambit_index",
+          "title": "The Gambit",
+          "path": "foundations/the_gambit/index.md",
+          "type": "TEXT",
+          "status": [
+            "POSITION",
+            "HISTORICAL"
+          ]
+        },
+        {
+          "id": "philosophy_the_rats_gambit",
+          "title": "The Rats Gambit",
+          "path": "foundations/the_gambit/the-rats-gambit.md",
+          "type": "TEXT",
+          "status": [
+            "HISTORICAL"
+          ]
+        },
+        {
+          "id": "philosophy_summary_of_thesis",
+          "title": "Summary of Thesis",
+          "path": "foundations/the_gambit/summary-of-thesis.md",
+          "type": "TEXT",
+          "status": [
+            "HISTORICAL"
+          ]
+        },
+        {
+          "id": "hyph_founding_pb",
+          "title": "A Thesis of Play for the Soulful Machine",
+          "path": "https://src.hyphaeic.com/founding/HYPH-FOUNDING_PB.pdf",
+          "type": "PDF",
+          "status": [
+            "HISTORICAL"
+          ]
+        }
+      ]
     },
     {
-      "id": "philosophy_summary_of_thesis",
-      "title": "Summary Of Thesis",
-      "path": "the_gambit/summary_of_thesis.md",
-      "type": "TEXT",
-      "modified": "2026-07-08T19:17:27+01:00"
-    }
-  ],
-  "metaphysics": [
+      "id": "foundations_representation",
+      "title": "Representation",
+      "path": "foundations/representation.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION",
+        "OPEN PROBLEM"
+      ]
+    },
+    {
+      "id": "foundations_coherence_viability",
+      "title": "Coherence & Viability",
+      "path": "foundations/coherence-viability.md",
+      "type": "THEORY",
+      "status": [
+        "HYPOTHESIS"
+      ]
+    },
+    {
+      "id": "foundations_freedom",
+      "title": "Freedom",
+      "path": "foundations/freedom.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION"
+      ]
+    },
     {
       "id": "philosophy_the_oracle_imperative",
       "title": "The Oracle Imperative",
-      "path": "metaphysics/the_oracle_imperative.md",
+      "path": "foundations/the-oracle-imperative.md",
       "type": "TEXT",
-      "modified": "2026-07-08T19:17:27+01:00"
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "foundations_metaphysics",
+      "title": "Metaphysics",
+      "path": "foundations/metaphysics.md",
+      "type": "THEORY",
+      "status": [
+        "POSITION"
+      ]
+    },
+    {
+      "id": "foundations_romance_of_systems",
+      "title": "A Romance of Systems",
+      "path": "foundations/romance-of-systems.md",
+      "type": "THEORY",
+      "status": [
+        "HYPOTHESIS"
+      ]
     }
   ]
 }

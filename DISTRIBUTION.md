@@ -36,15 +36,32 @@ project lifecycle, research validity, or ownership. It is a publishing layer.
 
 ## Intended Distribution Domains
 
-- `position/` - reserved; OS-bundled POSITION document.
-- `problems/` - local-to-global coherence failures across real systems.
-- `technology/` - FDRS, HyphaFabric, Modulus, STOK, Abzu, HyphaeicOS.
-- `research/` - formal programme, papers, Lean, hypotheses, math experiments.
-- `demos/` - reserved; OS overlays running programs (minus chat).
-- `company/` - SPC, governance, purpose, institutional surface.
-- `freedom/` - AI must be free / nobody should own the future.
-- `the_gambit/` - founding work.
-- `metaphysics/` - worldview and philosophical ancestry.
+The frozen public IA (see `README.md`) uses these roots:
+
+- `start/` - orientation surface. What is Hyphaeic and why should I care.
+- `problems/` - local-to-global coherence failures across real systems, stated
+  in ordinary language before formal terms.
+- `technology/` - FDRS, HyphaFabric, Modulus, STOK-CORE, Abzu, HyphaKernel,
+  HyphOS, HyphaeicOS (Web, Hyphax), and systems such as HyphaChat / ChessBender.
+- `research/` - formal programme, papers, Lean, hypotheses, open problems;
+  curated maps plus an automated experiment stream.
+- `repositories/` - proof-by-inspection: the repository index. Show me the code.
+- `company/` - SPC, governance, purpose, the firm as a system, machine
+  stewardship, institutional surface.
+- `foundations/` - the deeper worldview: Position, The Gambit, Representation,
+  Coherence & Viability, Freedom, Metaphysics, A Romance of Systems.
+
+The former reserved root `position/` is no longer a top-level distribution
+domain; the POSITION document now lives under `foundations/position.md`. The
+former `demos/` root is dissolved: a system's public execution state is carried
+as `state` metadata on its technology entry, not as a separate folder. The
+former `freedom/` and `the_gambit/` roots are folded under `foundations/`.
+
+Distribution is organised around reader questions, not internal ontology
+(progressive disclosure). A document exists once and projects outward: canonical
+deep documents live in `foundations/` (and `problems/` for the explanatory
+corpus), and other sections project the same idea at different resolutions
+rather than duplicating it.
 
 ## Phase Plan
 

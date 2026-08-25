@@ -179,7 +179,7 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-08-25T17:55:58+01:00"
+      "modified": "2026-08-25T19:34:20+01:00"
     },
     {
       "id": "technology_core",
@@ -374,7 +374,7 @@
             "CHAT LIVE",
             "SOURCE"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-08-25T19:34:20+01:00"
         },
         {
           "id": "technology_live_applications_chessbender",
@@ -389,7 +389,7 @@
             "INTERACTIVE",
             "SOURCE"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-08-25T19:34:20+01:00"
         },
         {
           "id": "technology_live_applications_magnon",
@@ -402,7 +402,7 @@
           "state": [
             "PROTOTYPE"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-08-25T19:34:20+01:00"
         },
         {
           "id": "technology_live_applications_sigil",
@@ -415,7 +415,7 @@
           "state": [
             "SOURCE"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-08-25T19:34:20+01:00"
         }
       ]
     }

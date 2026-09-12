@@ -1,16 +1,5 @@
 {
-  "start": [
-    {
-      "id": "start_what_is_hyphaeic",
-      "title": "What is Hyphaeic?",
-      "path": "start/what-is-hyphaeic.md",
-      "type": "TEXT",
-      "status": [
-        "POSITION"
-      ],
-      "modified": "2026-08-25T17:55:58+01:00"
-    }
-  ],
+  "start": [],
   "problems": [
     {
       "id": "problems_overview",

@@ -1,5 +1,357 @@
 {
-  "start": [],
+  "start": [
+    {
+      "id": "welcome",
+      "title": "START",
+      "path": "START.md",
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ],
+      "modified": "2026-09-19T00:26:00+01:00"
+    },
+    {
+      "id": "company",
+      "title": "COMPANY",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "hyphaeic",
+          "title": "Hyphaeic",
+          "path": "company/hyphaeic.md",
+          "type": "INFO",
+          "status": [
+            "POSITION"
+          ]
+        },
+        {
+          "id": "team",
+          "title": "Team",
+          "path": "company/team.md",
+          "type": "INFO",
+          "status": [
+            "POSITION"
+          ]
+        },
+        {
+          "id": "position",
+          "title": "Position",
+          "path": "company/position.md",
+          "type": "THEORY",
+          "status": [
+            "POSITION"
+          ]
+        },
+        {
+          "id": "contact",
+          "title": "Contact",
+          "path": "company/contact.md",
+          "type": "INFO",
+          "status": [
+            "POSITION"
+          ],
+          "modified": "2026-09-19T00:26:00+01:00"
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "title": "TECHNOLOGY",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "products",
+          "title": "PRODUCTS",
+          "type": "DIR",
+          "children": [
+            {
+              "id": "hyphaeicos",
+              "title": "HyphaeicOS",
+              "path": "technology/hyphaeicos/overview.md",
+              "type": "SYSTEM",
+              "status": [
+                "IMPLEMENTED",
+                "LIVE"
+              ]
+            },
+            {
+              "id": "hyphafabric",
+              "title": "HyphaFabric",
+              "path": "technology/core/hyphafabric.md",
+              "type": "SYSTEM",
+              "status": [
+                "DEMONSTRATED",
+                "IMPLEMENTED"
+              ]
+            },
+            {
+              "id": "phax",
+              "title": "Phax",
+              "path": "technology/hyphaeicos/hyphax.md",
+              "type": "SYSTEM",
+              "status": [
+                "LIVE"
+              ]
+            },
+            {
+              "id": "modulus",
+              "title": "Modulus",
+              "path": "technology/core/modulus.md",
+              "type": "SYSTEM",
+              "status": [
+                "IMPLEMENTED",
+                "LIVE"
+              ]
+            },
+            {
+              "id": "chessbender",
+              "title": "Chessbender",
+              "path": "technology/live-applications/chessbender.md",
+              "type": "SYSTEM",
+              "status": [
+                "DEMONSTRATED"
+              ]
+            },
+            {
+              "id": "hyphacom",
+              "title": "Hyphacom",
+              "path": "technology/live-applications/hyphacom.md",
+              "type": "SYSTEM",
+              "status": [
+                "IMPLEMENTED"
+              ],
+              "state": [
+                "ACTIVE"
+              ],
+              "modified": "2026-09-19T00:26:00+01:00"
+            }
+          ]
+        },
+        {
+          "id": "technologies",
+          "title": "TECHNOLOGIES",
+          "type": "DIR",
+          "children": [
+            {
+              "id": "fdrs",
+              "title": "FDRS",
+              "path": "technology/core/fdrs.md",
+              "type": "SYSTEM",
+              "status": [
+                "FORMAL RESULT",
+                "IMPLEMENTED"
+              ]
+            },
+            {
+              "id": "stok_core",
+              "title": "STOK-CORE",
+              "path": "technology/core/stok-core.md",
+              "type": "SYSTEM",
+              "status": [
+                "HYPOTHESIS",
+                "PROTOTYPE"
+              ]
+            },
+            {
+              "id": "abzu",
+              "title": "ABZU",
+              "path": "technology/core/abzu.md",
+              "type": "SYSTEM",
+              "status": [
+                "HYPOTHESIS",
+                "PROTOTYPE"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philosophy",
+      "title": "PHILOSOPHY",
+      "type": "DIR",
+      "children": [
+        {
+          "id": "philosophy_problems",
+          "title": "PROBLEMS",
+          "type": "DIR",
+          "children": [
+            {
+              "id": "philosophy_problems_overview",
+              "title": "Overview — The Problem Beneath the Machines",
+              "path": "problems/overview.md",
+              "type": "TEXT"
+            },
+            {
+              "id": "philosophy_problems_coordination",
+              "title": "Coordination",
+              "path": "problems/coordination.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_representation",
+              "title": "Representation",
+              "path": "problems/representation.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_control",
+              "title": "Control",
+              "path": "problems/control.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_time",
+              "title": "Time",
+              "path": "problems/time.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_planning",
+              "title": "Planning",
+              "path": "problems/planning.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_embodiment",
+              "title": "Embodiment",
+              "path": "problems/embodiment.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problems_alignment",
+              "title": "Alignment",
+              "path": "problems/alignment.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_problem_applications",
+              "title": "APPLICATIONS",
+              "type": "DIR",
+              "children": [
+                {
+                  "id": "philosophy_problem_robotics",
+                  "title": "Robotics",
+                  "path": "problems/applications/robotics.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_distributed_systems",
+                  "title": "Distributed Systems",
+                  "path": "problems/applications/distributed-systems.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_swarms",
+                  "title": "Swarms",
+                  "path": "problems/applications/swarms.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_agent_systems",
+                  "title": "Agent Systems",
+                  "path": "problems/applications/agent-systems.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_edge_industrial_compute",
+                  "title": "Edge & Industrial Compute",
+                  "path": "problems/applications/edge-industrial-compute.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_geometry_simulation",
+                  "title": "Geometry & Simulation",
+                  "path": "problems/applications/geometry-simulation.md",
+                  "type": "THEORY"
+                },
+                {
+                  "id": "philosophy_problem_biological_multiscale",
+                  "title": "Biological / Multiscale Systems",
+                  "path": "problems/applications/biological-multiscale.md",
+                  "type": "THEORY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "philosophy_foundations",
+          "title": "FOUNDATIONS",
+          "type": "DIR",
+          "children": [
+            {
+              "id": "philosophy_foundations_position",
+              "title": "Position — Control & Representation",
+              "path": "company/position.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_foundations_gambit",
+              "title": "THE GAMBIT",
+              "type": "DIR",
+              "children": [
+                {
+                  "id": "philosophy_foundations_gambit_index",
+                  "title": "The Gambit",
+                  "path": "foundations/the_gambit/index.md",
+                  "type": "TEXT"
+                },
+                {
+                  "id": "philosophy_foundations_rats_gambit",
+                  "title": "The Rats Gambit",
+                  "path": "foundations/the_gambit/the-rats-gambit.md",
+                  "type": "TEXT"
+                },
+                {
+                  "id": "philosophy_foundations_summary",
+                  "title": "Summary of Thesis",
+                  "path": "foundations/the_gambit/summary-of-thesis.md",
+                  "type": "TEXT"
+                }
+              ]
+            },
+            {
+              "id": "philosophy_foundations_representation",
+              "title": "Representation",
+              "path": "foundations/representation.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_foundations_coherence",
+              "title": "Coherence & Viability",
+              "path": "foundations/coherence-viability.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_foundations_freedom",
+              "title": "Freedom",
+              "path": "foundations/freedom.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_foundations_oracle",
+              "title": "The Oracle Imperative",
+              "path": "foundations/the-oracle-imperative.md",
+              "type": "TEXT"
+            },
+            {
+              "id": "philosophy_foundations_metaphysics",
+              "title": "Metaphysics",
+              "path": "foundations/metaphysics.md",
+              "type": "THEORY"
+            },
+            {
+              "id": "philosophy_foundations_romance",
+              "title": "A Romance of Systems",
+              "path": "foundations/romance-of-systems.md",
+              "type": "THEORY"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "problems": [
     {
       "id": "problems_overview",
@@ -1062,7 +1414,7 @@
     {
       "id": "info_hyphaeic",
       "title": "Hyphaeic SPC",
-      "path": "company/hyphaeic-spc.md",
+      "path": "company/hyphaeic.md",
       "type": "INFO",
       "status": [
         "POSITION"
@@ -1165,7 +1517,7 @@
     {
       "id": "foundations_position",
       "title": "Position — Control & Representation",
-      "path": "foundations/position.md",
+      "path": "company/position.md",
       "type": "THEORY",
       "status": [
         "POSITION"

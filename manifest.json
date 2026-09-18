@@ -67,7 +67,7 @@
             {
               "id": "hyphaeicos",
               "title": "HyphaeicOS",
-              "path": "technology/hyphaeicos/overview.md",
+              "path": "technology/products/hyphaeicos.md",
               "type": "SYSTEM",
               "status": [
                 "IMPLEMENTED",
@@ -77,7 +77,7 @@
             {
               "id": "hyphafabric",
               "title": "HyphaFabric",
-              "path": "technology/core/hyphafabric.md",
+              "path": "technology/products/hyphafabric.md",
               "type": "SYSTEM",
               "status": [
                 "DEMONSTRATED",
@@ -87,7 +87,7 @@
             {
               "id": "phax",
               "title": "Phax",
-              "path": "technology/hyphaeicos/hyphax.md",
+              "path": "technology/products/phax.md",
               "type": "SYSTEM",
               "status": [
                 "LIVE"
@@ -96,7 +96,7 @@
             {
               "id": "modulus",
               "title": "Modulus",
-              "path": "technology/core/modulus.md",
+              "path": "technology/products/modulus.md",
               "type": "SYSTEM",
               "status": [
                 "IMPLEMENTED",
@@ -545,7 +545,7 @@
         {
           "id": "technology_core_hyphafabric",
           "title": "HyphaFabric",
-          "path": "technology/core/hyphafabric.md",
+          "path": "technology/products/hyphafabric.md",
           "type": "SYSTEM",
           "status": [
             "DEMONSTRATED",
@@ -561,7 +561,7 @@
         {
           "id": "technology_core_modulus",
           "title": "Modulus",
-          "path": "technology/core/modulus.md",
+          "path": "technology/products/modulus.md",
           "type": "SYSTEM",
           "status": [
             "IMPLEMENTED",
@@ -640,7 +640,7 @@
         {
           "id": "technology_hyphaeicos_overview",
           "title": "Overview",
-          "path": "technology/hyphaeicos/overview.md",
+          "path": "technology/products/hyphaeicos.md",
           "type": "SYSTEM",
           "status": [
             "IMPLEMENTED",
@@ -668,8 +668,8 @@
         },
         {
           "id": "technology_hyphaeicos_hyphax",
-          "title": "Hyphax",
-          "path": "technology/hyphaeicos/hyphax.md",
+          "title": "Phax",
+          "path": "technology/products/phax.md",
           "type": "SYSTEM",
           "status": [
             "LIVE"

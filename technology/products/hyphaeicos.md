@@ -30,4 +30,4 @@ _(dummy) — pending HyphaeicOS source._
 _(dummy) — pending HyphaeicOS source._
 
 ## Related
-technology/overview, hyphaeicos/web, hyphaeicos/hyphax, problems/embodiment
+technology/products/hyphafabric, technology/products/phax, philosophy/problems/embodiment

@@ -2,43 +2,36 @@
 
 The static content layer for Hyphaeic OS. This repository holds the prose, the
 routing manifest, and one helper script. The OS fetches `manifest.json` at boot
-and **builds the filesystem from it**. Top-level keys are the root folders.
+and **builds the filesystem from it**. The reserved `_root` key contains files
+shown directly at the filesystem root; every other public top-level key is a
+root folder.
 
 Bundled DocWindows (currently only POSITION) may be compiled into the OS shell;
-a root key that is empty or absent means that folder's index is provided
-externally. Under the current frozen IA, POSITION lives as a document under
-`FOUNDATIONS` rather than as a reserved root.
+the public POSITION projection lives under `COMPANY`.
 
 For Hyphaeic topology integration rules, see [`DISTRIBUTION.md`](DISTRIBUTION.md).
 
-## Public Information Architecture (frozen)
+## Public Information Architecture
 
 The public surface is organised around the questions a new reader has — not the
-internal ontology. **Progressive disclosure**: what is this → what problem →
-what has been built → what does the research say → show me the work → what kind
-of institution → why do you believe this.
+internal ontology.
 
-| Key | Folder | Job — which question it answers |
+| Key | Surface | Job |
 |-----|--------|----------------------------------|
-| `start` | START | What is Hyphaeic, and why should I care? |
-| `problems` | PROBLEMS | What fundamental problems are you attacking? |
-| `technology` | TECHNOLOGY | What have you actually built to attack them? |
+| `_root` | START file | Introduce Hyphaeic and route into the public tree. |
+| `company` | COMPANY | Hyphaeic, Team, Position, and Contact. |
+| `technology` | TECHNOLOGY | Products and foundational technologies. |
 | `research` | RESEARCH | What are you investigating, what remains unresolved, what has been established? |
+| `philosophy` | PHILOSOPHY | Problems and Foundations in one domain. |
 | `repositories` | REPOSITORIES | Can I inspect the actual work? (proof-by-inspection) |
-| `company` | COMPANY | What is Hyphaeic SPC as an institution, and why is it structured this way? |
-| `foundations` | FOUNDATIONS | What deeper worldview causes you to approach these problems differently? |
 
-These sections have different jobs. If a page starts answering three of them at
-once, it probably needs splitting.
+`archive/` preserves withdrawn public pages but is intentionally absent from
+the manifest.
 
-## Rules of the frozen IA
+## Rules of the IA
 
 1. **A document exists once, then projects outward.** Write the canonical deep
-   document in one place (e.g. `FOUNDATIONS/Representation`); every other
-   section that touches the idea is a different projection of it at a different
-   resolution — one line in `START`, engineering consequences in `PROBLEMS`,
-   a response in `TECHNOLOGY`, the formal investigation in `RESEARCH`. That is
-   not duplication; it is projection.
+   document in one place; links and navigation project it without copying it.
 2. **There is no `DEMOS` root.** Live demonstrations are *properties*, not
    folders. A technology entry carries its own execution state in `state`.
 3. **Epistemic status is standardised.** Every curated document carries a
@@ -49,27 +42,23 @@ once, it probably needs splitting.
    (Programmes, Open Problems, Results) plus an automated stream publishing from
    the research repository. The automated stream is not manually maintained.
 
-## Root folders
+## Root structure
 
 `manifest.json` keys, in display order:
 
-- `start/` — `what-is-hyphaeic.md`
-- `problems/` — Overview, coordination, representation, control, time, planning,
-  embodiment, alignment, and `applications/` for how each appears in a domain.
-- `technology/` — `overview.md`; `core/` (FDRS, HyphaFabric, Modulus, STOK-CORE,
-  Abzu, HyphaKernel, HyphOS); `hyphaeicos/` (Overview, Web, Hyphax);
-  `live-applications/` (HyphaChat, ChessBender, Magnon, SIGIL).
+- `_root` — `START.md`
+- `company/` — Hyphaeic, Team, Position, Contact.
+- `technology/products/` — HyphaeicOS, HyphaFabric, Phax, Modulus,
+  Chessbender, Hyphacom.
+- `technology/technologies/` — FDRS, STOK-CORE, ABZU.
 - `research/` — `overview.md`, `programmes.md`, `open-problems.md`,
   `results.md`, the curated maps; `maths/` is the automated experiment stream.
+- `philosophy/problems/` — the problem corpus and applications.
+- `philosophy/foundations/` — the deeper worldview and The Gambit.
 - `repositories/` — the repository index (evidence / proof-by-inspection).
-- `company/` — Hyphaeic SPC, Why an SPC, Social Purpose, Firm as a System,
-  Governance, Machine Stewardship, Social Purpose Reports, Team, and the
-  corporate-cybernetics / marine-corp documents.
-- `foundations/` — Position, The Gambit, Representation, Coherence & Viability,
-  Freedom, Metaphysics, A Romance of Systems.
 
-An empty array still creates the folder. A file on disk that is not in the
-manifest is invisible to the OS. A manifest path that is missing on disk 404s.
+An empty public array still creates a folder. A file outside `archive/` that is
+not in the manifest is invisible to the OS. A missing manifest path 404s.
 
 ## How It Works
 
@@ -85,13 +74,13 @@ Add a file, add an entry to the manifest, and the OS picks it up. Or use
 
 ## The Manifest Format
 
-`manifest.json` is a flat object where each **top-level key** is a folder name.
-Each value is an **array of entries**.
+`manifest.json` is an object whose values are arrays of entries. `_root` is
+reserved for root-level files; every other top-level key names a folder.
 
 ### A file entry
 
 ```json
-{ "id": "fdrs", "title": "FDRS", "path": "technology/core/fdrs.md",
+{ "id": "fdrs", "title": "FDRS", "path": "technology/technologies/fdrs.md",
   "type": "SYSTEM", "status": ["FORMAL RESULT", "IMPLEMENTED"] }
 ```
 
@@ -112,7 +101,7 @@ Each value is an **array of entries**.
   "title": "CORE",
   "type": "DIR",
   "children": [
-    { "id": "fdrs", "title": "FDRS", "path": "technology/core/fdrs.md", "type": "SYSTEM" }
+    { "id": "fdrs", "title": "FDRS", "path": "technology/technologies/fdrs.md", "type": "SYSTEM" }
   ]
 }
 ```
@@ -148,6 +137,7 @@ metadata on its technology entry, not a folder.
 
 - Every file entry **must** have `id`, `title`, `path`, and `type`.
 - Every directory entry **must** have `id`, `title`, `type: "DIR"`, and `children`.
+- `_root` is the only top-level key that does not require a matching directory.
 - `id` values must be unique across the entire manifest.
 - `path` values must match the actual file location on disk.
 

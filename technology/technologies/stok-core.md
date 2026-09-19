@@ -30,4 +30,4 @@ _(dummy) — pending STOK-CORE source._
 _(dummy) — pending STOK-CORE source._
 
 ## Related
-core/abzu, problems/planning, research/programmes
+technology/technologies/abzu, philosophy/problems/planning, research/programmes

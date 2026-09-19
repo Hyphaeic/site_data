@@ -30,4 +30,4 @@ _(dummy) — pending HyphaFabric source._
 _(dummy) — pending HyphaFabric source._
 
 ## Related
-core/fdrs, hyphaeicos/hyphax, problems/coordination
+technology/technologies/fdrs, technology/products/phax, philosophy/problems/coordination

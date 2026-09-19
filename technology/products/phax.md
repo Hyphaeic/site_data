@@ -30,4 +30,4 @@ _(dummy) — pending Phax source._
 _(dummy) — pending Phax source._
 
 ## Related
-hyphaeicos/overview, hyphaeicos/web, core/hyphafabric
+technology/products/hyphaeicos, technology/products/hyphafabric

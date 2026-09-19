@@ -15,4 +15,4 @@ The full product and implementation description is pending publication.
 
 ## Related
 
-hyphaeicos/overview, core/hyphafabric
+technology/products/hyphaeicos, technology/products/hyphafabric

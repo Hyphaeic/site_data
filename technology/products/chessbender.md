@@ -30,4 +30,4 @@ _(dummy) — pending ChessBender source._
 _(dummy) — pending ChessBender source._
 
 ## Related
-core/hyphafabric
+technology/products/hyphafabric

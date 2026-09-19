@@ -37,16 +37,19 @@ MANIFEST="manifest.json"
 [[ -f "$MANIFEST" ]] || { echo "manifest.json not found" >&2; exit 2; }
 
 # -------- scan disk --------
-# Collect all file paths under top-level dirs (skip .git, root files, .sage)
+# Collect public content paths (skip git internals, unlisted archive, repository
+# documentation, and Sage sources). Root content such as START.md is included.
 declare -A ON_DISK
 while IFS= read -r -d '' f; do
     case "$f" in
         */.git/*) continue ;;
         ./.git*) continue ;;
+        ./archive/*) continue ;;
     esac
     rel="${f#./}"
-    # Skip root-level files
-    [[ "$rel" == */* ]] || continue
+    case "$rel" in
+        README.md|DISTRIBUTION.md) continue ;;
+    esac
     ext="${rel##*.}"
     ext_lower="${ext,,}"
     [[ "$ext_lower" == "sage" ]] && continue
@@ -97,6 +100,7 @@ mapfile -t EMPTY_TOPS < <(jq -r 'to_entries[] | select(.value == []) | .key' "$M
 # Check for orphaned top-level keys (keys without corresponding directories)
 mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST" 2>/dev/null || true)
 for key in "${manifest_keys[@]}"; do
+    [[ "$key" == "_root" ]] && continue
     if [[ ! -d "$key" ]]; then
         ORPHANED_KEYS+=("$key")
     fi
@@ -378,6 +382,7 @@ if [[ $APPLY -eq 0 ]]; then
     mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST")
     orphan_count=0
     for key in "${manifest_keys[@]}"; do
+        [[ "$key" == "_root" ]] && continue
         if [[ ! -d "$key" ]]; then
             echo "  $key"
             orphan_count=$((orphan_count + 1))
@@ -770,6 +775,7 @@ echo
 echo "Checking for top-level keys without disk directories..."
 mapfile -t manifest_keys < <(jq -r 'keys[]' "$MANIFEST")
 for key in "${manifest_keys[@]}"; do
+    [[ "$key" == "_root" ]] && continue
     if [[ ! -d "$key" ]]; then
         echo "  Orphaned section: $key (directory does not exist)"
         read -r -p "  remove this orphaned section? [y/N] " confirm

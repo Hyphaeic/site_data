@@ -30,4 +30,4 @@ _(dummy) — pending Modulus source._
 _(dummy) — pending Modulus source._
 
 ## Related
-core/fdrs, problems/time
+technology/technologies/fdrs, philosophy/problems/time

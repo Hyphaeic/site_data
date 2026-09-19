@@ -27,7 +27,7 @@ With applications for:
 - Continual alignment mechanisms
 - Intrinsically motivated systems
 
-For the love of the game, now and forever.
+For the true the beautiful and the good.
 
 ---
 

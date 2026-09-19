@@ -30,4 +30,4 @@ _(dummy) — pending FDRS — Function-Defined Radix Systems source._
 _(dummy) — pending FDRS — Function-Defined Radix Systems source._
 
 ## Related
-core/hyphafabric, core/modulus, foundations/representation, research/programmes
+technology/products/hyphafabric, technology/products/modulus, philosophy/foundations/representation, research/programmes

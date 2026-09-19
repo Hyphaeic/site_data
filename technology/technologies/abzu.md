@@ -30,4 +30,4 @@ _(dummy) — pending Abzu source._
 _(dummy) — pending Abzu source._
 
 ## Related
-core/stok-core, problems/embodiment
+technology/technologies/stok-core, philosophy/problems/embodiment

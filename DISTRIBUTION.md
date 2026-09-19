@@ -31,38 +31,33 @@ project lifecycle, research validity, or ownership. It is a publishing layer.
    or heavyweight binary artifacts here.
 6. If a document becomes authoritative for governance, obligations, or claims,
    create or update the corresponding registry entity first.
-7. Do not duplicate bundled DocWindow sources here. An empty root key is the
-   correct CMS shape for a folder whose index document lives in the OS.
+7. Do not duplicate bundled DocWindow sources here. The reserved `_root`
+   manifest key is the only place for files shown directly at the OS filesystem
+   root.
 
 ## Intended Distribution Domains
 
-The frozen public IA (see `README.md`) uses these roots:
+The public IA (see `README.md`) uses these surfaces:
 
-- `start/` - orientation surface. What is Hyphaeic and why should I care.
-- `problems/` - local-to-global coherence failures across real systems, stated
-  in ordinary language before formal terms.
-- `technology/` - FDRS, HyphaFabric, Modulus, STOK-CORE, Abzu, HyphaKernel,
-  HyphOS, HyphaeicOS (Web, Hyphax), and live applications such as HyphaChat /
-  ChessBender.
+- `_root/START.md` - orientation surface. What is Hyphaeic and why should I care.
+- `company/` - Hyphaeic, Team, Position, and Contact.
+- `technology/products/` - HyphaeicOS, HyphaFabric, Phax, Modulus,
+  Chessbender, and Hyphacom.
+- `technology/technologies/` - FDRS, STOK-CORE, and Abzu.
 - `research/` - formal programme, papers, Lean, hypotheses, open problems;
   curated maps plus an automated experiment stream.
+- `philosophy/problems/` - local-to-global coherence failures across real
+  systems, stated in ordinary language before formal terms.
+- `philosophy/foundations/` - the deeper worldview: The Gambit,
+  Representation, Coherence & Viability, Freedom, Metaphysics, and A Romance
+  of Systems.
 - `repositories/` - proof-by-inspection: the repository index. Show me the code.
-- `company/` - SPC, governance, purpose, the firm as a system, machine
-  stewardship, institutional surface.
-- `foundations/` - the deeper worldview: Position, The Gambit, Representation,
-  Coherence & Viability, Freedom, Metaphysics, A Romance of Systems.
-
-The former reserved root `position/` is no longer a top-level distribution
-domain; the POSITION document now lives under `foundations/position.md`. The
-former `demos/` root is dissolved: a system's public execution state is carried
-as `state` metadata on its technology entry, not as a separate folder. The
-former `freedom/` and `the_gambit/` roots are folded under `foundations/`.
 
 Distribution is organised around reader questions, not internal ontology
 (progressive disclosure). A document exists once and projects outward: canonical
-deep documents live in `foundations/` (and `problems/` for the explanatory
-corpus), and other sections project the same idea at different resolutions
-rather than duplicating it.
+documents live at one physical path, and links project the same idea at
+different resolutions rather than duplicating it. Withdrawn public pages remain
+under unlisted `archive/` paths.
 
 ## Phase Plan
 

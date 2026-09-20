@@ -15,17 +15,18 @@ Our systems are architected towards:
 - unified representation
 - deterministic and integer-only systems
 - feedback-driven process architectures
+- Intinsically motivated systems
 
 With applications for:
 
+- Distributed computing
 - Real-world robotics
-- Swarm systems
-- Sensor fusion
-- Industrial control systems
-- Multi-Agent Systems (MAS)
-- Embodied intelligence
+- Sensor fusion 
+- Viable continual learning
+- Multi-agent & Swarm systems
+- Industrial & real-time control systems
+- Self-sovereign systems
 - Continual alignment mechanisms
-- Intrinsically motivated systems
 
 For the true the beautiful and the good.
 

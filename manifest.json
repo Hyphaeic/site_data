@@ -8,7 +8,7 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-09-19T00:26:00+01:00"
+      "modified": "2026-09-19T01:03:20+01:00"
     }
   ],
   "company": [
@@ -19,7 +19,8 @@
       "type": "INFO",
       "status": [
         "POSITION"
-      ]
+      ],
+      "modified": "2026-09-19T00:38:18+01:00"
     },
     {
       "id": "team",
@@ -28,7 +29,8 @@
       "type": "INFO",
       "status": [
         "POSITION"
-      ]
+      ],
+      "modified": "2026-08-21T01:22:51+01:00"
     },
     {
       "id": "position",
@@ -38,7 +40,8 @@
       "status": [
         "POSITION"
       ],
-      "internal": true
+      "internal": true,
+      "modified": "2026-09-20T02:58:51+01:00"
     },
     {
       "id": "contact",
@@ -48,7 +51,7 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-09-19T00:26:00+01:00"
+      "modified": "2026-09-19T00:38:34+01:00"
     }
   ],
   "technology": [
@@ -65,7 +68,8 @@
           "status": [
             "IMPLEMENTED",
             "LIVE"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "hyphafabric",
@@ -75,7 +79,8 @@
           "status": [
             "DEMONSTRATED",
             "IMPLEMENTED"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "phax",
@@ -84,7 +89,8 @@
           "type": "SYSTEM",
           "status": [
             "LIVE"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "modulus",
@@ -94,7 +100,8 @@
           "status": [
             "IMPLEMENTED",
             "LIVE"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "chessbender",
@@ -103,7 +110,8 @@
           "type": "SYSTEM",
           "status": [
             "DEMONSTRATED"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "hyphacom",
@@ -116,7 +124,7 @@
           "state": [
             "ACTIVE"
           ],
-          "modified": "2026-09-19T00:26:00+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         }
       ]
     },
@@ -133,7 +141,8 @@
           "status": [
             "FORMAL RESULT",
             "IMPLEMENTED"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "stok_core",
@@ -143,7 +152,8 @@
           "status": [
             "HYPOTHESIS",
             "PROTOTYPE"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "abzu",
@@ -153,7 +163,8 @@
           "status": [
             "HYPOTHESIS",
             "PROTOTYPE"
-          ]
+          ],
+          "modified": "2026-09-19T01:03:20+01:00"
         }
       ]
     }
@@ -809,7 +820,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_coordination",
@@ -819,7 +830,7 @@
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_representation",
@@ -829,7 +840,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_control",
@@ -839,7 +850,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_time",
@@ -849,7 +860,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_planning",
@@ -859,7 +870,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_embodiment",
@@ -869,7 +880,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_alignment",
@@ -879,7 +890,7 @@
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "problems_applications",
@@ -894,7 +905,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_distributed_systems",
@@ -904,7 +915,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_swarms",
@@ -914,7 +925,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_agent_systems",
@@ -924,7 +935,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_edge_industrial_compute",
@@ -934,7 +945,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_geometry_simulation",
@@ -944,7 +955,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "problems_applications_biological_multiscale",
@@ -954,7 +965,7 @@
               "status": [
                 "OPEN PROBLEM"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             }
           ]
         }
@@ -979,7 +990,7 @@
                 "POSITION",
                 "HISTORICAL"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "philosophy_the_rats_gambit",
@@ -989,7 +1000,7 @@
               "status": [
                 "HISTORICAL"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "philosophy_summary_of_thesis",
@@ -999,7 +1010,7 @@
               "status": [
                 "HISTORICAL"
               ],
-              "modified": "2026-08-25T17:55:58+01:00"
+              "modified": "2026-09-19T01:03:20+01:00"
             },
             {
               "id": "hyph_founding_pb",
@@ -1021,7 +1032,7 @@
             "POSITION",
             "OPEN PROBLEM"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "foundations_coherence_viability",
@@ -1031,7 +1042,7 @@
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "foundations_freedom",
@@ -1041,7 +1052,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "philosophy_the_oracle_imperative",
@@ -1051,7 +1062,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "foundations_metaphysics",
@@ -1061,7 +1072,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         },
         {
           "id": "foundations_romance_of_systems",
@@ -1071,7 +1082,7 @@
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-08-25T17:55:58+01:00"
+          "modified": "2026-09-19T01:03:20+01:00"
         }
       ]
     }

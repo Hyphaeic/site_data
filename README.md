@@ -92,6 +92,7 @@ reserved for root-level files; every other top-level key names a folder.
 | `type` | A category tag the frontend uses for styling/routing. |
 | `status` | *Optional.* Epistemic status array — one or more of the standardised tags (below). |
 | `state` | *Optional.* Execution/liveness flags for a technology `SYSTEM` entry (below). |
+| `internal` | *Optional boolean.* Marks the document internal-only. **Protected** — the sync script never overwrites or removes this tag. |
 
 ### A directory entry
 
@@ -132,6 +133,13 @@ in Lean” from “we demonstrated this experimentally.”
 
 Replaces the former `DEMOS` root: the public execution state of a system is
 metadata on its technology entry, not a folder.
+
+### Internal tag (`internal`)
+
+A file entry may carry `"internal": true` to mark it internal-only (not part of
+the public surface). It is a boolean **tag**, not a category, so the entry keeps
+its ordinary `type` (e.g. `THEORY`). This tag is **protected**: `sync-manifest.sh`
+never overwrites or removes it during reconciliation.
 
 ### Rules
 

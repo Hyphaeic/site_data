@@ -37,7 +37,8 @@
       "type": "THEORY",
       "status": [
         "POSITION"
-      ]
+      ],
+      "internal": true
     },
     {
       "id": "contact",

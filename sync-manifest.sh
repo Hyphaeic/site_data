@@ -8,6 +8,11 @@
 # Flow: for each new file, prompt for metadata → show proposed entry → confirm →
 # splice immediately → next file.
 #
+# Protected tags: a file entry may carry `"internal": true` to mark it
+# internal-only. This tag is PROTECTED — reconciliation never overwrites or
+# removes it. The script snapshots every internal path at startup and aborts
+# before writing if any write path would drop one.
+#
 # Usage:
 #   ./sync-manifest.sh [--apply]
 #   ./sync-manifest.sh --stamp-modified
@@ -35,6 +40,27 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 MANIFEST="manifest.json"
 [[ -f "$MANIFEST" ]] || { echo "manifest.json not found" >&2; exit 2; }
+
+# -------- protected tags --------
+# Entries carrying `internal: true` are internal-only and PROTECTED: the sync
+# script must never overwrite or drop this tag. Snapshot the set of internal
+# paths now; every write path verifies preservation before committing.
+internal_paths() {
+    local file="${1:-$MANIFEST}"
+    jq -r '.. | objects | select(.internal == true) | .path // empty' "$file" 2>/dev/null | sort -u
+}
+INTERNAL_PATHS_START="$(internal_paths)"
+verify_internal_preserved() {
+    local file="${1:-$MANIFEST}"
+    local now
+    now="$(internal_paths "$file")"
+    if [[ "$now" != "$INTERNAL_PATHS_START" ]]; then
+        echo "ERROR: reconciliation would alter protected 'internal' tags; aborting." >&2
+        echo "  before:" >&2; printf '    %s\n' "$INTERNAL_PATHS_START" >&2
+        echo "  after: " >&2; printf '    %s\n' "$now" >&2
+        return 2
+    fi
+}
 
 # -------- scan disk --------
 # Collect public content paths (skip git internals, unlisted archive, repository
@@ -203,6 +229,7 @@ if [[ $STAMP_MODIFIED -eq 1 ]]; then
     fi
     TMP_STAMP="$(mktemp)"
     stamp_modified_dates "$MANIFEST" "$TMP_STAMP"
+    verify_internal_preserved "$TMP_STAMP" || { echo "aborting: protected 'internal' tags would be lost." >&2; exit 2; }
     mv "$TMP_STAMP" "$MANIFEST"
     echo "modified metadata refreshed."
     exit 0
@@ -472,6 +499,9 @@ echo
 echo "  type  — category tag that determines UI styling and viewer routing"
 echo "          maps to a colored badge in the CATEGORY column"
 echo "          TEXT → THEORY bucket, PAPER → research papers, ARTIFACT → experiment records"
+echo
+echo "Entries already carrying the protected tag 'internal: true' are never"
+echo "overwritten or removed by this script."
 echo
 
 for rel in "${NEW_FILES[@]}"; do
@@ -793,6 +823,7 @@ done
 metadata_updated=0
 TMP_MODIFIED="$TMP/modified.json"
 stamp_modified_dates "$MANIFEST" "$TMP_MODIFIED"
+verify_internal_preserved "$TMP_MODIFIED" || { echo "aborting: protected 'internal' tags would be lost." >&2; exit 2; }
 if ! cmp -s "$MANIFEST" "$TMP_MODIFIED"; then
     mv "$TMP_MODIFIED" "$MANIFEST"
     metadata_updated=1

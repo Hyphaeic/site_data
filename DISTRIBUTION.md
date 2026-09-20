@@ -34,6 +34,9 @@ project lifecycle, research validity, or ownership. It is a publishing layer.
 7. Do not duplicate bundled DocWindow sources here. The reserved `_root`
    manifest key is the only place for files shown directly at the OS filesystem
    root.
+8. A manifest entry marked `"internal": true` is an internal-only projection,
+   not part of the public surface. This tag is protected: distribution must
+   preserve it, and `sync-manifest.sh` never overwrites or removes it.
 
 ## Intended Distribution Domains
 

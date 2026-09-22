@@ -26,12 +26,12 @@ For the true the beautiful and the good.
 
 ---
 
-For information on Hyphaeic and the team, see [##company](hyphaeic://folder/company).
+For information on Hyphaeic and the team, see [company](hyphaeic://folder/company).
 
-For what we're working on, see [##technology](hyphaeic://folder/technology).
+For what we're working on, see [technology](hyphaeic://folder/technology).
 
-For what we're researching, see [##research](hyphaeic://folder/research).
+For what we're researching, see [research](hyphaeic://folder/research).
 
-For philosophy & reasoning, see [##philosophy](hyphaeic://folder/philosophy).
+For philosophy & reasoning, see [philosophy](hyphaeic://folder/philosophy).
 
-For code links, see [##repositories](hyphaeic://folder/repositories).
+For code links, see [repositories](hyphaeic://folder/repositories).

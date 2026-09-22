@@ -6,25 +6,19 @@ We are Hyphaeic SPC.
 
 We're developing bio-like control schemes & decision architectures for distributed systems in the real world and online.
 
-Our systems are architected towards:
+Our general architectural principles:
 
-- locally projecting compute authority
-- heterogeneous systems operating across scales, rates and substrates
-- joint optionality
-- structural multi-system coherence
-- unified representation
-- deterministic and integer-only systems
-- feedback-driven process architectures
+- Locally projecting compute authority
+- Joint optionality
+- Feedback-driven process architectures
+- Sensor fusion
 - Intinsically motivated systems
 
 With applications for:
 
-- Distributed computing
-- Real-world robotics
-- Sensor fusion 
-- Viable continual learning
+- Real-time control systems 
+- Continual learning
 - Multi-agent & Swarm systems
-- Industrial & real-time control systems
 - Self-sovereign systems
 - Continual alignment mechanisms
 

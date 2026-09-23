@@ -8,7 +8,7 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-09-19T01:03:20+01:00"
+      "modified": "2026-09-23T00:40:34+01:00"
     }
   ],
   "company": [
@@ -52,6 +52,12 @@
         "POSITION"
       ],
       "modified": "2026-09-19T00:38:34+01:00"
+    },
+    {
+      "id": "company_social_purpose_corporation",
+      "title": "Social Purpose Corporation",
+      "path": "company/social_purpose_corporation.md",
+      "type": "INFO"
     }
   ],
   "technology": [

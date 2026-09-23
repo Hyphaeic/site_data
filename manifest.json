@@ -20,7 +20,7 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-09-19T00:38:18+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "team",
@@ -51,13 +51,17 @@
       "status": [
         "POSITION"
       ],
-      "modified": "2026-09-19T00:38:34+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "company_social_purpose_corporation",
       "title": "Social Purpose Corporation",
       "path": "company/social_purpose_corporation.md",
-      "type": "INFO"
+      "type": "INFO",
+      "status": [
+        "POSITION"
+      ],
+      "modified": "2026-09-23T21:52:28+01:00"
     }
   ],
   "technology": [
@@ -75,7 +79,11 @@
             "IMPLEMENTED",
             "LIVE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "LIVE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "hyphafabric",
@@ -86,7 +94,12 @@
             "DEMONSTRATED",
             "IMPLEMENTED"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "LIVE",
+            "SOURCE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "phax",
@@ -96,7 +109,12 @@
           "status": [
             "LIVE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "LIVE",
+            "SOURCE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "modulus",
@@ -107,7 +125,12 @@
             "IMPLEMENTED",
             "LIVE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "LIVE",
+            "SOURCE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "chessbender",
@@ -117,7 +140,12 @@
           "status": [
             "DEMONSTRATED"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "INTERACTIVE",
+            "SOURCE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "hyphacom",
@@ -125,12 +153,14 @@
           "path": "technology/products/hyphacom.md",
           "type": "SYSTEM",
           "status": [
-            "IMPLEMENTED"
+            "IMPLEMENTED",
+            "LIVE"
           ],
           "state": [
-            "ACTIVE"
+            "ACTIVE",
+            "LIVE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         }
       ]
     },
@@ -148,7 +178,11 @@
             "FORMAL RESULT",
             "IMPLEMENTED"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "ACTIVE",
+            "SOURCE"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "stok_core",
@@ -159,7 +193,11 @@
             "HYPOTHESIS",
             "PROTOTYPE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "PROTOTYPE",
+            "RESEARCH"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "abzu",
@@ -170,7 +208,11 @@
             "HYPOTHESIS",
             "PROTOTYPE"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "state": [
+            "PROTOTYPE",
+            "RESEARCH"
+          ],
+          "modified": "2026-09-23T21:52:28+01:00"
         }
       ]
     }
@@ -180,21 +222,21 @@
       "id": "research_overview",
       "title": "Research Overview",
       "path": "research/overview.md",
-      "type": "THEORY",
+      "type": "TEXT",
       "status": [
         "POSITION"
       ],
-      "modified": "2026-08-25T17:55:58+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "research_programmes",
       "title": "Programmes",
       "path": "research/programmes.md",
-      "type": "THEORY",
+      "type": "TEXT",
       "status": [
         "POSITION"
       ],
-      "modified": "2026-08-25T17:55:58+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "research_open_problems",
@@ -204,7 +246,7 @@
       "status": [
         "OPEN PROBLEM"
       ],
-      "modified": "2026-08-25T17:55:58+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "research_results",
@@ -215,7 +257,7 @@
         "FORMAL RESULT",
         "EXPERIMENTAL RESULT"
       ],
-      "modified": "2026-08-25T17:55:58+01:00"
+      "modified": "2026-09-23T21:52:28+01:00"
     },
     {
       "id": "math_experiments",
@@ -820,160 +862,83 @@
       "children": [
         {
           "id": "problems_overview",
-          "title": "Overview — The Problem Beneath the Machines",
+          "title": "Overview: The Problem Beneath the Machines",
           "path": "philosophy/problems/overview.md",
           "type": "TEXT",
           "status": [
             "POSITION"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_coordination",
           "title": "Coordination",
           "path": "philosophy/problems/coordination.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_representation",
           "title": "Representation",
           "path": "philosophy/problems/representation.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_control",
           "title": "Control",
           "path": "philosophy/problems/control.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_time",
           "title": "Time",
           "path": "philosophy/problems/time.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_planning",
           "title": "Planning",
           "path": "philosophy/problems/planning.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_embodiment",
           "title": "Embodiment",
           "path": "philosophy/problems/embodiment.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "problems_alignment",
           "title": "Alignment",
           "path": "philosophy/problems/alignment.md",
-          "type": "THEORY",
+          "type": "TEXT",
           "status": [
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
-        },
-        {
-          "id": "problems_applications",
-          "title": "APPLICATIONS",
-          "type": "DIR",
-          "children": [
-            {
-              "id": "problems_applications_robotics",
-              "title": "Robotics",
-              "path": "philosophy/problems/applications/robotics.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_distributed_systems",
-              "title": "Distributed Systems",
-              "path": "philosophy/problems/applications/distributed-systems.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_swarms",
-              "title": "Swarms",
-              "path": "philosophy/problems/applications/swarms.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_agent_systems",
-              "title": "Agent Systems",
-              "path": "philosophy/problems/applications/agent-systems.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_edge_industrial_compute",
-              "title": "Edge & Industrial Compute",
-              "path": "philosophy/problems/applications/edge-industrial-compute.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_geometry_simulation",
-              "title": "Geometry & Simulation",
-              "path": "philosophy/problems/applications/geometry-simulation.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            },
-            {
-              "id": "problems_applications_biological_multiscale",
-              "title": "Biological / Multiscale Systems",
-              "path": "philosophy/problems/applications/biological-multiscale.md",
-              "type": "THEORY",
-              "status": [
-                "OPEN PROBLEM"
-              ],
-              "modified": "2026-09-19T01:03:20+01:00"
-            }
-          ]
+          "modified": "2026-09-23T21:52:28+01:00"
         }
       ]
     },
@@ -1038,7 +1003,7 @@
             "POSITION",
             "OPEN PROBLEM"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "foundations_coherence_viability",
@@ -1048,7 +1013,7 @@
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "foundations_freedom",
@@ -1058,7 +1023,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "philosophy_the_oracle_imperative",
@@ -1078,7 +1043,7 @@
           "status": [
             "POSITION"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         },
         {
           "id": "foundations_romance_of_systems",
@@ -1088,7 +1053,7 @@
           "status": [
             "HYPOTHESIS"
           ],
-          "modified": "2026-09-19T01:03:20+01:00"
+          "modified": "2026-09-23T21:52:28+01:00"
         }
       ]
     }

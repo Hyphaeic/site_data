@@ -3,31 +3,26 @@
 > STATUS: LIVE
 > STATE: ACTIVE · CHAT LIVE · SOURCE
 
-The headless terminal interface to HyphaeicOS for human operators and autonomous agents.
+The headless terminal interface to HyphaeicOS for human operators and autonomous
+agents.
 
-## What is it
-It does not merely access HyphaeicOS: as a HyphaFabric peer, its participation helps constitute the HyphaeicOS that presently exists.
+## Role
 
-## Why does it exist
-_(dummy) — pending Phax source._
+Phax is the command-line surface for communicating with and inspecting a
+running HyphaFabric. It gives human operators and autonomous agents a shared
+kind of interface to the peer system.
 
-## How does it work
-_(dummy) — pending Phax source._
+## Participation
 
-## What it currently does
-_(dummy) — pending Phax source._
+Phax does not merely access a remote operating system. As a HyphaFabric peer,
+its participation helps constitute the HyphaeicOS instance currently available
+across the network.
 
-## What has been demonstrated
-_(dummy) — pending Phax source._
+## Status
 
-## What remains research
-_(dummy) — pending Phax source._
-
-## Where is the source
-_(dummy) — pending Phax source._
-
-## Can I run it
-_(dummy) — pending Phax source._
+Phax is live. Its interface and product surface will continue to evolve with
+the fabric and operating environment it participates in.
 
 ## Related
-technology/products/hyphaeicos, technology/products/hyphafabric
+
+`TECHNOLOGY/HyphaeicOS` and `TECHNOLOGY/HyphaFabric`.

@@ -2,13 +2,26 @@
 
 > STATUS: OPEN PROBLEM
 
-Not instruction-following but corrigibility-through-consequence.
+Alignment is not only instruction-following. It is the ability to remain
+corrigible as representations and circumstances change.
 
-## The problem, physically
-Living systems are not good because they follow rules; they are corrigible because they are consequential. Something must be irreversibly at stake.
+## The problem
 
-## The problem, formally
-Symbols assigned for free stay hollow; meaning is expensive. Consequence grounds representation.
+What does it mean for a purposeful system to remain aligned with something
+whose representation is necessarily incomplete and whose conditions change?
 
-## Across Hyphaeic
-See FOUNDATIONS/Control & Representation; RESEARCH (SGRP).
+## Failure mode
+
+More detailed objectives, evaluator models, and constitutions add more
+representations. They can improve behaviour without eliminating the gap between
+the representation and the thing it is meant to preserve.
+
+## Direction
+
+Alignment requires continuing coupling: perception, correction, boundaries,
+history, and consequence. The residual between expected and realised outcomes
+is information the system must retain long enough to revise itself.
+
+## Related
+
+`FOUNDATIONS/Representation`, `FOUNDATIONS/Freedom`, and `RESEARCH/Programmes`.

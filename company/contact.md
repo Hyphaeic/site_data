@@ -1,11 +1,5 @@
 # Contact Hyphaeic
 
-> **Three ways to reach us.**
-
----
-
-## Contact options
-
 | Channel | Use it for | Contact | Availability |
 | :-- | :-- | :-- | :-- |
 | **Hyphacom** | Live conversation | `Hyphacom` | Only while we are online |
@@ -22,9 +16,13 @@ Hyphacom is for live conversation. Join us there when the channel is open.
 
 If Hyphacom is closed, use [email](mailto:info@hyphaeic.com).
 
+---
+
 ### ✉ Email, for a message that should reach us
 
 Write to **[info@hyphaeic.com](mailto:info@hyphaeic.com)** for anything you would like us to receive.
+
+---
 
 ### 𝕏 Twitter, for public contact
 

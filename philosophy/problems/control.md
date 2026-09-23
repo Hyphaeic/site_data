@@ -4,11 +4,23 @@
 
 Control by total specification reproduces the sim-to-real gap at every new boundary.
 
-## The problem, physically
-Enumerated rules cannot cover a world larger than the description. The gap is structural, not a fixable shortfall.
+## The problem
 
-## The problem, formally
-Control by consequence rather than by syntax: correction emerges inside systems coupled to the consequences of their actions.
+How should a system control what it cannot completely specify, observe, or
+predict?
 
-## Across Hyphaeic
-See TECHNOLOGY/STOK-CORE; TECHNOLOGY/Abzu.
+## Failure mode
+
+Increasing specification cannot close the gap between a finite description and
+a changing world. A controller that suppresses evidence against its model
+becomes less correct as it becomes more capable.
+
+## Direction
+
+Control must remain coupled to consequence. Local actors act within bounds,
+receive evidence from outcomes, and adapt without requiring a central complete
+model. The aim is corrigible control, not total control.
+
+## Related
+
+`TECHNOLOGY/STOK-CORE`, `TECHNOLOGY/Abzu`, and `FOUNDATIONS/Representation`.

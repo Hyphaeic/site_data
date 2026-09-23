@@ -1,33 +1,53 @@
-# FDRS — Function-Defined Radix Systems
+# FDRS: Function-Defined Radix Systems
 
 > STATUS: FORMAL RESULT, IMPLEMENTED
 > STATE: ACTIVE · SOURCE
 
-What does “here” mean? A mathematical substrate in which the numerical base at any position is a context-dependent function — variable-resolution geometry across orthogonal timelines.
+What does “here” mean? FDRS is a mathematical substrate in which the numerical
+base at any position is a context-dependent function. It provides a
+variable-resolution geometry across orthogonal timelines.
 
-## What is it
-The foundation everything above it speaks: it defines how time composes and why bounds are provable. Machine-checked in Lean 4.
+## The problem
 
-## Why does it exist
-_(dummy) — pending FDRS — Function-Defined Radix Systems source._
+Standard number systems fix a base. FDRS asks what structure remains when the
+base at each position may depend on position, earlier digits, or state.
 
-## How does it work
-Radix-by-function numeric geometry; discrete systems operate across orthogonal timelines.
+## The construction
 
-## What it currently does
-Machine-checked in Lean 4; defines bounds and time-composition for the stack.
+FDRS treats radix as a function, not a fixed convention. This changes the
+geometry of representation: two values are ultrametrically close when they
+share a long prefix, and arithmetic can be studied by the locality with which
+it preserves that prefix.
 
-## What has been demonstrated
-Formal results in Lean (see RESEARCH).
+Addition and multiplication need not commute in the resulting structure. That
+non-commutation is not a defect; it records information neither operation
+captures alone.
 
-## What remains research
-Open problems tracked in RESEARCH/Open Problems.
+## Established work
 
-## Where is the source
-_(dummy) — pending FDRS — Function-Defined Radix Systems source._
+The mathematical corpus is machine-checked in Lean 4. Phase 1 establishes that
+Tick, predecessor, and addition are 1-Lipschitz in the stated ultrametric
+setting. They preserve prefixes, which correspond to congruence classes modulo
+place-value products.
 
-## Can I run it
-_(dummy) — pending FDRS — Function-Defined Radix Systems source._
+## Why it matters
+
+FDRS makes scale, phase, and locality part of representation rather than
+external metadata. It supplies the mathematical language for local logical
+clocks and later work on harmonic coherence.
+
+## Applied substrate
+
+The same representation discipline is used to investigate exact integer state,
+predictable resolution, and bounded time relationships in distributed physics,
+robotics, and simulation. It is the mathematical substrate beneath Modulus and
+the multiclock model used by HyphaFabric.
+
+## What remains open
+
+The full continuity of arithmetic, the correct Markov state, and the
+implications of the non-commuting structure remain active research questions.
 
 ## Related
-technology/products/hyphafabric, technology/products/modulus, philosophy/foundations/representation, research/programmes
+`TECHNOLOGY/HyphaFabric`, `TECHNOLOGY/Modulus`,
+`FOUNDATIONS/Representation`, and `RESEARCH/Open Problems`.

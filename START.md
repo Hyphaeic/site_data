@@ -6,6 +6,8 @@ We are Hyphaeic SPC.
 
 We're developing bio-like control schemes & decision architectures for distributed systems in the real world and online.
 
+For the good, the true and the beautiful.
+
 Our general architectural principles:
 
 - Locally projecting compute authority
@@ -21,8 +23,6 @@ With applications for:
 - Multi-agent & Swarm systems
 - Self-sovereign systems
 - Continual alignment mechanisms
-
-For the true the beautiful and the good.
 
 ---
 
